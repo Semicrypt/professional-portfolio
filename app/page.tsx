@@ -166,8 +166,9 @@ export default function Home() {
 
             {/* Description */}
             <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-400 sm:text-xl">
-              I design, automate, deploy and operate reliable cloud
-              infrastructure using modern DevOps practices.
+              I build and automate scalable cloud infrastructure, streamline CI/CD
+              workflows, and improve system reliability using modern DevOps and
+              cloud-native practices.
             </p>
 
             {/* Hero Skills */}
