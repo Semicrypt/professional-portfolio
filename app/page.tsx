@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const skills = [
   "AWS",
   "Kubernetes",
@@ -5,6 +7,27 @@ const skills = [
   "Terraform",
   "Linux",
   "CI/CD",
+];
+
+const icemanTechnologies = [
+  "Python",
+  "Docker",
+  "Kubernetes",
+  "Terraform",
+  "AWS",
+  "Git",
+  "Linux",
+];
+
+const icemanCapabilities = [
+  "Natural-language DevOps workflows",
+  "Project inspection & stack discovery",
+  "Advanced Docker diagnosis",
+  "Health & connectivity checks",
+  "Exact command previews",
+  "Approval gates before execution",
+  "Live progress & high-signal evidence",
+  "Advisor warnings for safer operations",
 ];
 
 const minervaTechnologies = [
@@ -153,6 +176,20 @@ export default function Home() {
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.12fr_0.88fr] lg:gap-10 xl:gap-16">
           {/* Hero Copy */}
           <div className="max-w-4xl">
+            {/* Profile */}
+            <div className="mb-7">
+              <div className="relative h-24 w-24 overflow-hidden rounded-2xl border border-cyan-400/25 bg-white/[0.03] shadow-2xl shadow-cyan-950/20 sm:h-28 sm:w-28">
+                <Image
+                  src="/divine-profile.png"
+                  alt="Portrait of Nwachukwu Ifeanyi Divine"
+                  fill
+                  priority
+                  sizes="112px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
             {/* Name */}
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-zinc-500 sm:text-base">
               Nwachukwu Ifeanyi Divine
@@ -257,6 +294,186 @@ export default function Home() {
               projects built through practical engineering work.
             </p>
           </div>
+
+          {/* Iceman AGENT */}
+          <article className="group mb-8 overflow-hidden rounded-[32px] border border-cyan-400/20 bg-cyan-400/[0.02]">
+            {/* Iceman Terminal Preview */}
+            <div className="relative overflow-hidden border-b border-white/10 bg-[#060a0f] p-5 sm:p-8 lg:p-12">
+              <div className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/[0.08] blur-[140px]" />
+
+              <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#080d12] shadow-2xl shadow-black/60">
+                <div className="flex h-12 items-center justify-between border-b border-white/10 px-4">
+                  <div className="flex gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+                  </div>
+
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                    iceman · natural-language devops agent
+                  </span>
+
+                  <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-2.5 py-1 text-[9px] uppercase tracking-[0.16em] text-emerald-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    v0.9.5
+                  </div>
+                </div>
+
+                <div className="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
+                  <div className="border-b border-white/10 p-5 sm:p-7 lg:border-b-0 lg:border-r">
+                    <p className="font-mono text-[11px] leading-6 text-zinc-500">
+                      <span className="text-cyan-400">iceman &gt;</span>{" "}
+                      inspect ~/hybrid-cloud-monitor-v2
+                    </p>
+
+                    <div className="mt-5 space-y-2.5 font-mono text-[11px] leading-6">
+                      <p className="text-zinc-400">
+                        <span className="text-emerald-400">✓</span> Project scanned
+                        and technology stack discovered
+                      </p>
+                      <p className="text-zinc-500">
+                        ↳ Docker · Kubernetes · AWS · PostgreSQL · GitHub Actions
+                      </p>
+                      <p className="text-zinc-400">
+                        <span className="text-emerald-400">✓</span> Runtime,
+                        infrastructure and dependency context loaded
+                      </p>
+                    </div>
+
+                    <div className="mt-7 border-t border-white/[0.07] pt-5">
+                      <p className="font-mono text-[11px] leading-6 text-zinc-500">
+                        <span className="text-cyan-400">iceman &gt;</span>{" "}
+                        diagnose docker connectivity
+                      </p>
+                      <p className="mt-3 font-mono text-[11px] leading-6 text-zinc-400">
+                        <span className="text-emerald-400">✓</span> Evidence
+                        collected · root cause classified · safe remediation ready
+                      </p>
+                      <p className="mt-2 font-mono text-[11px] leading-6 text-amber-300/80">
+                        ⚠ Advisor: command preview requires approval before execution
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-5 sm:p-7">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+                      Agent workflow
+                    </p>
+
+                    <div className="mt-5 space-y-3">
+                      {[
+                        ["01", "Understand intent"],
+                        ["02", "Inspect context"],
+                        ["03", "Plan & validate"],
+                        ["04", "Request approval"],
+                        ["05", "Execute & observe"],
+                      ].map(([number, label]) => (
+                        <div
+                          key={number}
+                          className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3.5 py-3"
+                        >
+                          <span className="font-mono text-[9px] text-cyan-400">
+                            {number}
+                          </span>
+                          <span className="text-xs text-zinc-400">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Iceman Details */}
+            <div className="grid gap-12 p-7 sm:p-10 lg:grid-cols-[0.9fr_1.35fr] lg:p-14">
+              <div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-xs text-zinc-600">01</span>
+                  <span className="h-px w-10 bg-white/10" />
+                  <span className="text-xs uppercase tracking-[0.2em] text-cyan-400">
+                    Flagship project
+                  </span>
+                </div>
+
+                <h3 className="mt-7 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
+                  Iceman
+                </h3>
+
+                <p className="mt-3 text-sm font-medium text-zinc-500">
+                  Natural-Language Cloud &amp; DevOps CLI Agent
+                </p>
+
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {icemanTechnologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-zinc-500"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Active development · v0.9.5
+                </div>
+              </div>
+
+              <div>
+                <p className="max-w-3xl text-lg leading-8 text-zinc-400">
+                  Iceman is a safety-first DevOps agent I created to reduce the
+                  friction between engineering intent and operational execution.
+                  Instead of forcing engineers to remember long command sequences,
+                  Iceman lets them describe the task in natural language, inspects
+                  the environment, builds a reviewable plan, validates context and
+                  surfaces clear operational evidence.
+                </p>
+
+                <p className="mt-5 max-w-3xl leading-7 text-zinc-500">
+                  I built it around a simple idea: DevOps tooling should make complex
+                  workflows easier without hiding what the system is doing. Iceman
+                  combines natural-language interaction with command previews,
+                  approval gates, diagnostics and contextual recommendations so the
+                  engineer remains in control.
+                </p>
+
+                <div className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+                  {icemanCapabilities.map((capability) => (
+                    <div
+                      key={capability}
+                      className="flex items-start gap-3 text-sm text-zinc-500"
+                    >
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                      <span>{capability}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-10 rounded-2xl border border-white/[0.07] bg-black/20 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+                    Why Iceman
+                  </p>
+                  <p className="mt-3 leading-7 text-zinc-500">
+                    The goal is a more natural DevOps workflow across Docker,
+                    Kubernetes, Terraform, Git, Linux and cloud infrastructure:
+                    describe the outcome, understand the proposed action, approve it,
+                    then observe the result with useful evidence instead of opaque
+                    automation.
+                  </p>
+                </div>
+
+                <div className="mt-10">
+                  <a
+                    href="/projects/iceman"
+                    className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
+                  >
+                    View Iceman case study →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
 
           {/* MINERVA SENTINEL */}
           <article className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.025]">
@@ -469,12 +686,12 @@ export default function Home() {
               {/* Left Column */}
               <div>
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs text-zinc-600">01</span>
+                  <span className="font-mono text-xs text-zinc-600">02</span>
 
                   <span className="h-px w-10 bg-white/10" />
 
                   <span className="text-xs uppercase tracking-[0.2em] text-cyan-400">
-                    Flagship project
+                    Flagship platform project
                   </span>
                 </div>
 
@@ -562,7 +779,7 @@ export default function Home() {
               {/* Docker Project */}
               <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 transition hover:border-white/20 hover:bg-white/[0.035]">
                 <div className="flex items-start justify-between">
-                  <span className="font-mono text-xs text-zinc-600">02</span>
+                  <span className="font-mono text-xs text-zinc-600">03</span>
 
                   <span className="text-zinc-600">↗</span>
                 </div>
@@ -607,7 +824,7 @@ export default function Home() {
               {/* Kubernetes Project */}
               <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 transition hover:border-white/20 hover:bg-white/[0.035]">
                 <div className="flex items-start justify-between">
-                  <span className="font-mono text-xs text-zinc-600">03</span>
+                  <span className="font-mono text-xs text-zinc-600">04</span>
 
                   <span className="text-zinc-600">↗</span>
                 </div>
@@ -643,7 +860,7 @@ export default function Home() {
               {/* Terraform Project */}
               <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 transition hover:border-white/20 hover:bg-white/[0.035]">
                 <div className="flex items-start justify-between">
-                  <span className="font-mono text-xs text-zinc-600">04</span>
+                  <span className="font-mono text-xs text-zinc-600">05</span>
 
                   <span className="text-zinc-600">↗</span>
                 </div>

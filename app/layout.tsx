@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://ifeanyid.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,16 +24,11 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Cloud and DevOps Engineer focused on AWS, Kubernetes, Docker, Terraform, Linux, CI/CD, cloud infrastructure, automation and observability.",
+    "Cloud and DevOps Engineer building scalable cloud infrastructure, CI/CD workflows and reliable cloud-native systems.",
 
   applicationName: "Nwachukwu Ifeanyi Divine Portfolio",
 
-  authors: [
-    {
-      name: "Nwachukwu Ifeanyi Divine",
-    },
-  ],
-
+  authors: [{ name: "Nwachukwu Ifeanyi Divine" }],
   creator: "Nwachukwu Ifeanyi Divine",
   publisher: "Nwachukwu Ifeanyi Divine",
 
@@ -48,12 +43,11 @@ export const metadata: Metadata = {
     "Linux",
     "CI/CD",
     "GitHub Actions",
-    "Amazon EKS",
-    "Amazon RDS",
     "Cloud Infrastructure",
     "Infrastructure as Code",
     "Observability",
-    "Nigeria",
+    "Iceman",
+    "Natural Language DevOps Agent",
   ],
 
   category: "technology",
@@ -69,13 +63,13 @@ export const metadata: Metadata = {
     siteName: "Nwachukwu Ifeanyi Divine",
     title: "Nwachukwu Ifeanyi Divine | Cloud & DevOps Engineer",
     description:
-      "Cloud and DevOps Engineer building reliable cloud infrastructure with AWS, Kubernetes, Docker, Terraform, Linux and CI/CD.",
+      "Cloud and DevOps Engineer building scalable cloud infrastructure, CI/CD workflows and reliable cloud-native systems.",
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Nwachukwu Ifeanyi Divine — Cloud & DevOps Engineer",
+        url: "/divine-profile.png",
+        width: 727,
+        height: 728,
+        alt: "Nwachukwu Ifeanyi Divine",
       },
     ],
   },
@@ -84,8 +78,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nwachukwu Ifeanyi Divine | Cloud & DevOps Engineer",
     description:
-      "Cloud and DevOps Engineer building reliable cloud infrastructure with AWS, Kubernetes, Docker, Terraform, Linux and CI/CD.",
-    images: ["/opengraph-image"],
+      "Cloud and DevOps Engineer building scalable cloud infrastructure, CI/CD workflows and reliable cloud-native systems.",
+    images: ["/divine-profile.png"],
   },
 
   robots: {
@@ -121,9 +115,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geist.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
