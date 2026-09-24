@@ -2,9 +2,11 @@ import Image from "next/image";
 
 const skills = [
   "AWS",
+  "Azure",
   "Kubernetes",
   "Docker",
   "Terraform",
+  "Grafana",
   "Linux",
   "CI/CD",
 ];
@@ -1247,9 +1249,9 @@ export default function Home() {
             </div>
 
             <p className="max-w-xl text-lg leading-8 text-zinc-500 lg:justify-self-end">
-              Tools and platforms I use across cloud infrastructure,
-              containerization, automation, deployment, monitoring and
-              application delivery.
+              Tools and platforms I use across AWS and Azure cloud
+              infrastructure, containerization, automation, CI/CD, observability,
+              monitoring and application delivery.
             </p>
           </div>
 
@@ -1257,24 +1259,50 @@ export default function Home() {
             {[
               {
                 number: "01",
-                title: "Cloud",
+                title: "Cloud Platforms",
                 description:
-                  "Designing and operating cloud infrastructure across core AWS services.",
+                  "Designing, deploying and supporting cloud infrastructure across AWS and Microsoft Azure.",
                 items: [
                   "AWS EC2",
                   "Amazon S3",
                   "Amazon RDS",
                   "IAM",
                   "VPC",
+                  "ALB",
                   "ECR",
                   "EKS",
                   "CloudFront",
                   "ACM",
                   "STS",
+                  "Secrets Manager",
+                  "Microsoft Azure",
+                  "Azure Virtual Machines",
+                  "Azure VNet",
+                  "Azure Resource Groups",
+                  "Azure Storage Accounts",
+                  "Azure Monitor",
                 ],
               },
               {
                 number: "02",
+                title: "Observability & Monitoring",
+                description:
+                  "Monitoring infrastructure and applications through metrics, logs, dashboards, alerting and incident workflows.",
+                items: [
+                  "Grafana",
+                  "AWS CloudWatch",
+                  "Azure Monitor",
+                  "Metrics",
+                  "Logs",
+                  "Dashboards",
+                  "Alerting",
+                  "Incident Workflows",
+                  "Observability",
+                  "Infrastructure Monitoring",
+                ],
+              },
+              {
+                number: "03",
                 title: "Containers & Orchestration",
                 description:
                   "Packaging workloads and managing containerized application environments.",
@@ -1288,24 +1316,26 @@ export default function Home() {
                 ],
               },
               {
-                number: "03",
+                number: "04",
                 title: "Infrastructure as Code",
                 description:
                   "Building repeatable infrastructure and automation-oriented cloud workflows.",
                 items: [
                   "Terraform",
                   "AWS Infrastructure",
-                  "Networking",
+                  "Cloud Networking",
                   "Environment Configuration",
                 ],
               },
               {
-                number: "04",
+                number: "05",
                 title: "CI/CD & Version Control",
                 description:
                   "Automating delivery workflows and managing source-controlled engineering work.",
                 items: [
                   "GitHub Actions",
+                  "CI/CD",
+                  "OpenID Connect (OIDC)",
                   "AWS OIDC",
                   "Git",
                   "GitHub",
@@ -1313,31 +1343,33 @@ export default function Home() {
                 ],
               },
               {
-                number: "05",
-                title: "Systems & Operations",
+                number: "06",
+                title: "Systems & Scripting",
                 description:
-                  "Working across Linux systems, cloud hosts and operational troubleshooting.",
+                  "Working across Linux systems, cloud hosts, scripting and operational troubleshooting.",
                 items: [
                   "Linux",
                   "Ubuntu",
                   "WSL",
-                  "SSH",
                   "Bash",
+                  "Python",
+                  "SSH",
                   "Networking",
                   "Troubleshooting",
                 ],
               },
               {
-                number: "06",
+                number: "07",
                 title: "Application & Data",
                 description:
-                  "Building and supporting the application layers behind cloud-native projects.",
+                  "Building and supporting the application and data layers behind cloud-native projects.",
                 items: [
                   "Node.js",
                   "Express",
                   "React",
                   "Vite",
                   "PostgreSQL",
+                  "SQL",
                   "Socket.IO",
                   "REST APIs",
                 ],
@@ -1391,10 +1423,12 @@ export default function Home() {
 
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {[
+                  "AWS & Azure",
                   "Cloud Architecture",
                   "Infrastructure Automation",
                   "Container Platforms",
                   "CI/CD",
+                  "Grafana & Monitoring",
                   "Observability",
                   "Incident Response",
                   "Cloud Networking",
@@ -1437,9 +1471,10 @@ export default function Home() {
             </p>
 
             <p className="mt-6 text-lg leading-8 text-zinc-500">
-              My work combines AWS, Docker, Kubernetes, Terraform, Linux and
-              CI/CD with practical software engineering to build systems that
-              are reliable, repeatable and easier to operate.
+              My work combines AWS, Microsoft Azure, Docker, Kubernetes,
+              Terraform, Linux, CI/CD, Grafana and cloud monitoring with
+              practical software engineering to build systems that are reliable,
+              observable, repeatable and easier to operate.
             </p>
           </div>
         </div>
