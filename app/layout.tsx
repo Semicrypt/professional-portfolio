@@ -47,6 +47,10 @@ export const metadata: Metadata = {
     "Infrastructure as Code",
     "Observability",
     "Iceman",
+    "CloudDrop",
+    "AzureDrop",
+    "Microsoft Azure",
+    "Minerva Sentinel",
     "Natural Language DevOps Agent",
   ],
 
