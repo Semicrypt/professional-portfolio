@@ -1,0 +1,65 @@
+.scene {
+  --edge: #2b4247;
+  --ink: #9dafbd;
+  position: relative;
+  min-width: 0;
+  perspective: 1500px;
+  padding-top: 23px;
+}
+.coordinates { position: absolute; top: 0; right: 0; font: 8px var(--font-geist-mono), monospace; letter-spacing: .12em; color: #81958f; }
+.console { position: relative; overflow: hidden; border: 1px solid var(--edge); border-radius: 10px; background: #0b1219; box-shadow: 0 30px 70px #0005, 0 0 80px #5dc7a00a; transform: rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg)); transition: transform .45s ease, border-color .4s; }
+.scene:hover .console { border-color: #4b6c65; }
+.console::after { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #8de6c73b, transparent); animation: scan 14s linear infinite; pointer-events: none; }
+.titlebar { display: flex; align-items: center; gap: 15px; height: 33px; padding: 0 16px; background: #121c23; border-bottom: 1px solid #90b6c01a; color: #94a6b3; font: 9px var(--font-geist-mono), monospace; }
+.titlebar > svg { width: 13px; height: 13px; margin-left: auto; color: #839aab; }
+.dots { display: flex; gap: 5px; }
+.dots i { width: 6px; height: 6px; border-radius: 50%; background: #ad776d; }
+.dots i:nth-child(2) { background: #bba474; }.dots i:last-child { background: #6cac90; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 21px 21px 19px; }
+.eyebrow { color: #93b5a9; font: 8px var(--font-geist-mono), monospace; letter-spacing: .13em; }
+.heading h2 { font-size: 17px; font-weight: 500; letter-spacing: -.04em; margin-top: 7px; }
+.simulation { color: #afd3c2; border: 1px solid #527063; background: #18332944; padding: 5px 7px; border-radius: 3px; font: 7px var(--font-geist-mono), monospace; letter-spacing: .06em; white-space: nowrap; }
+.pipeline { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 0 17px 17px; gap: 6px; }
+.pipeline::before { content: ""; position: absolute; top: 19px; left: 12%; right: 12%; height: 1px; background: #304a44; }
+.pipeline button { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 9px; background: transparent; color: #9aabba; font-size: 10px; padding: 0 0 4px; }
+.stageIcon { display: grid; place-items: center; border: 1px solid #31454e; width: 39px; height: 39px; border-radius: 7px; background: #101b24; transition: border-color .4s, background .4s, box-shadow .4s; }
+.stageIcon svg { width: 16px; height: 16px; }
+.pipeline .current { color: #87e6cd; }.current .stageIcon { border-color: #73cdb3; background: #193a2f; box-shadow: 0 0 20px #73cdb31c; }
+.complete .stageIcon { background: #152a23; color: #8ebdaa; border-color: #33554a; }
+.topology { height: 188px; position: relative; margin: 0 21px; border-block: 1px solid #9bbcca1c; background: radial-gradient(ellipse at 60% 45%, #2a745018, transparent 68%); }
+.topologyLabel { position: absolute; top: 10px; left: 0; right: 0; display: flex; justify-content: space-between; gap: 8px; color: #8e9faf; font: 7px var(--font-geist-mono), monospace; letter-spacing: .06em; }
+.topologyLabel > span:last-child { color: #82a697; }
+.connections { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #365647; stroke-width: 1.2; }
+.connections .packets { stroke: #86e3b9; stroke-dasharray: 16 240; animation: network-flow 12s linear infinite; }
+.client, .balancer, .workloads, .database, .monitor, .services { position: absolute; width: 74px; height: 48px; top: 44px; transform: translateX(-50%); display: flex; align-items: center; flex-direction: column; justify-content: center; gap: 6px; border: 1px solid #314a40; background: #10211c; border-radius: 6px; color: #b0d0c2; font-size: 8px; white-space: nowrap; }
+.topology svg:not(.connections) { width: 18px; height: 18px; color: #8dccb1; }
+.client { left: 8.5%; width: 52px; background: #101b22; border-color: #334652; }
+.balancer { left: 35%; }.workloads { left: 62%; border-color: #64a087; background: #18352b; }.database { left: 90%; width: 66px; }
+.monitor { left: 35%; top: 125px; height: 41px; width: 89px; flex-direction: row; gap: 5px; font-size: 7px; }.monitor svg { width: 15px!important; }.services { left: 90%; top: 125px; height: 41px; width: 82px; font-size: 7px; gap: 2px; }.services svg { height: 15px!important; }
+.monitor > i { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #83dcb3; right: 6px; top: 6px; animation: healthy 4s ease-in-out infinite; }
+.pods { display: flex; gap: 4px; position: absolute; bottom: -11px; }
+.pods i { width: 6px; height: 4px; border: 1px solid #75b99a; background: #1e4e36; animation: healthy 4s ease-in-out infinite; }.pods i:nth-child(2) { animation-delay: .6s; }.pods i:last-child { animation-delay: 1.2s; }
+.metricsHeading { display: flex; justify-content: space-between; gap: 12px; margin: 13px 21px 8px; font: 7px var(--font-geist-mono), monospace; letter-spacing: .05em; color: #a2afa2; }.metricsHeading > span:last-child { color: #8da0ae; letter-spacing: 0; }
+.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 21px 15px; border: 1px solid #a9c0cc1b; border-radius: 5px; background: #121b22; }
+.metrics > div { padding: 10px 12px 6px; min-width: 0; }.metrics > div + div { border-left: 1px solid #a9c0cc1b; }.metrics > div > span { color: #9cabb7; font: 8px var(--font-geist-mono), monospace; }.metrics > div > div { display: flex; gap: 7px; align-items: center; justify-content: space-between; margin-top: 5px; }.metrics strong { color: #d5e6df; font: 19px var(--font-geist-mono), monospace; font-weight: 450; font-variant-numeric: tabular-nums; }
+.sparkline { width: 56%; height: 26px; fill: none; overflow: visible; color: #7ed3b1; }.metrics > div:nth-child(2) .sparkline { color: #8ebbe0; }.metrics > div:nth-child(3) .sparkline { color: #bfb087; }.sparkline polyline { stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 180; animation: trace 8s linear infinite; }.sparkline circle { fill: currentColor; animation: healthy 4s ease-in-out infinite; }.chartGrid { stroke: #5c7a8626; stroke-width: 1; }
+.terminal { padding: 0 21px 14px; min-height: 136px; font: 9px/1.8 var(--font-geist-mono), monospace; }
+.terminalHeader { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #a9c0cc1b; padding-top: 10px; margin-bottom: 11px; }.terminalHeader > div { display: flex; gap: 3px; }.terminalHeader button { min-height: 28px; padding: 3px 9px; border: 1px solid transparent; border-radius: 3px; color: #8f9fab; background: transparent; font-size: 8px; }.terminalHeader button[aria-pressed="true"] { border-color: #3b514a; color: #c7dfd1; background: #1a2c24; }.terminalHeader > span { font-size: 6px; color: #90a2b1; }
+.command { display: flex; gap: 8px; color: #deede1; line-height: 1.7; min-height: 25px; }.command > span { color: #78dfbc; }.command code { font: inherit; overflow-wrap: anywhere; }.logs { min-height: 54px; }.logs p { display: flex; gap: 9px; color: #a0b0b7; animation: log-enter .5s ease-out both; overflow-wrap: anywhere; white-space: pre-wrap; }.logs p:nth-child(2) { animation-delay: .18s; }.logs p:nth-child(3) { animation-delay: .36s; }.logs p > span { flex-shrink: 0; color: #7d93a4; }
+.approval { display: flex; align-items: center; gap: 7px; padding: 8px 10px; width: 100%; min-height: 36px; border: 1px solid #756b43; border-radius: 4px; color: #d4cda8; background: #25281a; font-size: 9px; margin-top: 10px; text-align: left; }.approval svg { width: 14px; height: 14px; }.approval > span { font-size: 7px; margin-left: auto; color: #aeb292; }
+.footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 16px; border-top: 1px solid #8cbaac24; background: #11221c; font: 8px var(--font-geist-mono), monospace; color: #b4d4c3; }.footer > span { display: flex; align-items: center; gap: 7px; }.footer i { width: 4px; height: 4px; border-radius: 50%; background: #8bd6b1; flex-shrink: 0; }.footer button { background: transparent; min-height: 32px; padding: 5px; color: #aec1b8; font-size: 8px; white-space: nowrap; }
+.caption { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 15px; color: #a0b3a7; font: 8px/1.7 var(--font-geist-mono), monospace; text-align: center; }.caption svg { width: 12px; height: 12px; }
+.scene[data-running="false"] *, .scene[data-running="false"] *::before, .scene[data-running="false"] *::after { animation-play-state: paused!important; }.scene[data-running="false"] .console { transform: none; }.scene[data-running="false"] .logs p { animation: none; opacity: 1; transform: none; }
+@keyframes network-flow { to { stroke-dashoffset: -1024; } }
+@keyframes trace { 0%, 10% { stroke-dashoffset: 180; } 65%, 100% { stroke-dashoffset: 0; } }
+@keyframes healthy { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes scan { 0% { transform: translateY(0); opacity: 0; } 15%, 80% { opacity: .5; } 100% { transform: translateY(750px); opacity: 0; } }
+@keyframes log-enter { from { opacity: .45; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1100px) and (min-width: 901px) { .heading { padding-inline: 15px; }.heading h2 { font-size: 14px; }.simulation { font-size: 6px; }.terminal, .metrics, .topology { margin-inline: 0; }.topology { margin-inline: 15px; }.terminal { padding-inline: 15px; font-size: 8px; }.metrics { margin-inline: 15px; }.metricsHeading { margin-inline: 15px; }.metrics > div { padding: 9px; }.metrics > div > span { font-size: 7px; }.balancer, .workloads { width: 65px; }.database { width: 52px; }.services { width: 68px; }.topologyLabel { font-size: 6px; } }
+@media (max-width: 900px) { .scene { width: min(590px, 100%); justify-self: center; }.console { transform: none; } }
+@media (max-width: 600px) { .coordinates { font-size: 7px; }.heading { padding: 18px 14px 17px; }.heading h2 { font-size: 15px; }.eyebrow { font-size: 7px; }.simulation { font-size: 6px; padding: 4px; }.pipeline { padding-inline: 10px; gap: 3px; }.pipeline button { font-size: 9px; }.stageIcon { width: 35px; height: 35px; }.pipeline::before { top: 17px; }.topology { margin-inline: 14px; height: 175px; }.topologyLabel { font-size: 6px; }.client, .balancer, .workloads, .database { top: 39px; width: 57px; font-size: 7px; height: 46px; }.client { width: 44px; }.database { width: 50px; }.monitor, .services { top: 118px; width: 76px; font-size: 6px; height: 38px; }.services { width: 65px; }.metricsHeading { margin-inline: 14px; font-size: 6px; }.metrics { margin-inline: 14px; margin-bottom: 12px; }.metrics > div { padding: 9px 8px 6px; }.metrics > div > span { font-size: 7px; }.metrics strong { font-size: 17px; }.sparkline { width: 48%; }.terminal { padding-inline: 14px; font-size: 8px; }.terminalHeader { gap: 5px; }.terminalHeader > span { font-size: 5px; }.terminalHeader button { padding-inline: 8px; }.footer { font-size: 7px; padding-inline: 12px; }.footer button { font-size: 7px; }.caption { font-size: 7px; text-align: left; align-items: flex-start; gap: 5px; }.caption svg { margin-top: 1px; }.approval { font-size: 8px; }.approval > span { font-size: 6px; } }
+@media (max-width: 360px) { .heading h2 { font-size: 13px; }.heading { gap: 8px; }.topologyLabel { font-size: 5px; }.balancer, .workloads { width: 52px; font-size: 6px; }.client { width: 35px; }.database { width: 43px; }.services { width: 54px; font-size: 5px; }.metrics > div > span { font-size: 6px; }.metrics strong { font-size: 15px; }.terminal { font-size: 7px; }.titlebar { font-size: 8px; }.footer { gap: 5px; font-size: 6px; } }
+@media (prefers-reduced-motion: reduce) { .scene *, .scene *::before, .scene *::after { animation: none!important; transition: none!important; }.console { transform: none!important; }.logs p { opacity: 1; transform: none; } }
+
+@media(max-width:600px) { .terminal { font-size:10px; }.metricsHeading { font-size:8px; }.terminalHeader > span { font-size:7px; }.topologyLabel { font-size:7px; }.caption { font-size:8px; line-height:1.7; } }
+@media(max-width:360px) { .terminal { font-size:9px; }.terminalHeader > span { font-size:6px; }.topologyLabel { font-size:6px; }.metricsHeading { font-size:7px; } }
