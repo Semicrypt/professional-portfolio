@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { FloatingMailBot } from "./components/floating-mail-bot";
 import "./globals.css";
 
 const geist = Geist({
@@ -37,19 +38,21 @@ export const metadata: Metadata = {
     "Cloud Engineer",
     "DevOps Engineer",
     "AWS",
+    "Microsoft Azure",
     "Kubernetes",
     "Docker",
     "Terraform",
     "Linux",
     "CI/CD",
     "GitHub Actions",
+    "Grafana",
+    "Monitoring",
+    "Observability",
     "Cloud Infrastructure",
     "Infrastructure as Code",
-    "Observability",
     "Iceman",
     "CloudDrop",
     "AzureDrop",
-    "Microsoft Azure",
     "Minerva Sentinel",
     "Natural Language DevOps Agent",
   ],
@@ -121,6 +124,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         {children}
+
+        <FloatingMailBot />
       </body>
     </html>
   );
