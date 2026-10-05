@@ -6,16 +6,16 @@ export function FloatingMailBot() {
       <style jsx>{`
         .mail-bot-wrap {
           position: fixed;
-          right: 22px;
-          bottom: 22px;
+          right: 18px;
+          bottom: 18px;
           z-index: 80;
           pointer-events: none;
         }
 
         .mail-bot-float {
           position: relative;
-          width: 140px;
-          height: 140px;
+          width: 108px;
+          height: 108px;
           pointer-events: auto;
           animation: botTravel 7s ease-in-out infinite;
           transform-origin: center;
@@ -40,7 +40,7 @@ export function FloatingMailBot() {
           position: absolute;
           inset: 0;
           animation: ringSpin 10s linear infinite;
-          filter: drop-shadow(0 0 18px rgba(59, 130, 246, 0.22));
+          filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.2));
         }
 
         .ring-two {
@@ -61,9 +61,9 @@ export function FloatingMailBot() {
           position: absolute;
           left: 50%;
           top: 50%;
-          width: 88px;
-          height: 88px;
-          border-radius: 28px;
+          width: 68px;
+          height: 68px;
+          border-radius: 22px;
           transform: translate(-50%, -50%);
           border: 1px solid rgba(96, 165, 250, 0.28);
           background:
@@ -74,8 +74,8 @@ export function FloatingMailBot() {
             ),
             linear-gradient(145deg, #15263e, #0a1220 72%);
           box-shadow:
-            0 10px 34px rgba(0, 0, 0, 0.38),
-            0 0 24px rgba(59, 130, 246, 0.18),
+            0 10px 26px rgba(0, 0, 0, 0.34),
+            0 0 18px rgba(59, 130, 246, 0.16),
             inset 0 1px 0 rgba(255, 255, 255, 0.07);
           display: grid;
           place-items: center;
@@ -89,45 +89,45 @@ export function FloatingMailBot() {
           transform: translate(-50%, -50%) scale(1.04);
           border-color: rgba(96, 165, 250, 0.52);
           box-shadow:
-            0 14px 42px rgba(0, 0, 0, 0.42),
-            0 0 30px rgba(59, 130, 246, 0.3),
+            0 12px 30px rgba(0, 0, 0, 0.38),
+            0 0 24px rgba(59, 130, 246, 0.24),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
         .bot-face {
           position: relative;
-          width: 42px;
-          height: 32px;
-          border-radius: 12px;
+          width: 34px;
+          height: 26px;
+          border-radius: 10px;
           border: 1px solid rgba(147, 197, 253, 0.2);
           background: rgba(10, 18, 32, 0.9);
-          box-shadow: inset 0 0 16px rgba(59, 130, 246, 0.06);
+          box-shadow: inset 0 0 14px rgba(59, 130, 246, 0.06);
         }
 
         .bot-eye {
           position: absolute;
-          top: 9px;
-          width: 7px;
-          height: 7px;
+          top: 7px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
           background: #60a5fa;
-          box-shadow: 0 0 12px rgba(96, 165, 250, 0.95);
+          box-shadow: 0 0 10px rgba(96, 165, 250, 0.95);
           animation: eyeBlink 4.5s infinite;
         }
 
         .bot-eye.left {
-          left: 9px;
+          left: 7px;
         }
 
         .bot-eye.right {
-          right: 9px;
+          right: 7px;
         }
 
         .bot-mouth {
           position: absolute;
           left: 50%;
-          bottom: 7px;
-          width: 12px;
+          bottom: 6px;
+          width: 10px;
           height: 2px;
           border-radius: 999px;
           background: rgba(191, 219, 254, 0.9);
@@ -136,10 +136,10 @@ export function FloatingMailBot() {
 
         .bot-antenna {
           position: absolute;
-          top: -12px;
+          top: -10px;
           left: 50%;
           width: 1px;
-          height: 10px;
+          height: 8px;
           background: rgba(96, 165, 250, 0.6);
           transform: translateX(-50%);
         }
@@ -148,43 +148,43 @@ export function FloatingMailBot() {
           content: "";
           position: absolute;
           left: 50%;
-          top: -5px;
-          width: 8px;
-          height: 8px;
+          top: -4px;
+          width: 7px;
+          height: 7px;
           border-radius: 50%;
           background: #60a5fa;
-          box-shadow: 0 0 14px rgba(96, 165, 250, 0.95);
+          box-shadow: 0 0 12px rgba(96, 165, 250, 0.95);
           transform: translateX(-50%);
           animation: pulse 2s ease-in-out infinite;
         }
 
         .bot-mail {
           position: absolute;
-          right: 18px;
-          bottom: 16px;
-          width: 30px;
-          height: 30px;
-          border-radius: 10px;
+          right: 14px;
+          bottom: 12px;
+          width: 24px;
+          height: 24px;
+          border-radius: 8px;
           display: grid;
           place-items: center;
           background: linear-gradient(145deg, #3b82f6, #2563eb);
           border: 1px solid rgba(191, 219, 254, 0.2);
           color: #eff6ff;
-          font-size: 15px;
-          box-shadow: 0 6px 20px rgba(37, 99, 235, 0.38);
+          font-size: 12px;
+          box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
         }
 
         .bot-tooltip {
           position: absolute;
-          right: 150px;
+          right: 118px;
           top: 50%;
           transform: translateY(-50%);
-          padding: 10px 13px;
-          border-radius: 12px;
+          padding: 8px 11px;
+          border-radius: 10px;
           border: 1px solid rgba(96, 165, 250, 0.2);
           background: rgba(8, 15, 26, 0.94);
           color: #bfdbfe;
-          font-size: 12px;
+          font-size: 11px;
           font-weight: 600;
           white-space: nowrap;
           backdrop-filter: blur(12px);
@@ -208,13 +208,13 @@ export function FloatingMailBot() {
             transform: translateY(0) rotate(0deg);
           }
           25% {
-            transform: translateY(-45px) rotate(-4deg);
+            transform: translateY(-28px) rotate(-4deg);
           }
           50% {
-            transform: translateY(-95px) rotate(0deg);
+            transform: translateY(-58px) rotate(0deg);
           }
           75% {
-            transform: translateY(-45px) rotate(4deg);
+            transform: translateY(-28px) rotate(4deg);
           }
         }
 
@@ -276,36 +276,56 @@ export function FloatingMailBot() {
           }
           50% {
             opacity: 1;
-            transform: translateX(-50%) scale(1.35);
+            transform: translateX(-50%) scale(1.28);
           }
         }
 
         @media (max-width: 640px) {
           .mail-bot-wrap {
-            right: 14px;
-            bottom: 14px;
+            right: 12px;
+            bottom: 12px;
           }
 
           .mail-bot-float {
-            width: 118px;
-            height: 118px;
+            width: 92px;
+            height: 92px;
           }
 
           .bot-core {
-            width: 76px;
-            height: 76px;
-            border-radius: 24px;
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+          }
+
+          .bot-face {
+            width: 30px;
+            height: 22px;
+          }
+
+          .bot-eye {
+            width: 5px;
+            height: 5px;
+            top: 6px;
+          }
+
+          .bot-eye.left {
+            left: 6px;
+          }
+
+          .bot-eye.right {
+            right: 6px;
+          }
+
+          .bot-mail {
+            right: 10px;
+            bottom: 9px;
+            width: 21px;
+            height: 21px;
+            font-size: 11px;
           }
 
           .bot-tooltip {
             display: none;
-          }
-
-          .bot-mail {
-            right: 15px;
-            bottom: 12px;
-            width: 28px;
-            height: 28px;
           }
 
           @keyframes botTravel {
@@ -314,13 +334,13 @@ export function FloatingMailBot() {
               transform: translateY(0) rotate(0deg);
             }
             25% {
-              transform: translateY(-28px) rotate(-3deg);
+              transform: translateY(-18px) rotate(-3deg);
             }
             50% {
-              transform: translateY(-58px) rotate(0deg);
+              transform: translateY(-38px) rotate(0deg);
             }
             75% {
-              transform: translateY(-28px) rotate(3deg);
+              transform: translateY(-18px) rotate(3deg);
             }
           }
         }
@@ -349,24 +369,24 @@ export function FloatingMailBot() {
 
             <svg
               className="ring ring-one"
-              viewBox="0 0 140 140"
+              viewBox="0 0 108 108"
               aria-hidden="true"
             >
               <defs>
                 <path
                   id="mailBotCircleOne"
-                  d="M 70,70
-                     m -48,0
-                     a 48,48 0 1,1 96,0
-                     a 48,48 0 1,1 -96,0"
+                  d="M 54,54
+                     m -39,0
+                     a 39,39 0 1,1 78,0
+                     a 39,39 0 1,1 -78,0"
                 />
               </defs>
 
               <text
                 fill="#60a5fa"
-                fontSize="9.5"
+                fontSize="8"
                 fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
-                letterSpacing="2"
+                letterSpacing="1.6"
               >
                 <textPath href="#mailBotCircleOne" startOffset="0%">
                   SEND ME A MAIL • SEND ME A MAIL •
@@ -376,24 +396,24 @@ export function FloatingMailBot() {
 
             <svg
               className="ring ring-two"
-              viewBox="0 0 140 140"
+              viewBox="0 0 108 108"
               aria-hidden="true"
             >
               <defs>
                 <path
                   id="mailBotCircleTwo"
-                  d="M 70,70
-                     m -48,0
-                     a 48,48 0 1,1 96,0
-                     a 48,48 0 1,1 -96,0"
+                  d="M 54,54
+                     m -39,0
+                     a 39,39 0 1,1 78,0
+                     a 39,39 0 1,1 -78,0"
                 />
               </defs>
 
               <text
                 fill="#93c5fd"
-                fontSize="9.5"
+                fontSize="8"
                 fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
-                letterSpacing="2"
+                letterSpacing="1.6"
               >
                 <textPath href="#mailBotCircleTwo" startOffset="0%">
                   CONTACT ME • CONTACT ME •
