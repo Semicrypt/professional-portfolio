@@ -868,6 +868,41 @@ function TechnologyAnimation() {
         }
 
 
+
+        /* -------------------------------------------------------
+           THE TOOLKIT — NEON COMPUTER GREEN
+        ------------------------------------------------------- */
+
+        .stack-ribbon {
+          border-color: rgba(57,255,20,.11) !important;
+          background:
+            linear-gradient(180deg, rgba(57,255,20,.012), rgba(57,255,20,.006)),
+            rgba(5,10,14,.96) !important;
+          box-shadow:
+            inset 0 1px 0 rgba(57,255,20,.025),
+            inset 0 -1px 0 rgba(57,255,20,.025);
+        }
+
+        .stack-ribbon > .container > span {
+          color: #39ff14 !important;
+          text-shadow: 0 0 10px rgba(57,255,20,.17);
+        }
+
+        .stack-ribbon > .container > div > span {
+          color: #8cff8c !important;
+          text-shadow: 0 0 8px rgba(57,255,20,.07);
+          transition:
+            color .22s ease,
+            text-shadow .22s ease,
+            transform .22s ease;
+        }
+
+        .stack-ribbon > .container > div > span:hover {
+          color: #caffca !important;
+          text-shadow: 0 0 14px rgba(57,255,20,.18);
+          transform: translateY(-1px);
+        }
+
         /* -------------------------------------------------------
            GREEN ACCENT — NAV, HERO IDENTITY, CONTACT & RESUME LINK
         ------------------------------------------------------- */
