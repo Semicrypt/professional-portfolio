@@ -14,6 +14,7 @@ const links = [
 function ChromeAccentStyles() {
   return (
     <style jsx global>{`
+      /* Footer links */
       .footer-bottom a {
         color: #8cff8c !important;
         text-shadow: 0 0 9px rgba(57, 255, 20, 0.08);
@@ -34,12 +35,109 @@ function ChromeAccentStyles() {
         border-radius: 2px;
       }
 
+      /* Top brand */
       .brand-home-link {
         cursor: pointer;
+      }
+
+      /* Mobile hamburger button */
+      .menu-toggle {
+        color: #8cff8c !important;
+        border-color: rgba(57, 255, 20, 0.28) !important;
+        background: rgba(57, 255, 20, 0.025) !important;
+        box-shadow: inset 0 0 16px rgba(57, 255, 20, 0.02);
+      }
+
+      .menu-toggle:hover,
+      .menu-toggle[aria-expanded="true"] {
+        color: #caffca !important;
+        border-color: rgba(57, 255, 20, 0.52) !important;
+        background: rgba(57, 255, 20, 0.055) !important;
+        box-shadow:
+          inset 0 0 16px rgba(57, 255, 20, 0.035),
+          0 0 18px rgba(57, 255, 20, 0.06);
+      }
+
+      /* Mobile navigation rows */
+      .mobile-navigation a {
+        color: #8cff8c !important;
+        border-color: rgba(57, 255, 20, 0.11) !important;
+        text-shadow: 0 0 8px rgba(57, 255, 20, 0.06);
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          background-color 0.2s ease,
+          text-shadow 0.2s ease,
+          padding-left 0.2s ease;
+      }
+
+      .mobile-navigation a:hover,
+      .mobile-navigation a:focus-visible {
+        color: #caffca !important;
+        border-color: rgba(57, 255, 20, 0.27) !important;
+        background: rgba(57, 255, 20, 0.025) !important;
+        text-shadow: 0 0 12px rgba(57, 255, 20, 0.14);
+        padding-left: 0.4rem;
+      }
+
+      .mobile-navigation a span,
+      .mobile-navigation a svg {
+        color: #39ff14 !important;
+      }
+
+      /* Download résumé button in the hero */
+      .hero-actions .button-secondary {
+        color: #baffba !important;
+        border-color: rgba(57, 255, 20, 0.28) !important;
+        background: rgba(57, 255, 20, 0.025) !important;
+        box-shadow: inset 0 0 18px rgba(57, 255, 20, 0.018);
+      }
+
+      .hero-actions .button-secondary svg {
+        color: #39ff14 !important;
+        filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.18));
+      }
+
+      .hero-actions .button-secondary:hover {
+        color: #d9ffd9 !important;
+        border-color: rgba(57, 255, 20, 0.55) !important;
+        background: rgba(57, 255, 20, 0.065) !important;
+        box-shadow:
+          inset 0 0 18px rgba(57, 255, 20, 0.035),
+          0 0 18px rgba(57, 255, 20, 0.065);
+      }
+
+      /* The mobile Download résumé row */
+      .mobile-navigation a[download] {
+        color: #baffba !important;
+        border-color: rgba(57, 255, 20, 0.22) !important;
+        background: rgba(57, 255, 20, 0.018) !important;
+      }
+
+      .mobile-navigation a[download]:hover {
+        color: #d9ffd9 !important;
+        border-color: rgba(57, 255, 20, 0.5) !important;
+        background: rgba(57, 255, 20, 0.055) !important;
       }
     `}</style>
   );
 }
+
+
+function scrollToHomeTop() {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: reduceMotion ? "auto" : "smooth",
+  });
+
+  window.history.replaceState(null, "", "/#home");
+}
+
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -72,28 +170,9 @@ export function SiteHeader() {
   }, [open]);
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    // When already on the homepage, keep the interaction smooth and avoid a reload.
     if (window.location.pathname === "/") {
       event.preventDefault();
-
-      const home = document.getElementById("home");
-
-      if (home) {
-        home.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        window.history.replaceState(null, "", "/#home");
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-
-        window.history.replaceState(null, "", "/");
-      }
-
+      scrollToHomeTop();
       setOpen(false);
     }
   };
@@ -250,7 +329,17 @@ export function SiteFooter() {
               LinkedIn ↗
             </a>
 
-            <Link href="/#home">Back to top ↑</Link>
+            <Link
+              href="/#home"
+              onClick={(event) => {
+                if (window.location.pathname === "/") {
+                  event.preventDefault();
+                  scrollToHomeTop();
+                }
+              }}
+            >
+              Back to top ↑
+            </Link>
           </div>
         </div>
       </footer>
