@@ -1684,11 +1684,21 @@ export default function Home() {
                 <p className="eyebrow">CONTINUOUS LEARNING</p>
 
                 <div>
-                  <h3>TechCrush · Cloud Computing &amp; DevOps</h3>
-                  <span>Jul — Sep 2026</span>
+                  <h3>TechCrush · Cloud Computing</h3>
                 </div>
 
-                <p>Completed · Certificate received</p>
+                <p>15-Week Bootcamp Scholarship Programme</p>
+                <p>Completed · Certificate of Completion — 22 October 2026</p>
+
+                <a
+                  className="text-link"
+                  href="/techcrush-cloud-computing-certificate.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View TechCrush Cloud Computing certificate (PDF, opens in a new tab)"
+                >
+                  View Certificate <span aria-hidden="true">↗</span>
+                </a>
 
                 <div>
                   <h3>TechSphere Academy · Cloud Computing</h3>
