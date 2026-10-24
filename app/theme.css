@@ -855,3 +855,314 @@ html[data-theme="light"]
     display: none;
   }
 }
+
+/* =========================================================
+   STOIC ENGINEERING TICKER
+========================================================= */
+
+.stoic-ticker {
+  position: relative;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 38px;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid rgba(57,255,20,.07);
+
+  border-bottom:
+    1px solid rgba(57,255,20,.12);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(57,255,20,.018),
+      rgba(57,255,20,.035),
+      rgba(57,255,20,.018)
+    );
+}
+
+.stoic-ticker::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0d1110 0%,
+      transparent 8%,
+      transparent 92%,
+      #0d1110 100%
+    );
+}
+
+.stoic-ticker-label {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+
+  gap: .45rem;
+
+  height: 38px;
+
+  padding:
+    0 .85rem 0 1rem;
+
+  flex-shrink: 0;
+
+  border-right:
+    1px solid rgba(57,255,20,.15);
+
+  background:
+    #0d1110;
+
+  color:
+    #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size:
+    .49rem;
+
+  font-weight:
+    750;
+
+  letter-spacing:
+    .15em;
+
+  white-space:
+    nowrap;
+}
+
+.stoic-ticker-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    #39ff14;
+
+  box-shadow:
+    0 0 8px
+    rgba(57,255,20,.75);
+}
+
+.stoic-ticker-window {
+  position: relative;
+
+  overflow: hidden;
+
+  flex: 1;
+}
+
+.stoic-ticker-track {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  white-space: nowrap;
+
+  animation:
+    stoicTickerMove
+    72s linear
+    infinite;
+}
+
+.stoic-ticker:hover
+.stoic-ticker-track {
+  animation-play-state:
+    paused;
+}
+
+.stoic-ticker-quote {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 1.8rem;
+
+  padding:
+    0 1.35rem;
+
+  color:
+    #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size:
+    .65rem;
+
+  font-weight:
+    550;
+
+  letter-spacing:
+    .035em;
+}
+
+.stoic-ticker-quote i {
+  color:
+    #39ff14;
+
+  font-size:
+    .55rem;
+
+  font-style:
+    normal;
+
+  opacity: .75;
+
+  text-shadow:
+    0 0 7px
+    rgba(57,255,20,.32);
+}
+
+@keyframes stoicTickerMove {
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%);
+  }
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+html[data-theme="light"]
+.stoic-ticker {
+  border-color:
+    #cddace;
+
+  background:
+    linear-gradient(
+      90deg,
+      #edf3ee,
+      #f7faf7,
+      #edf3ee
+    );
+}
+
+html[data-theme="light"]
+.stoic-ticker::after {
+  background:
+    linear-gradient(
+      90deg,
+      #f3f6f3 0%,
+      transparent 8%,
+      transparent 92%,
+      #f3f6f3 100%
+    );
+}
+
+html[data-theme="light"]
+.stoic-ticker-label {
+  border-color:
+    #ccdacc;
+
+  background:
+    #eef4ef;
+
+  color:
+    #367840;
+}
+
+html[data-theme="light"]
+.stoic-ticker-quote {
+  color:
+    #2f8f8a;
+}
+
+html[data-theme="light"]
+.stoic-ticker-quote i {
+  color:
+    #23862d;
+
+  text-shadow:
+    none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+  .stoic-ticker {
+    min-height:
+      34px;
+  }
+
+  .stoic-ticker-label {
+    height:
+      34px;
+
+    padding:
+      0 .55rem;
+
+    font-size:
+      .39rem;
+  }
+
+  .stoic-ticker-label {
+    max-width:
+      96px;
+
+    overflow:
+      hidden;
+  }
+
+  .stoic-ticker-quote {
+    padding:
+      0 .9rem;
+
+    gap:
+      1.2rem;
+
+    font-size:
+      .55rem;
+  }
+
+  .stoic-ticker-track {
+    animation-duration:
+      62s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stoic-ticker-track {
+    animation: none;
+  }
+
+  .stoic-ticker-window {
+    overflow-x: auto;
+  }
+}

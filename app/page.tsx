@@ -11,6 +11,7 @@ import {
 } from "./components/project-visuals";
 import { skillGroups } from "./data/skills";
 import { PortfolioIntroOnce } from "./components/portfolio-intro-once";
+import { StoicTicker } from "./components/stoic-ticker";
 
 const github = "https://github.com/Semicrypt";
 const linkedin =
@@ -180,8 +181,8 @@ function TechnologyAnimation() {
           font: 600 .63rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
           letter-spacing: .22em;
           text-transform: uppercase;
-          color: var(--tech-accent);
-          text-shadow: 0 0 10px rgba(57,255,20,.18);
+          color: #76e7dc;
+          text-shadow: 0 0 10px rgba(118,231,220,.22);
         }
 
         .tech-hero-title {
@@ -1207,6 +1208,8 @@ export default function Home() {
 <PortfolioIntroOnce />
 
       <SiteHeader />
+
+      <StoicTicker />
 
       <main id="main-content">
         <section id="home" className="hero">
