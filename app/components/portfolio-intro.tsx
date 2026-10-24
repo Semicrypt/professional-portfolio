@@ -153,18 +153,67 @@ export function PortfolioIntro() {
           </span>
         </div>
 
-        <div className="intro-story">
-          <span className="intro-story-1">
-            Systems are tested when pressure arrives.
-          </span>
+        <div
+          className="intro-story-computer"
+          aria-label="Operations terminal"
+        >
+          <div className="intro-monitor">
+            <div className="intro-monitor-bezel">
+              <div className="intro-monitor-bar">
+                <div className="intro-monitor-lights">
+                  <span />
+                  <span />
+                  <span />
+                </div>
 
-          <span className="intro-story-2">
-            Noise grows. Signals narrow. Discipline remains.
-          </span>
+                <span className="intro-monitor-title">
+                  OPS://TERMINAL
+                </span>
 
-          <span className="intro-story-3">
-            Build with intent. Observe what matters. Restore order.
-          </span>
+                <span className="intro-monitor-live">
+                  ● LIVE
+                </span>
+              </div>
+
+              <div className="intro-monitor-screen">
+                <div className="intro-monitor-scanlines" />
+                <div className="intro-monitor-glow" />
+
+                <div className="intro-monitor-copy">
+                  <p className="intro-story-1">
+                    Systems are tested when pressure arrives.
+                  </p>
+
+                  <p className="intro-story-2">
+                    Noise grows. Signals narrow. Discipline remains.
+                  </p>
+
+                  <p className="intro-story-3">
+                    Build with intent. Observe what matters. Restore order.
+                  </p>
+                </div>
+
+                <span className="intro-monitor-cursor">
+                  _
+                </span>
+              </div>
+
+              <div className="intro-monitor-controls">
+                <span>SYS READY</span>
+
+                <div>
+                  <i />
+                  <i />
+                  <i />
+                </div>
+
+                <strong>DIVINE://OPS</strong>
+              </div>
+            </div>
+
+            <div className="intro-monitor-neck" />
+            <div className="intro-monitor-base" />
+          </div>
         </div>
 
         <div className="intro-stack">

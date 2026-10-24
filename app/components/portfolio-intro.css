@@ -978,3 +978,497 @@
     font-size: 0.43rem;
   }
 }
+
+
+/* =========================================================
+   STOIC STORY — RETRO OPERATIONS TERMINAL
+========================================================= */
+
+.intro-story-computer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0.35rem auto 0;
+  perspective: 900px;
+}
+
+.intro-monitor {
+  position: relative;
+  width: min(640px, 78vw);
+
+  opacity: 0;
+  transform: translateY(10px) scale(0.975);
+
+  animation:
+    introMonitorEnter
+    0.52s ease
+    3.92s forwards;
+}
+
+.intro-monitor-bezel {
+  position: relative;
+
+  padding: 7px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(57, 255, 20, 0.22);
+
+  border-radius: 15px 15px 12px 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151b17,
+      #070b08 60%,
+      #111813
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.5),
+    0 15px 45px rgba(0, 0, 0, 0.48),
+    0 0 22px rgba(57, 255, 20, 0.045);
+}
+
+.intro-monitor-bar {
+  display: flex;
+  align-items: center;
+
+  min-height: 27px;
+
+  padding: 0 0.55rem;
+
+  border: 1px solid rgba(57, 255, 20, 0.08);
+  border-bottom: 0;
+
+  border-radius: 8px 8px 0 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20, 29, 22, 0.95),
+      rgba(8, 14, 10, 0.98)
+    );
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+}
+
+.intro-monitor-lights {
+  display: flex;
+  gap: 4px;
+}
+
+.intro-monitor-lights span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(140, 255, 140, 0.25);
+}
+
+.intro-monitor-lights span:first-child {
+  background: #39ff14;
+
+  box-shadow:
+    0 0 6px rgba(57, 255, 20, 0.65);
+}
+
+.intro-monitor-title {
+  margin-left: 0.62rem;
+
+  color: #48754d;
+
+  font-size: 0.46rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.intro-monitor-live {
+  margin-left: auto;
+
+  color: #72d77a;
+
+  font-size: 0.43rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.intro-monitor-screen {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 128px;
+
+  overflow: hidden;
+
+  padding: 1.1rem 1.3rem;
+
+  border: 1px solid rgba(57, 255, 20, 0.15);
+
+  border-radius: 2px 2px 8px 8px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(57, 255, 20, 0.055),
+      transparent 61%
+    ),
+    linear-gradient(
+      180deg,
+      #020804,
+      #010503
+    );
+
+  box-shadow:
+    inset 0 0 45px rgba(0, 0, 0, 0.85),
+    inset 0 0 18px rgba(57, 255, 20, 0.035);
+}
+
+.intro-monitor-screen::before {
+  content: "";
+
+  position: absolute;
+  inset: 7px 8px;
+
+  pointer-events: none;
+
+  border: 1px solid rgba(57, 255, 20, 0.045);
+
+  border-radius: 45% / 8%;
+
+  box-shadow:
+    inset 0 0 22px rgba(0, 0, 0, 0.6);
+}
+
+.intro-monitor-glow {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(57, 255, 20, 0.07),
+      transparent 54%
+    );
+
+  animation:
+    introMonitorGlow
+    1.7s ease-in-out
+    infinite alternate;
+}
+
+.intro-monitor-scanlines {
+  position: absolute;
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  opacity: 0.16;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(190, 255, 190, 0.08) 0,
+      rgba(190, 255, 190, 0.08) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+.intro-monitor-copy {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+}
+
+.intro-monitor-copy p {
+  margin: 0;
+
+  color: #548c59;
+
+  font-size:
+    clamp(0.58rem, 1vw, 0.72rem);
+
+  font-weight: 600;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.055em;
+
+  opacity: 0;
+
+  transform: translateY(5px);
+
+  text-shadow:
+    0 0 8px rgba(57, 255, 20, 0.08);
+}
+
+.intro-monitor-copy .intro-story-1 {
+  animation:
+    storyReveal
+    0.48s ease
+    4.05s forwards;
+}
+
+.intro-monitor-copy .intro-story-2 {
+  animation:
+    storyReveal
+    0.48s ease
+    4.52s forwards;
+}
+
+.intro-monitor-copy .intro-story-3 {
+  color: #8cff8c;
+
+  font-weight: 750;
+
+  text-shadow:
+    0 0 9px rgba(57, 255, 20, 0.17);
+
+  animation:
+    storyReveal
+    0.5s ease
+    5.02s forwards;
+}
+
+.intro-monitor-cursor {
+  position: absolute;
+
+  z-index: 4;
+
+  right: 13px;
+  bottom: 9px;
+
+  color: #39ff14;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 0.7rem;
+
+  text-shadow:
+    0 0 7px rgba(57, 255, 20, 0.5);
+
+  animation:
+    cursorBlink
+    0.75s steps(1)
+    infinite;
+}
+
+.intro-monitor-controls {
+  display: flex;
+  align-items: center;
+
+  min-height: 25px;
+
+  padding: 0 0.6rem;
+
+  color: #3c6941;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 0.38rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.intro-monitor-controls > div {
+  display: flex;
+
+  gap: 5px;
+
+  margin: 0 auto;
+}
+
+.intro-monitor-controls i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #1c4521;
+}
+
+.intro-monitor-controls i:nth-child(2) {
+  background: #39ff14;
+
+  box-shadow:
+    0 0 5px rgba(57, 255, 20, 0.55);
+}
+
+.intro-monitor-controls strong {
+  color: #4e8454;
+
+  font-size: inherit;
+}
+
+.intro-monitor-neck {
+  width: 16%;
+  height: 12px;
+
+  margin: 0 auto;
+
+  border-left: 1px solid rgba(57, 255, 20, 0.11);
+  border-right: 1px solid rgba(57, 255, 20, 0.11);
+
+  background:
+    linear-gradient(
+      90deg,
+      #080d09,
+      #151d17,
+      #080d09
+    );
+}
+
+.intro-monitor-base {
+  width: 29%;
+  height: 5px;
+
+  margin: 0 auto;
+
+  border: 1px solid rgba(57, 255, 20, 0.11);
+
+  border-radius: 50% 50% 3px 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #182119,
+      #050805
+    );
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.32);
+}
+
+@keyframes introMonitorEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes introMonitorGlow {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 640px) {
+  .intro-story-computer {
+    margin-top: 0.25rem;
+  }
+
+  .intro-monitor {
+    width: min(350px, 91vw);
+  }
+
+  .intro-monitor-bezel {
+    padding: 5px;
+
+    border-radius:
+      11px 11px 9px 9px;
+  }
+
+  .intro-monitor-bar {
+    min-height: 22px;
+
+    padding: 0 0.42rem;
+  }
+
+  .intro-monitor-title {
+    font-size: 0.36rem;
+
+    letter-spacing: 0.12em;
+  }
+
+  .intro-monitor-live {
+    font-size: 0.34rem;
+  }
+
+  .intro-monitor-lights span {
+    width: 4px;
+    height: 4px;
+  }
+
+  .intro-monitor-screen {
+    min-height: 104px;
+
+    padding: 0.8rem 0.75rem;
+  }
+
+  .intro-monitor-copy p {
+    font-size: 0.49rem;
+
+    line-height: 1.65;
+
+    letter-spacing: 0.025em;
+  }
+
+  .intro-monitor-controls {
+    min-height: 20px;
+
+    padding: 0 0.45rem;
+
+    font-size: 0.3rem;
+  }
+
+  .intro-monitor-neck {
+    height: 9px;
+  }
+
+  .intro-monitor-base {
+    height: 4px;
+  }
+}
