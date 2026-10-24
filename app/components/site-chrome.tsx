@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "./icons";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
-  ["Work", "/#projects"],
+  ["Projects", "/#projects"],
   ["Stack", "/#skills"],
   ["Experience", "/#experience"],
   ["About", "/#about"],
@@ -313,6 +314,8 @@ export function SiteHeader() {
               </Link>
             ))}
           </div>
+
+          <ThemeToggle />
 
           <Link className="nav-contact" href="/#contact">
             Let’s talk <span aria-hidden="true">↗</span>

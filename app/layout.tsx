@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { FloatingMailBot } from "./components/floating-mail-bot";
-import { PortfolioIntro } from "./components/portfolio-intro";
+import { ProjectScrollTop } from "./components/project-scroll-top";
 import "./globals.css";
+import "./theme.css";
 import "./components/portfolio-intro.css";
 
 const geist = Geist({
@@ -123,9 +124,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
-        <PortfolioIntro />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* DIVINE_THEME_BOOT */
+              (() => {
+                try {
+                  const saved = localStorage.getItem(
+                    "divine-portfolio-theme"
+                  );
+
+                  const preferred =
+                    window.matchMedia(
+                      "(prefers-color-scheme: light)"
+                    ).matches
+                      ? "light"
+                      : "dark";
+
+                  const theme =
+                    saved === "light" || saved === "dark"
+                      ? saved
+                      : preferred;
+
+                  document.documentElement.dataset.theme =
+                    theme;
+
+                  document.documentElement.style.colorScheme =
+                    theme;
+                } catch {
+                  document.documentElement.dataset.theme =
+                    "dark";
+                }
+              })();
+            `,
+          }}
+        />
+
+        <ProjectScrollTop />
         {children}
 
         <FloatingMailBot />

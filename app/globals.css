@@ -50,3 +50,230 @@ html[data-motion="paused"] .section-enter { animation:none!important; opacity:1;
 @media(prefers-reduced-motion:reduce) { .section-enter { animation:none!important; opacity:1; transform:none; }.hero .hero-grid { animation:none!important; transform:none; }.lab-card:hover,.project-card:hover { transform:none!important; } }
 
 .hero-stack{max-width:390px}
+
+
+/* ============================================================
+   CASE STUDIES — CLARITY / READABILITY LAYER
+   ============================================================ */
+
+/*
+   Keep the overall portfolio dark while lifting the case-study
+   content away from near-black surfaces.
+*/
+
+main[class*="case-study"] {
+  background:
+    radial-gradient(
+      circle at 78% 4%,
+      rgba(57, 255, 20, 0.045),
+      transparent 28%
+    ),
+    #111713 !important;
+
+  color: #edf7ee;
+}
+
+/* Breadcrumbs */
+
+main[class*="case-study"]
+[class*="breadcrumb"] {
+  color: #9cad9f !important;
+}
+
+main[class*="case-study"]
+[class*="breadcrumb"] a {
+  color: #bcd0be !important;
+}
+
+/* Main hero */
+
+main[class*="case-study"]
+[class*="hero"] {
+  border-color:
+    rgba(139,255,126,.16) !important;
+}
+
+main[class*="case-study"]
+[class*="hero"]:not([class*="heroTop"]) {
+  background:
+    linear-gradient(
+      145deg,
+      #1a241d,
+      #141c17
+    ) !important;
+
+  border:
+    1px solid rgba(139,255,126,.16);
+
+  border-radius: 22px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 20px 55px rgba(0,0,0,.18);
+}
+
+main[class*="case-study"]
+[class*="hero"] h1 {
+  color: #f7fff7 !important;
+}
+
+main[class*="case-study"]
+[class*="hero"] p {
+  color: #bdc9bf;
+}
+
+/* Section headings */
+
+main[class*="case-study"]
+h2 {
+  color: #f5fff5 !important;
+
+  letter-spacing: -.025em;
+}
+
+main[class*="case-study"]
+h3 {
+  color: #e7f5e8;
+}
+
+main[class*="case-study"]
+p {
+  color: #b3c0b5;
+}
+
+/* Stronger readable links */
+
+main[class*="case-study"] a {
+  text-underline-offset: 4px;
+}
+
+/* Generic content cards/panels used across the case studies */
+
+main[class*="case-study"]
+[class*="card"],
+main[class*="case-study"]
+[class*="panel"],
+main[class*="case-study"]
+[class*="block"],
+main[class*="case-study"]
+[class*="feature"],
+main[class*="case-study"]
+[class*="fact"],
+main[class*="case-study"]
+[class*="metric"],
+main[class*="case-study"]
+[class*="result"] {
+  border-color:
+    rgba(139,255,126,.14) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1b251e,
+      #161e19
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 10px 32px rgba(0,0,0,.11);
+}
+
+/* Lists */
+
+main[class*="case-study"] li {
+  color: #b8c7ba;
+}
+
+/* Tags */
+
+main[class*="case-study"]
+[class*="tag"] {
+  border-color:
+    rgba(139,255,126,.18) !important;
+
+  background:
+    rgba(57,255,20,.045) !important;
+
+  color: #b8eebb !important;
+}
+
+/* Code / terminal style areas */
+
+main[class*="case-study"]
+pre,
+main[class*="case-study"]
+code {
+  background: #0e1511;
+}
+
+main[class*="case-study"]
+pre {
+  border:
+    1px solid rgba(139,255,126,.13);
+
+  border-radius: 12px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+/* ------------------------------------------------------------
+   SCREENSHOTS / IMAGES / DIAGRAMS
+------------------------------------------------------------ */
+
+main[class*="case-study"] img {
+  display: block;
+
+  max-width: 100%;
+
+  border:
+    1px solid rgba(144,255,133,.18);
+
+  border-radius: 14px;
+
+  background: #dfe9e1;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.23);
+
+  filter:
+    brightness(1.06)
+    contrast(1.025);
+}
+
+/* SVG engineering visuals */
+
+main[class*="case-study"] svg {
+  filter:
+    drop-shadow(
+      0 5px 12px
+      rgba(0,0,0,.20)
+    );
+}
+
+/* More obvious separators */
+
+main[class*="case-study"] hr {
+  border: 0;
+
+  border-top:
+    1px solid rgba(139,255,126,.14);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  main[class*="case-study"] {
+    background: #111713 !important;
+  }
+
+  main[class*="case-study"]
+  [class*="hero"]:not([class*="heroTop"]) {
+    border-radius: 16px;
+  }
+
+  main[class*="case-study"] p,
+  main[class*="case-study"] li {
+    color: #bec9c0;
+  }
+}
