@@ -1,4 +1,5 @@
 "use client";
+import { IntroSoundscape } from "./intro-soundscape";
 
 import { useEffect, useState } from "react";
 
@@ -68,7 +69,10 @@ export function PortfolioIntro() {
   }
 
   return (
-    <div className="intro-root" aria-hidden="true">
+    <>
+      <IntroSoundscape />
+
+      <div className="intro-root" aria-hidden="true">
       <div className="intro-grid" />
       <div className="intro-scan" />
 
@@ -178,6 +182,7 @@ export function PortfolioIntro() {
         </div>
       </div>
 
-    </div>
+      </div>
+    </>
   );
 }
