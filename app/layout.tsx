@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { FloatingMailBot } from "./components/floating-mail-bot";
+import { PortfolioIntro } from "./components/portfolio-intro";
 import "./globals.css";
 
 const geist = Geist({
@@ -123,6 +124,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
+        <PortfolioIntro />
         {children}
 
         <FloatingMailBot />
