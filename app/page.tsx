@@ -1266,9 +1266,10 @@ export default function Home() {
                 <a
                   className="button button-secondary"
                   href="/resume.pdf"
-                  download="Nwachukwu-Ifeanyi-Divine-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Download résumé <Icon name="download" />
+                  View Résumé <span aria-hidden="true">↗</span>
                 </a>
               </div>
 
@@ -1596,9 +1597,10 @@ export default function Home() {
             <a
               className="text-link"
               href="/resume.pdf"
-              download="Nwachukwu-Ifeanyi-Divine-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Download The full résumé <Icon name="download" />
+              View Résumé <span aria-hidden="true">↗</span>
             </a>
           </div>
         </section>

@@ -85,7 +85,7 @@ function ChromeAccentStyles() {
         color: #39ff14 !important;
       }
 
-      /* Download résumé button in the hero */
+      /* View résumé button in the hero */
       .hero-actions .button-secondary {
         color: #baffba !important;
         border-color: rgba(57, 255, 20, 0.28) !important;
@@ -107,14 +107,14 @@ function ChromeAccentStyles() {
           0 0 18px rgba(57, 255, 20, 0.065);
       }
 
-      /* The mobile Download résumé row */
-      .mobile-navigation a[download] {
+      /* The mobile View résumé row */
+      .mobile-navigation a[href="/resume.pdf"] {
         color: #baffba !important;
         border-color: rgba(57, 255, 20, 0.22) !important;
         background: rgba(57, 255, 20, 0.018) !important;
       }
 
-      .mobile-navigation a[download]:hover {
+      .mobile-navigation a[href="/resume.pdf"]:hover {
         color: #d9ffd9 !important;
         border-color: rgba(57, 255, 20, 0.5) !important;
         background: rgba(57, 255, 20, 0.055) !important;
@@ -241,10 +241,11 @@ export function SiteHeader() {
 
           <a
             href="/resume.pdf"
-            download="Nwachukwu-Ifeanyi-Divine-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
           >
-            Download résumé <Icon name="download" />
+            View Résumé <span aria-hidden="true">↗</span>
           </a>
         </div>
       </header>
