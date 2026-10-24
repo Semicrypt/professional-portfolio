@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "./icons";
@@ -37,7 +38,107 @@ function ChromeAccentStyles() {
 
       /* Top brand */
       .brand-home-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
+        text-decoration: none;
+      }
+
+      .brand-burning-logo {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.18rem;
+        border-radius: 13px;
+        border: 1.6px solid rgba(57, 255, 20, 0.72);
+        background:
+          linear-gradient(180deg, rgba(57, 255, 20, 0.08), rgba(57, 255, 20, 0.03)),
+          rgba(5, 7, 10, 0.96);
+        box-shadow:
+          0 0 0 1px rgba(57, 255, 20, 0.08) inset,
+          0 0 14px rgba(57, 255, 20, 0.14);
+      }
+
+      .brand-logo-image {
+        display: block;
+        width: 44px;
+        height: 44px;
+        object-fit: contain;
+        border-radius: 10px;
+        transition:
+          transform 0.25s ease,
+          filter 0.25s ease;
+      }
+
+      .brand-home-link:hover .brand-logo-image {
+        transform: translateY(-1px) scale(1.025);
+        filter: brightness(1.06);
+      }
+
+      .brand-home-link:focus-visible {
+        outline: 1px solid #39ff14;
+        outline-offset: 5px;
+        border-radius: 12px;
+      }
+
+
+        35% {
+          transform:
+            translateY(-1px)
+            scaleX(1.02)
+            scaleY(1.04)
+            skewX(2deg);
+
+          opacity: .96;
+        }
+
+        65% {
+          transform:
+            translateY(1px)
+            scaleX(.98)
+            scaleY(.9)
+            skewX(-3deg);
+
+          opacity: .78;
+        }
+
+        100% {
+          transform:
+            translateY(-3px)
+            scaleX(1.04)
+            scaleY(1.17)
+            skewX(3deg);
+
+          opacity: 1;
+        }
+      }
+
+
+        100% {
+          transform:
+            translateY(-2px)
+            scaleX(1.04)
+            scaleY(1.12);
+
+          opacity: 1;
+        }
+      }
+
+
+        to {
+          opacity: .75;
+          transform: scale(1.025);
+        }
+      }
+
+
+      @media (max-width: 640px) {
+        .brand-logo-image {
+          width: 36px;
+          height: 36px;
+        }
       }
 
       /* Mobile hamburger button */
@@ -190,12 +291,18 @@ export function SiteHeader() {
           <Link
             href="/#home"
             className="brand brand-home-link"
-            aria-label="Divine home — back to top"
+            aria-label="Ifeanyi Divine — back to top"
             onClick={handleHomeClick}
           >
-            D<span className="brand-mark">/</span>
-            <span className="brand-name">
-              DIVINE<span>.</span>
+            <span className="brand-burning-logo">
+              <Image
+              src="/ifeanyi-divine-logo.png"
+              alt="Ifeanyi Divine"
+              width={72}
+              height={72}
+              className="brand-logo-image"
+              priority
+            />
             </span>
           </Link>
 

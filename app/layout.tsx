@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { FloatingMailBot } from "./components/floating-mail-bot";
 import { PortfolioIntro } from "./components/portfolio-intro";
 import "./globals.css";
+import "./components/portfolio-intro.css";
 
 const geist = Geist({
   variable: "--font-geist-sans",
