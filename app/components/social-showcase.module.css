@@ -1,0 +1,498 @@
+.wrap {
+  width: min(680px, 94vw);
+  margin: 2rem auto 0;
+}
+
+.label {
+  margin: 0 0 .6rem;
+
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: .45rem;
+  font-weight: 800;
+
+  letter-spacing: .19em;
+
+  text-align: center;
+}
+
+.panel {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(172, 88, 255, .22);
+
+  border-radius: 6px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(147, 56, 190, .19),
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      #1a031f 0%,
+      #110016 55%,
+      #09000d 100%
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 -25px 60px rgba(0,0,0,.3),
+    0 18px 50px rgba(0,0,0,.22);
+}
+
+/* CRT / illuminated billboard scanlines */
+.panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  opacity: .34;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.027) 0,
+      rgba(255,255,255,.027) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+/* Bottom purple billboard glow */
+.panel::after {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  bottom: -60px;
+
+  height: 110px;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(179, 83, 255, .18),
+      transparent 68%
+    );
+
+  filter: blur(18px);
+}
+
+.link {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: .65rem;
+
+  min-height: 155px;
+
+  color: #f8f5fa;
+
+  text-decoration: none;
+
+  transition:
+    color .22s ease,
+    background .22s ease;
+}
+
+.link + .link {
+  border-left:
+    1px solid rgba(255,255,255,.035);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+}
+
+.icon svg {
+  display: block;
+
+  width: 56px;
+  height: 56px;
+}
+
+.name {
+  opacity: 0;
+
+  color: currentColor;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: .42rem;
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+  text-transform: uppercase;
+
+  transform: translateY(4px);
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease;
+}
+
+.link:hover {
+  color: #76e7dc;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.02),
+      rgba(118,231,220,.06)
+    );
+}
+
+.link:hover .icon {
+  transform:
+    translateY(-4px)
+    scale(1.09);
+
+  filter:
+    drop-shadow(
+      0 0 13px currentColor
+    );
+}
+
+.link:hover .name {
+  opacity: .82;
+
+  transform: translateY(0);
+}
+
+.accent {
+  color: #b16cff;
+}
+
+.accent:hover {
+  color: #d19dff;
+}
+
+/* Lighted line underneath each hovered icon */
+
+.link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 30%;
+  right: 30%;
+  bottom: 18px;
+
+  height: 2px;
+
+  opacity: 0;
+
+  background: currentColor;
+
+  box-shadow:
+    0 0 12px currentColor;
+
+  transition:
+    opacity .2s ease,
+    left .2s ease,
+    right .2s ease;
+}
+
+.link:hover::after {
+  left: 23%;
+  right: 23%;
+
+  opacity: .6;
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+:global(html[data-theme="light"]) .panel {
+  border-color:
+    rgba(116, 67, 145, .18);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 8%,
+      rgba(145,94,175,.11),
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      #faf6fc,
+      #eee6f2
+    );
+
+  box-shadow:
+    0 18px 45px rgba(66,38,79,.08);
+}
+
+:global(html[data-theme="light"]) .link {
+  color: #34293a;
+}
+
+:global(html[data-theme="light"]) .accent {
+  color: #8f51ce;
+}
+
+:global(html[data-theme="light"]) .link:hover {
+  color: #247f79;
+
+  background:
+    rgba(118,231,220,.08);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .wrap {
+    width: min(94vw, 520px);
+
+    margin-top: 1.5rem;
+  }
+
+  .panel {
+    border-radius: 5px;
+  }
+
+  .link {
+    min-height: 108px;
+
+    gap: .4rem;
+  }
+
+  .icon svg {
+    width: 41px;
+    height: 41px;
+  }
+
+  .name {
+    display: none;
+  }
+
+  .link::after {
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .link {
+    min-height: 88px;
+  }
+
+  .icon svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =========================================================
+   DIAMOND / ICE SOCIAL THEME OVERRIDE
+========================================================= */
+
+.panel {
+  border:
+    1px solid rgba(190, 255, 248, .28) !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(210, 255, 251, .13),
+      transparent 58%
+    ),
+    linear-gradient(
+      180deg,
+      #0b1718 0%,
+      #071112 54%,
+      #04090a 100%
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -24px 55px rgba(0,0,0,.30),
+    0 0 22px rgba(118,231,220,.08),
+    0 18px 50px rgba(0,0,0,.24) !important;
+}
+
+/* Diamond-like reflective sheen */
+.panel::before {
+  opacity: .42 !important;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(220,255,252,.025) 0,
+      rgba(220,255,252,.025) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,.025) 22%,
+      rgba(190,255,248,.10) 48%,
+      rgba(255,255,255,.02) 72%,
+      transparent 100%
+    ) !important;
+}
+
+/* Soft icy glow underneath */
+.panel::after {
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(118,231,220,.18),
+      rgba(180,255,248,.06) 40%,
+      transparent 70%
+    ) !important;
+
+  filter: blur(20px) !important;
+}
+
+/* Default icon color */
+.link {
+  color: #eaffff !important;
+}
+
+/* X should no longer be purple */
+.accent {
+  color: #9ff3eb !important;
+}
+
+/* separators */
+.link + .link {
+  border-left:
+    1px solid rgba(190,255,248,.07) !important;
+}
+
+/* Hover */
+.link:hover,
+.accent:hover {
+  color: #76e7dc !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.035),
+      rgba(118,231,220,.085)
+    ) !important;
+}
+
+.link:hover .icon {
+  filter:
+    drop-shadow(
+      0 0 8px rgba(234,255,255,.75)
+    )
+    drop-shadow(
+      0 0 18px rgba(118,231,220,.50)
+    ) !important;
+}
+
+.link::after {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #dffffc,
+      #76e7dc,
+      #dffffc,
+      transparent
+    ) !important;
+
+  box-shadow:
+    0 0 10px rgba(118,231,220,.70),
+    0 0 20px rgba(118,231,220,.35) !important;
+}
+
+/* More luminous social label */
+.label {
+  color: #aef8f1 !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.22) !important;
+}
+
+/* =========================================================
+   LIGHT MODE — CRYSTAL / DIAMOND
+========================================================= */
+
+:global(html[data-theme="light"]) .panel {
+  border-color:
+    rgba(88, 173, 166, .22) !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(190,255,248,.40),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #f8ffff,
+      #edf8f7
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.90),
+    0 15px 40px rgba(45,100,95,.08) !important;
+}
+
+:global(html[data-theme="light"]) .link {
+  color: #2a4d4a !important;
+}
+
+:global(html[data-theme="light"]) .accent {
+  color: #358c86 !important;
+}
+
+:global(html[data-theme="light"]) .link:hover {
+  color: #167b74 !important;
+
+  background:
+    rgba(118,231,220,.13) !important;
+}

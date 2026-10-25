@@ -2696,3 +2696,656 @@ html[data-theme="light"]
     0 20px 42px rgba(0,0,0,.55),
     0 0 18px rgba(118,231,220,.06) !important;
 }
+
+/* =========================================================
+   SOCIAL SHOWCASE — CINEMATIC ICON STRIP
+========================================================= */
+
+.social-showcase {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  width: min(620px, 92vw);
+
+  margin: 1.8rem auto 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(168,95,255,.24);
+
+  border-radius: 5px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 12%,
+      rgba(150,55,190,.18),
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      #1a0420,
+      #100015 58%,
+      #09000d
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 18px 50px rgba(0,0,0,.22);
+}
+
+.social-showcase::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .35;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.028) 0,
+      rgba(255,255,255,.028) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+.social-icon-link {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 145px;
+
+  color: #f8f4fa;
+
+  text-decoration: none;
+
+  transition:
+    color .22s ease,
+    background .22s ease,
+    transform .22s ease;
+}
+
+.social-icon-link + .social-icon-link {
+  border-left:
+    1px solid rgba(255,255,255,.035);
+}
+
+.social-icon-link svg {
+  width: 54px;
+  height: 54px;
+
+  transition:
+    transform .24s ease,
+    filter .24s ease;
+}
+
+.social-icon-x {
+  color: #b36cff;
+}
+
+.social-icon-link:hover {
+  color: #76e7dc;
+
+  background:
+    rgba(118,231,220,.045);
+}
+
+.social-icon-link:hover svg {
+  transform:
+    translateY(-4px)
+    scale(1.08);
+
+  filter:
+    drop-shadow(
+      0 0 12px currentColor
+    );
+}
+
+.social-icon-x:hover {
+  color: #ce9cff;
+}
+
+.social-icon-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 30%;
+  right: 30%;
+  bottom: 17px;
+
+  height: 2px;
+
+  opacity: 0;
+
+  background: currentColor;
+
+  box-shadow:
+    0 0 12px currentColor;
+
+  transition:
+    opacity .2s ease,
+    left .2s ease,
+    right .2s ease;
+}
+
+.social-icon-link:hover::after {
+  left: 23%;
+  right: 23%;
+
+  opacity: .65;
+}
+
+/* Light mode */
+
+html[data-theme="light"]
+.social-showcase {
+  border-color:
+    rgba(116,67,145,.19);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 15%,
+      rgba(145,94,175,.12),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #faf5fc,
+      #eee5f2
+    );
+}
+
+html[data-theme="light"]
+.social-icon-link {
+  color: #33283a;
+}
+
+html[data-theme="light"]
+.social-icon-x {
+  color: #8d50ce;
+}
+
+html[data-theme="light"]
+.social-icon-link:hover {
+  color: #247f79;
+
+  background:
+    rgba(118,231,220,.08);
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .social-showcase {
+    width: min(94vw, 500px);
+
+    margin-top: 1.35rem;
+  }
+
+  .social-icon-link {
+    min-height: 102px;
+  }
+
+  .social-icon-link svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 390px) {
+  .social-icon-link {
+    min-height: 86px;
+  }
+
+  .social-icon-link svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =========================================================
+   ENGINEERING STACK — DIAMOND / ICE TEAL THEME
+========================================================= */
+
+.skills-section .section-heading .eyebrow,
+.skills-section .section-heading .eyebrow span {
+  color: #76e7dc !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.22),
+    0 0 18px rgba(118,231,220,.08) !important;
+}
+
+.skills-section .section-heading {
+  border-color:
+    rgba(118,231,220,.14) !important;
+}
+
+.skills-section .section-heading h2 {
+  color: #eaffff !important;
+
+  text-shadow:
+    0 0 18px rgba(118,231,220,.06) !important;
+}
+
+.skills-section .section-description {
+  color: #88aaa6 !important;
+}
+
+/* Row numbering */
+.skills-section .skill-index {
+  color: #76e7dc !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.30) !important;
+}
+
+/* Stack category headings */
+.skills-section .skill-row h3 {
+  color: #bdfbf4 !important;
+
+  text-shadow:
+    0 0 9px rgba(118,231,220,.08) !important;
+}
+
+.skills-section .skill-row:hover h3 {
+  color: #e4fffc !important;
+
+  text-shadow:
+    0 0 13px rgba(118,231,220,.22) !important;
+}
+
+/* Description under each stack category */
+.skills-section .skill-row p {
+  color: #789b97 !important;
+}
+
+/* =========================================================
+   INDIVIDUAL STACK / TOOL CHIPS
+========================================================= */
+
+.skills-section .tag {
+  border-color:
+    rgba(118,231,220,.24) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.045),
+      rgba(118,231,220,.018)
+    ) !important;
+
+  color: #76e7dc !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 0 10px rgba(118,231,220,.025);
+
+  text-shadow:
+    0 0 7px rgba(118,231,220,.15) !important;
+}
+
+.skills-section .tag:hover {
+  color: #e6fffc !important;
+
+  border-color:
+    rgba(118,231,220,.58) !important;
+
+  background:
+    rgba(118,231,220,.095) !important;
+
+  box-shadow:
+    0 0 8px rgba(118,231,220,.12),
+    0 0 18px rgba(118,231,220,.07),
+    inset 0 0 12px rgba(118,231,220,.04) !important;
+
+  transform:
+    translateY(-1px);
+}
+
+/* =========================================================
+   STACK ROWS / SEPARATORS
+========================================================= */
+
+.skills-section .skills-list,
+.skills-section .skill-row {
+  border-color:
+    rgba(118,231,220,.10) !important;
+}
+
+.skills-section .skill-row::before {
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(118,231,220,.55),
+      transparent
+    ) !important;
+}
+
+.skills-section .skill-row:hover {
+  background:
+    rgba(118,231,220,.018) !important;
+
+  border-color:
+    rgba(118,231,220,.22) !important;
+
+  box-shadow:
+    inset 0 0 36px
+    rgba(118,231,220,.018) !important;
+}
+
+/* =========================================================
+   STACK BACKGROUND ACCENT
+========================================================= */
+
+.skills-section {
+  background:
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(118,231,220,.035),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 18% 82%,
+      rgba(190,255,248,.018),
+      transparent 26%
+    ) !important;
+}
+
+.skills-section::before {
+  background-image:
+    linear-gradient(
+      rgba(118,231,220,.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(118,231,220,.045) 1px,
+      transparent 1px
+    ) !important;
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+html[data-theme="light"]
+.skills-section .tag {
+  color: #247f79 !important;
+
+  border-color:
+    rgba(36,127,121,.24) !important;
+
+  background:
+    rgba(118,231,220,.08) !important;
+
+  text-shadow: none !important;
+}
+
+html[data-theme="light"]
+.skills-section .tag:hover {
+  color: #155f5a !important;
+
+  border-color:
+    rgba(36,127,121,.45) !important;
+
+  background:
+    rgba(118,231,220,.15) !important;
+}
+
+html[data-theme="light"]
+.skills-section .skill-index,
+html[data-theme="light"]
+.skills-section .skill-row h3,
+html[data-theme="light"]
+.skills-section .section-heading .eyebrow {
+  color: #247f79 !important;
+
+  text-shadow: none !important;
+}
+
+/* =========================================================
+   TOOLKIT STRIP — DIAMOND / ICE TEAL
+========================================================= */
+
+.toolkit-strip,
+.hero-toolkit-strip,
+.home-toolkit-strip,
+.toolkit-marquee,
+.toolkit-bar {
+  border-top: 1px solid rgba(118,231,220,.14) !important;
+  border-bottom: 1px solid rgba(118,231,220,.14) !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(118,231,220,.05),
+      transparent 58%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.02),
+      rgba(118,231,220,.012)
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.02),
+    0 0 18px rgba(118,231,220,.035) !important;
+}
+
+/* left label: THE TOOLKIT */
+.toolkit-strip__label,
+.hero-toolkit-strip__label,
+.home-toolkit-strip__label,
+.toolkit-marquee-label,
+.toolkit-bar-label {
+  color: #76e7dc !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.24),
+    0 0 16px rgba(118,231,220,.08) !important;
+}
+
+/* toolkit items */
+.toolkit-strip__item,
+.hero-toolkit-strip__item,
+.home-toolkit-strip__item,
+.toolkit-marquee-item,
+.toolkit-bar-item,
+.toolkit-strip a,
+.toolkit-strip span,
+.hero-toolkit-strip a,
+.hero-toolkit-strip span,
+.home-toolkit-strip a,
+.home-toolkit-strip span,
+.toolkit-marquee a,
+.toolkit-marquee span,
+.toolkit-bar a,
+.toolkit-bar span {
+  color: #bdfbf4 !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.16) !important;
+
+  transition:
+    color .2s ease,
+    text-shadow .2s ease,
+    transform .2s ease;
+}
+
+.toolkit-strip__item:hover,
+.hero-toolkit-strip__item:hover,
+.home-toolkit-strip__item:hover,
+.toolkit-marquee-item:hover,
+.toolkit-bar-item:hover,
+.toolkit-strip a:hover,
+.hero-toolkit-strip a:hover,
+.home-toolkit-strip a:hover,
+.toolkit-marquee a:hover,
+.toolkit-bar a:hover {
+  color: #eaffff !important;
+
+  text-shadow:
+    0 0 10px rgba(118,231,220,.34),
+    0 0 20px rgba(118,231,220,.14) !important;
+
+  transform: translateY(-1px);
+}
+
+/* light mode */
+html[data-theme="light"] .toolkit-strip,
+html[data-theme="light"] .hero-toolkit-strip,
+html[data-theme="light"] .home-toolkit-strip,
+html[data-theme="light"] .toolkit-marquee,
+html[data-theme="light"] .toolkit-bar {
+  border-top-color: rgba(36,127,121,.16) !important;
+  border-bottom-color: rgba(36,127,121,.16) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.08),
+      rgba(118,231,220,.04)
+    ) !important;
+}
+
+html[data-theme="light"] .toolkit-strip__label,
+html[data-theme="light"] .hero-toolkit-strip__label,
+html[data-theme="light"] .home-toolkit-strip__label,
+html[data-theme="light"] .toolkit-marquee-label,
+html[data-theme="light"] .toolkit-bar-label,
+html[data-theme="light"] .toolkit-strip__item,
+html[data-theme="light"] .hero-toolkit-strip__item,
+html[data-theme="light"] .home-toolkit-strip__item,
+html[data-theme="light"] .toolkit-marquee-item,
+html[data-theme="light"] .toolkit-bar-item,
+html[data-theme="light"] .toolkit-strip a,
+html[data-theme="light"] .toolkit-strip span,
+html[data-theme="light"] .hero-toolkit-strip a,
+html[data-theme="light"] .hero-toolkit-strip span,
+html[data-theme="light"] .home-toolkit-strip a,
+html[data-theme="light"] .home-toolkit-strip span,
+html[data-theme="light"] .toolkit-marquee a,
+html[data-theme="light"] .toolkit-marquee span,
+html[data-theme="light"] .toolkit-bar a,
+html[data-theme="light"] .toolkit-bar span {
+  color: #247f79 !important;
+  text-shadow: none !important;
+}
+
+
+/* =========================================================
+   THE TOOLKIT / STACK RIBBON — DIAMOND ICE TEAL
+========================================================= */
+
+.stack-ribbon {
+  border-top:
+    1px solid rgba(118,231,220,.16) !important;
+
+  border-bottom:
+    1px solid rgba(118,231,220,.16) !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(118,231,220,.055),
+      transparent 64%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.022),
+      rgba(118,231,220,.010)
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.022),
+    inset 0 -1px 0 rgba(118,231,220,.035),
+    0 0 22px rgba(118,231,220,.025) !important;
+}
+
+/* THE TOOLKIT label */
+.stack-ribbon > .container > span {
+  color: #76e7dc !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.28),
+    0 0 18px rgba(118,231,220,.10) !important;
+}
+
+/* AWS / Azure / Docker / Kubernetes / etc */
+.stack-ribbon > .container > div > span {
+  color: #bdfbf4 !important;
+
+  text-shadow:
+    0 0 7px rgba(118,231,220,.18) !important;
+
+  transition:
+    color .22s ease,
+    text-shadow .22s ease,
+    transform .22s ease !important;
+}
+
+.stack-ribbon > .container > div > span:hover {
+  color: #efffff !important;
+
+  text-shadow:
+    0 0 9px rgba(118,231,220,.42),
+    0 0 20px rgba(118,231,220,.18) !important;
+
+  transform:
+    translateY(-1px);
+}
+
+/* subtle illuminated separators / accents */
+.stack-ribbon .container {
+  border-color:
+    rgba(118,231,220,.08) !important;
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+html[data-theme="light"] .stack-ribbon {
+  border-color:
+    rgba(36,127,121,.18) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(118,231,220,.09),
+      rgba(118,231,220,.045)
+    ) !important;
+}
+
+html[data-theme="light"]
+.stack-ribbon > .container > span {
+  color: #247f79 !important;
+
+  text-shadow: none !important;
+}
+
+html[data-theme="light"]
+.stack-ribbon > .container > div > span {
+  color: #2f817c !important;
+
+  text-shadow: none !important;
+}
+
+html[data-theme="light"]
+.stack-ribbon > .container > div > span:hover {
+  color: #155f5a !important;
+}

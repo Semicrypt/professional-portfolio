@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local deployment metadata / secrets
+.vercel/
+.env.local
+.env*.local
+
+# Terraform runtime files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log

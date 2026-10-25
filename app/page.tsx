@@ -1,3 +1,4 @@
+import { SocialShowcase } from "./components/social-showcase";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -876,23 +877,23 @@ function TechnologyAnimation() {
         ------------------------------------------------------- */
 
         .stack-ribbon {
-          border-color: rgba(57,255,20,.11) !important;
+          border-color: rgba(118,231,220,.11) !important;
           background:
-            linear-gradient(180deg, rgba(57,255,20,.012), rgba(57,255,20,.006)),
+            linear-gradient(180deg, rgba(118,231,220,.012), rgba(118,231,220,.006)),
             rgba(5,10,14,.96) !important;
           box-shadow:
-            inset 0 1px 0 rgba(57,255,20,.025),
-            inset 0 -1px 0 rgba(57,255,20,.025);
+            inset 0 1px 0 rgba(118,231,220,.025),
+            inset 0 -1px 0 rgba(118,231,220,.025);
         }
 
         .stack-ribbon > .container > span {
-          color: #39ff14 !important;
-          text-shadow: 0 0 10px rgba(57,255,20,.17);
+          color: #76e7dc !important;
+          text-shadow: 0 0 10px rgba(118,231,220,.17);
         }
 
         .stack-ribbon > .container > div > span {
-          color: #8cff8c !important;
-          text-shadow: 0 0 8px rgba(57,255,20,.07);
+          color: #bdfbf4 !important;
+          text-shadow: 0 0 8px rgba(118,231,220,.07);
           transition:
             color .22s ease,
             text-shadow .22s ease,
@@ -900,8 +901,8 @@ function TechnologyAnimation() {
         }
 
         .stack-ribbon > .container > div > span:hover {
-          color: #caffca !important;
-          text-shadow: 0 0 14px rgba(57,255,20,.18);
+          color: #eaffff !important;
+          text-shadow: 0 0 14px rgba(118,231,220,.18);
           transform: translateY(-1px);
         }
 
@@ -2057,22 +2058,7 @@ export default function Home() {
               Start a conversation <Icon name="arrow" />
             </a>
 
-            <a
-              className="contact-email"
-              href={email}
-            >
-              nifeanyidivine@gmail.com ↗
-            </a>
-
-            <div className="contact-links">
-              <a href={github} target="_blank" rel="noreferrer">
-                GitHub ↗
-              </a>
-
-              <a href={linkedin} target="_blank" rel="noreferrer">
-                LinkedIn ↗
-              </a>
-            </div>
+            <SocialShowcase />
           </div>
         </section>
       </main>
