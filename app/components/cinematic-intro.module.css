@@ -2003,3 +2003,115 @@
     margin-top: .4rem !important;
   }
 }
+
+/* =========================================================
+   MOBILE CINEMATIC POSITION FIX
+   Move scene upward and account for mobile browser chrome
+========================================================= */
+
+@media (max-width: 800px) {
+  .root {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  .stage {
+    position: relative;
+
+    width: calc(100% - 1.2rem);
+
+    height: calc(100dvh - 125px);
+
+    margin-top: 0;
+  }
+
+  /* Main title / description / terminal */
+  .centerStage {
+    top: 42% !important;
+
+    transform:
+      translateY(-50%) !important;
+  }
+
+  /* Keep the command terminal closer to the title */
+  .commandWindow {
+    margin-top: .9rem;
+  }
+
+  /* Move operator/system dialogue upward */
+  .dialogue {
+    bottom:
+      calc(
+        env(safe-area-inset-bottom, 0px)
+        + 11vh
+      ) !important;
+
+    width:
+      min(
+        92vw,
+        620px
+      );
+  }
+
+  /* Progress line stays above mobile browser UI */
+  .progress {
+    bottom:
+      calc(
+        env(safe-area-inset-bottom, 0px)
+        + 3.8vh
+      ) !important;
+  }
+}
+
+/* iPhone / narrow phone refinement */
+@media (max-width: 480px) {
+  .centerStage {
+    top: 39% !important;
+  }
+
+  .centerStage h1 {
+    font-size:
+      clamp(
+        2.15rem,
+        12vw,
+        3.55rem
+      );
+  }
+
+  .detail {
+    margin-top: .7rem;
+
+    line-height: 1.55;
+  }
+
+  .commandWindow {
+    margin-top: .75rem;
+  }
+
+  .dialogue {
+    bottom:
+      calc(
+        env(safe-area-inset-bottom, 0px)
+        + 13vh
+      ) !important;
+  }
+}
+
+/* Short mobile screens such as browser webviews */
+@media (max-width: 480px) and (max-height: 760px) {
+  .centerStage {
+    top: 36% !important;
+  }
+
+  .commandWindow {
+    margin-top: .55rem;
+  }
+
+  .dialogue {
+    bottom:
+      calc(
+        env(safe-area-inset-bottom, 0px)
+        + 15vh
+      ) !important;
+  }
+}
