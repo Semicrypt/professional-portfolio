@@ -1792,44 +1792,154 @@ export default function Home() {
           </div>
 
           {/* ==================================================
-              DEVELOPER TOOLING
+              ICEMAN — DEVELOPER TOOLING SHOWCASE
           =================================================== */}
 
-          <div className="project-tooling">
-            <div className="project-tooling-copy">
-              <span>
-                DEVELOPER TOOLING // ACTIVE BUILD
-              </span>
+          <article className="project-showcase-card iceman-showcase-card">
+            <div className="iceman-showcase-media">
 
-              <h3>
-                Iceman
-              </h3>
+              <figure className="iceman-shot iceman-shot-main">
+                <img
+                  src="/projects/iceman/iceman-main.png"
+                  alt="Iceman interactive DevOps CLI"
+                />
 
-              <p>
-                A safety-first Cloud &amp; DevOps CLI for inspection,
-                diagnostics, approval-gated execution, and operational
-                automation across Linux, Docker, Kubernetes, Terraform,
-                Git, and cloud workflows.
+                <figcaption>
+                  Interactive operations CLI
+                </figcaption>
+              </figure>
+
+              <figure className="iceman-shot">
+                <img
+                  src="/projects/iceman/iceman-doctor.png"
+                  alt="Iceman doctor and inspection workflow"
+                />
+
+                <figcaption>
+                  Doctor + inspection
+                </figcaption>
+              </figure>
+
+              <figure className="iceman-shot">
+                <img
+                  src="/projects/iceman/iceman-safety.png"
+                  alt="Iceman safety-first execution workflow"
+                />
+
+                <figcaption>
+                  Safety-first execution
+                </figcaption>
+              </figure>
+
+              <figure className="iceman-shot">
+                <img
+                  src="/projects/iceman/iceman-interactive.png"
+                  alt="Iceman engineering capabilities"
+                />
+
+                <figcaption>
+                  Engineering capabilities
+                </figcaption>
+              </figure>
+
+              <div className="project-media-top">
+                <span>05</span>
+                <strong>DEVOPS OPERATOR TOOLING</strong>
+              </div>
+
+              <div className="project-live-status iceman-build-status">
+                <i />
+                ACTIVE BUILD
+              </div>
+            </div>
+
+            <div className="project-showcase-body">
+              <div className="project-showcase-heading">
+                <div>
+                  <span className="project-category">
+                    CLI · CLOUD · DEVOPS AUTOMATION
+                  </span>
+
+                  <h3>Agent Iceman</h3>
+                </div>
+
+                <span className="project-state">
+                  v0.12
+                </span>
+              </div>
+
+              <p className="project-summary">
+                A safety-first Cloud and DevOps CLI assistant designed around
+                inspection, diagnosis, command previews, approval-gated
+                execution, and visible operational evidence. Iceman turns
+                natural-language engineering intent into reviewable,
+                operator-controlled workflows.
               </p>
-            </div>
 
-            <div className="project-tooling-actions">
-              <Link
-                href="/projects/iceman"
-              >
-                View Iceman Case Study →
-              </Link>
+              <Tags
+                items={[
+                  "Python",
+                  "Linux",
+                  "Docker",
+                  "Kubernetes",
+                  "Terraform",
+                  "AWS",
+                  "Git / GitHub",
+                ]}
+              />
 
-              <a
-                href="https://github.com/Semicrypt/iceman-agent"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub ↗
-              </a>
+              <div className="project-evidence iceman-evidence">
+                <span>
+                  <b>01</b>
+                  Repository inspection
+                </span>
+
+                <span>
+                  <b>02</b>
+                  Diagnostics
+                </span>
+
+                <span>
+                  <b>03</b>
+                  Approval gates
+                </span>
+
+                <span>
+                  <b>04</b>
+                  Command previews
+                </span>
+              </div>
+
+              <div className="project-actions iceman-actions">
+                <Link
+                  className="project-action project-action-live"
+                  href="/projects/iceman"
+                >
+                  Explore Case Study →
+                </Link>
+
+                <a
+                  className="project-action"
+                  href="https://github.com/Semicrypt/iceman-agent"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub ↗
+                </a>
+
+                <a
+                  className="project-action"
+                  href="https://github.com/Semicrypt/iceman-agent/releases/tag/v0.12.0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Release v0.12.0 ↗
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
+          </article>
+
+</section>
 
 <section id="skills" className="section skills-section">
           <div className="container">
