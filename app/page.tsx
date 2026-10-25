@@ -1325,1659 +1325,346 @@ export default function Home() {
           </div>
         </div>
 
-        <section
+                <section
           id="projects"
-          className="section container engineering-projects"
+          className="section container project-showcase"
         >
-          <style>{`
-            /* =====================================================
-               ENGINEERING PROJECTS — PROFESSIONAL PROJECT SYSTEM
-            ===================================================== */
-
-            .engineering-projects {
-              --projects-green: #39ff14;
-              --projects-green-soft: #8cff8c;
-              --projects-green-bright: #caffca;
-              --projects-muted: #76947b;
-              --projects-border: rgba(57,255,20,.12);
-              --projects-panel: rgba(7,12,9,.72);
-
-              position: relative;
-            }
-
-            .engineering-projects .section-heading {
-              margin-bottom: 2rem;
-            }
-
-            .engineering-projects .section-heading .eyebrow,
-            .engineering-projects .section-heading .eyebrow span {
-              color: var(--projects-green) !important;
-            }
-
-            .engineering-projects .section-heading h2 {
-              max-width: 900px;
-            }
-
-            /* -----------------------------------------------------
-               QUICK ORIENTATION STRIP
-            ----------------------------------------------------- */
-
-            .project-focus-strip {
-              display: grid;
-              grid-template-columns: repeat(4, 1fr);
-
-              margin-bottom: 1.1rem;
-
-              overflow: hidden;
-
-              border: 1px solid var(--projects-border);
-              border-radius: 17px;
-
-              background:
-                linear-gradient(
-                  180deg,
-                  rgba(57,255,20,.018),
-                  rgba(57,255,20,.006)
-                );
-            }
-
-            .project-focus-item {
-              padding: .9rem 1rem;
-
-              border-right:
-                1px solid var(--projects-border);
-            }
-
-            .project-focus-item:last-child {
-              border-right: 0;
-            }
-
-            .project-focus-item span,
-            .project-focus-item strong {
-              display: block;
-            }
-
-            .project-focus-item span {
-              margin-bottom: .35rem;
-
-              color: #4f7254;
-
-              font-family:
-                ui-monospace,
-                SFMono-Regular,
-                Menlo,
-                monospace;
-
-              font-size: .52rem;
-              font-weight: 700;
-
-              letter-spacing: .15em;
-
-              text-transform: uppercase;
-            }
-
-            .project-focus-item strong {
-              color: #a6d5aa;
-
-              font-size: .72rem;
-              font-weight: 600;
-            }
-
-            /* -----------------------------------------------------
-               FEATURED PROJECTS
-            ----------------------------------------------------- */
-
-            .engineering-showcase {
-              position: relative;
-
-              display: grid;
-              grid-template-columns:
-                minmax(0, 1.05fr)
-                minmax(320px, .95fr);
-
-              min-height: 470px;
-
-              margin-top: 1.1rem;
-
-              overflow: hidden;
-
-              border:
-                1px solid var(--projects-border);
-
-              border-radius: 26px;
-
-              background:
-                radial-gradient(
-                  circle at 80% 15%,
-                  rgba(57,255,20,.045),
-                  transparent 34%
-                ),
-                linear-gradient(
-                  145deg,
-                  rgba(9,15,11,.96),
-                  rgba(4,8,6,.98)
-                );
-
-              box-shadow:
-                inset 0 1px 0
-                rgba(255,255,255,.025),
-                0 20px 60px
-                rgba(0,0,0,.19);
-
-              transition:
-                border-color .25s ease,
-                box-shadow .25s ease,
-                transform .25s ease;
-            }
-
-            .engineering-showcase:hover {
-              border-color:
-                rgba(57,255,20,.23);
-
-              box-shadow:
-                inset 0 1px 0
-                rgba(255,255,255,.025),
-                0 25px 70px
-                rgba(0,0,0,.26),
-                0 0 28px
-                rgba(57,255,20,.025);
-
-              transform: translateY(-2px);
-            }
-
-            .engineering-showcase-copy {
-              position: relative;
-
-              z-index: 2;
-
-              display: flex;
-              flex-direction: column;
-
-              justify-content: center;
-
-              padding:
-                clamp(1.5rem, 3vw, 2.5rem);
-            }
-
-            .engineering-project-meta {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-
-              gap: 1rem;
-
-              margin-bottom: 1.25rem;
-
-              color: #5c8d62;
-
-              font-family:
-                ui-monospace,
-                SFMono-Regular,
-                Menlo,
-                monospace;
-
-              font-size: .56rem;
-              font-weight: 700;
-
-              letter-spacing: .14em;
-
-              text-transform: uppercase;
-            }
-
-            .engineering-project-state {
-              display: inline-flex;
-              align-items: center;
-
-              gap: .42rem;
-
-              white-space: nowrap;
-
-              color: #8ed994;
-            }
-
-            .engineering-project-state i {
-              width: 6px;
-              height: 6px;
-
-              border-radius: 50%;
-
-              background:
-                var(--projects-green);
-
-              box-shadow:
-                0 0 8px
-                rgba(57,255,20,.48);
-            }
-
-            .engineering-project-title {
-              margin: 0;
-
-              color: #f2fff3;
-
-              font-size:
-                clamp(2.3rem, 5vw, 4.6rem);
-
-              line-height: .97;
-
-              letter-spacing: -.055em;
-            }
-
-            .engineering-project-subtitle {
-              max-width: 650px;
-
-              margin:
-                .9rem 0 0;
-
-              color: var(--projects-green-soft);
-
-              font-size:
-                clamp(.92rem, 1.4vw, 1.1rem);
-
-              font-weight: 600;
-
-              line-height: 1.45;
-            }
-
-            .engineering-project-description {
-              max-width: 660px;
-
-              margin:
-                1.2rem 0 0;
-
-              color: #829787;
-
-              font-size: .91rem;
-
-              line-height: 1.75;
-            }
-
-            .engineering-projects .engineering-showcase .tags {
-              margin-top: 1.25rem;
-            }
-
-            .engineering-projects .engineering-showcase .tag {
-              border-color:
-                rgba(57,255,20,.15);
-
-              background:
-                rgba(57,255,20,.025);
-
-              color: #82c987;
-            }
-
-            /* -----------------------------------------------------
-               ACTIONS
-            ----------------------------------------------------- */
-
-            .engineering-project-actions {
-              display: flex;
-              align-items: center;
-              flex-wrap: wrap;
-
-              gap: .65rem;
-
-              margin-top: 1.55rem;
-            }
-
-            .engineering-action-primary,
-            .engineering-action-secondary {
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-
-              gap: .5rem;
-
-              min-height: 42px;
-
-              padding:
-                .66rem .9rem;
-
-              border-radius: 10px;
-
-              font-size: .72rem;
-              font-weight: 700;
-
-              text-decoration: none;
-
-              transition:
-                color .2s ease,
-                border-color .2s ease,
-                background-color .2s ease,
-                transform .2s ease,
-                box-shadow .2s ease;
-            }
-
-            .engineering-action-primary {
-              border:
-                1px solid
-                rgba(57,255,20,.35);
-
-              background:
-                rgba(57,255,20,.075);
-
-              color:
-                var(--projects-green-bright);
-            }
-
-            .engineering-action-secondary {
-              border:
-                1px solid
-                rgba(255,255,255,.09);
-
-              background:
-                rgba(255,255,255,.018);
-
-              color: #8da292;
-            }
-
-            .engineering-action-primary:hover {
-              border-color:
-                rgba(57,255,20,.62);
-
-              background:
-                rgba(57,255,20,.12);
-
-              box-shadow:
-                0 0 18px
-                rgba(57,255,20,.07);
-
-              transform:
-                translateY(-1px);
-            }
-
-            .engineering-action-secondary:hover {
-              border-color:
-                rgba(57,255,20,.22);
-
-              color:
-                var(--projects-green-soft);
-
-              transform:
-                translateY(-1px);
-            }
-
-            /* -----------------------------------------------------
-               VISUAL SIDE
-            ----------------------------------------------------- */
-
-            .engineering-showcase-visual {
-              position: relative;
-
-              display: grid;
-              place-items: center;
-
-              min-height: 430px;
-
-              overflow: hidden;
-
-              border-left:
-                1px solid
-                var(--projects-border);
-
-              background:
-                linear-gradient(
-                  180deg,
-                  rgba(57,255,20,.01),
-                  rgba(0,0,0,.08)
-                );
-            }
-
-            .engineering-showcase-visual::before {
-              content: "";
-
-              position: absolute;
-
-              inset: 0;
-
-              opacity: .17;
-
-              background-image:
-                linear-gradient(
-                  rgba(57,255,20,.055)
-                  1px,
-                  transparent 1px
-                ),
-                linear-gradient(
-                  90deg,
-                  rgba(57,255,20,.055)
-                  1px,
-                  transparent 1px
-                );
-
-              background-size:
-                42px 42px;
-            }
-
-            .engineering-showcase-visual > * {
-              position: relative;
-              z-index: 1;
-            }
-
-            .engineering-proof {
-              position: absolute !important;
-
-              left: 1rem;
-              right: 1rem;
-              bottom: 1rem;
-
-              display: grid;
-              grid-template-columns:
-                repeat(3, 1fr);
-
-              gap: .45rem;
-            }
-
-            .engineering-proof span {
-              padding: .58rem;
-
-              border:
-                1px solid
-                rgba(57,255,20,.10);
-
-              border-radius: 9px;
-
-              background:
-                rgba(3,8,5,.78);
-
-              color: #629469;
-
-              font-family:
-                ui-monospace,
-                SFMono-Regular,
-                Menlo,
-                monospace;
-
-              font-size: .46rem;
-              font-weight: 700;
-
-              letter-spacing: .08em;
-
-              text-align: center;
-              text-transform: uppercase;
-            }
-
-            /* -----------------------------------------------------
-               SECONDARY PROJECT GRID
-            ----------------------------------------------------- */
-
-            .engineering-project-grid {
-              display: grid;
-
-              grid-template-columns:
-                repeat(2, minmax(0,1fr));
-
-              gap: 1rem;
-
-              margin-top: 1rem;
-            }
-
-            .engineering-project-card {
-              position: relative;
-
-              overflow: hidden;
-
-              border:
-                1px solid
-                var(--projects-border);
-
-              border-radius: 21px;
-
-              background:
-                linear-gradient(
-                  160deg,
-                  rgba(8,14,10,.95),
-                  rgba(4,8,6,.98)
-                );
-
-              transition:
-                transform .25s ease,
-                border-color .25s ease,
-                box-shadow .25s ease;
-            }
-
-            .engineering-project-card:hover {
-              transform:
-                translateY(-3px);
-
-              border-color:
-                rgba(57,255,20,.22);
-
-              box-shadow:
-                0 20px 55px
-                rgba(0,0,0,.22);
-            }
-
-            .engineering-card-visual {
-              position: relative;
-
-              display: grid;
-              place-items: center;
-
-              min-height: 210px;
-
-              overflow: hidden;
-
-              border-bottom:
-                1px solid
-                var(--projects-border);
-
-              background:
-                radial-gradient(
-                  circle at 50% 50%,
-                  rgba(57,255,20,.035),
-                  transparent 55%
-                );
-            }
-
-            .engineering-card-body {
-              padding:
-                1.35rem;
-            }
-
-            .engineering-card-label {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-
-              margin-bottom:
-                .85rem;
-
-              color: #5b8c61;
-
-              font-family:
-                ui-monospace,
-                SFMono-Regular,
-                Menlo,
-                monospace;
-
-              font-size: .51rem;
-              font-weight: 700;
-
-              letter-spacing: .13em;
-
-              text-transform: uppercase;
-            }
-
-            .engineering-card-body h3 {
-              margin: 0;
-
-              color: #edffef;
-
-              font-size:
-                clamp(1.55rem, 3vw, 2.2rem);
-
-              letter-spacing:
-                -.035em;
-            }
-
-            .engineering-card-purpose {
-              margin:
-                .48rem 0 0;
-
-              color:
-                var(--projects-green-soft);
-
-              font-size: .76rem;
-              font-weight: 600;
-
-              line-height: 1.5;
-            }
-
-            .engineering-card-description {
-              margin:
-                .85rem 0 0;
-
-              color:
-                #7b9080;
-
-              font-size: .79rem;
-
-              line-height: 1.68;
-            }
-
-            .engineering-card-body .tags {
-              margin-top: 1rem;
-            }
-
-            .engineering-card-body .tag {
-              border-color:
-                rgba(57,255,20,.13);
-
-              color:
-                #7ec784;
-            }
-
-            /* -----------------------------------------------------
-               SUPPORTING PRACTICE
-            ----------------------------------------------------- */
-
-            .engineering-practice {
-              margin-top: 2.2rem;
-
-              padding-top: 1.4rem;
-
-              border-top:
-                1px solid
-                var(--projects-border);
-            }
-
-            .engineering-practice-heading {
-              display: flex;
-              align-items: end;
-              justify-content: space-between;
-
-              gap: 1rem;
-
-              margin-bottom: .9rem;
-            }
-
-            .engineering-practice-heading h3 {
-              margin: .3rem 0 0;
-
-              color: #d8edda;
-
-              font-size: 1rem;
-            }
-
-            .engineering-practice-heading > span {
-              color: #58745c;
-
-              font-size: .7rem;
-            }
-
-            .engineering-practice-grid {
-              display: grid;
-              grid-template-columns:
-                repeat(3, 1fr);
-
-              gap: .7rem;
-            }
-
-            .engineering-practice-card {
-              min-height: 145px;
-
-              padding: 1rem;
-
-              border:
-                1px solid
-                rgba(57,255,20,.095);
-
-              border-radius: 14px;
-
-              background:
-                rgba(57,255,20,.012);
-
-              color: inherit;
-
-              text-decoration: none;
-
-              transition:
-                border-color .2s ease,
-                background-color .2s ease,
-                transform .2s ease;
-            }
-
-            .engineering-practice-card:hover {
-              border-color:
-                rgba(57,255,20,.22);
-
-              background:
-                rgba(57,255,20,.028);
-
-              transform:
-                translateY(-2px);
-            }
-
-            .engineering-practice-card svg {
-              color: var(--projects-green);
-            }
-
-            .engineering-practice-card h4 {
-              margin:
-                .8rem 0 .4rem;
-
-              color: #bdddc0;
-
-              font-size: .82rem;
-            }
-
-            .engineering-practice-card p {
-              margin: 0;
-
-              color: #69806d;
-
-              font-size: .69rem;
-
-              line-height: 1.6;
-            }
-
-            .engineering-practice-card span {
-              display: block;
-
-              margin-top:
-                .8rem;
-
-              color: #79c67f;
-
-              font-size: .64rem;
-              font-weight: 700;
-            }
-
-            /* -----------------------------------------------------
-               MOBILE
-            ----------------------------------------------------- */
-
-            @media (max-width: 900px) {
-              .project-focus-strip {
-                grid-template-columns:
-                  repeat(2, 1fr);
-              }
-
-              .project-focus-item:nth-child(2) {
-                border-right: 0;
-              }
-
-              .project-focus-item:nth-child(-n+2) {
-                border-bottom:
-                  1px solid
-                  var(--projects-border);
-              }
-
-              .engineering-showcase {
-                grid-template-columns: 1fr;
-              }
-
-              .engineering-showcase-visual {
-                min-height: 330px;
-
-                border-left: 0;
-
-                border-top:
-                  1px solid
-                  var(--projects-border);
-              }
-            }
-
-            @media (max-width: 680px) {
-              .engineering-projects .section-heading {
-                margin-bottom: 1.35rem;
-              }
-
-              .project-focus-strip {
-                border-radius: 13px;
-              }
-
-              .project-focus-item {
-                padding: .72rem;
-              }
-
-              .project-focus-item span {
-                font-size: .43rem;
-              }
-
-              .project-focus-item strong {
-                font-size: .62rem;
-              }
-
-              .engineering-showcase {
-                min-height: auto;
-
-                border-radius: 18px;
-              }
-
-              .engineering-showcase-copy {
-                padding: 1.15rem;
-              }
-
-              .engineering-project-meta {
-                align-items: flex-start;
-
-                font-size: .46rem;
-              }
-
-              .engineering-project-title {
-                font-size:
-                  clamp(2rem, 12vw, 3.25rem);
-              }
-
-              .engineering-project-subtitle {
-                font-size: .82rem;
-              }
-
-              .engineering-project-description {
-                font-size: .76rem;
-              }
-
-              .engineering-project-actions {
-                display: grid;
-
-                grid-template-columns:
-                  1fr 1fr;
-
-                width: 100%;
-              }
-
-              .engineering-action-primary,
-              .engineering-action-secondary {
-                min-height: 40px;
-
-                padding: .55rem .5rem;
-
-                font-size: .62rem;
-              }
-
-              .engineering-showcase-visual {
-                min-height: 275px;
-              }
-
-              .engineering-proof {
-                left: .65rem;
-                right: .65rem;
-                bottom: .65rem;
-
-                gap: .3rem;
-              }
-
-              .engineering-proof span {
-                padding: .45rem .25rem;
-
-                font-size: .37rem;
-              }
-
-              .engineering-project-grid {
-                grid-template-columns: 1fr;
-              }
-
-              .engineering-project-card {
-                border-radius: 17px;
-              }
-
-              .engineering-card-visual {
-                min-height: 180px;
-              }
-
-              .engineering-card-body {
-                padding: 1.05rem;
-              }
-
-              .engineering-practice-heading {
-                display: block;
-              }
-
-              .engineering-practice-heading > span {
-                display: block;
-
-                margin-top: .35rem;
-              }
-
-              .engineering-practice-grid {
-                grid-template-columns: 1fr;
-              }
-
-              .engineering-practice-card {
-                min-height: auto;
-              }
-            }
-          
-
-            /* =====================================================
-               PROJECT CLARITY LAYER
-               Brighter surfaces / clearer hierarchy
-            ===================================================== */
-
-            .engineering-projects {
-              --projects-border: rgba(123, 255, 111, .22);
-              --projects-muted: #a8b9aa;
-            }
-
-            .project-focus-strip {
-              border-color: rgba(123, 255, 111, .20);
-
-              background:
-                linear-gradient(
-                  145deg,
-                  #172019,
-                  #111813
-                );
-
-              box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.035),
-                0 12px 30px rgba(0,0,0,.16);
-            }
-
-            .project-focus-item span {
-              color: #7fa985;
-            }
-
-            .project-focus-item strong {
-              color: #e0eee1;
-            }
-
-            .engineering-showcase {
-              border-color:
-                rgba(123,255,111,.20);
-
-              background:
-                radial-gradient(
-                  circle at 82% 12%,
-                  rgba(57,255,20,.08),
-                  transparent 34%
-                ),
-                linear-gradient(
-                  145deg,
-                  #1a251d,
-                  #121a15 62%,
-                  #101713
-                );
-
-              box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.045),
-                0 20px 55px rgba(0,0,0,.22);
-            }
-
-            .engineering-showcase-copy {
-              background:
-                linear-gradient(
-                  90deg,
-                  rgba(255,255,255,.018),
-                  transparent
-                );
-            }
-
-            .engineering-project-meta {
-              color: #87b88d;
-            }
-
-            .engineering-project-title {
-              color: #f7fff7;
-
-              text-shadow:
-                0 1px 0 rgba(255,255,255,.04);
-            }
-
-            .engineering-project-subtitle {
-              color: #a7ffa3;
-            }
-
-            .engineering-project-description {
-              color: #b5c4b7;
-
-              font-size: .94rem;
-            }
-
-            .engineering-showcase-visual {
-              border-left-color:
-                rgba(123,255,111,.18);
-
-              background:
-                radial-gradient(
-                  circle at center,
-                  rgba(57,255,20,.07),
-                  transparent 58%
-                ),
-                linear-gradient(
-                  145deg,
-                  #18231b,
-                  #101813
-                );
-            }
-
-            .engineering-showcase-visual::after {
-              content: "";
-
-              position: absolute;
-
-              inset: 1rem;
-
-              z-index: 0;
-
-              border:
-                1px solid rgba(137,255,127,.10);
-
-              border-radius: 18px;
-
-              pointer-events: none;
-            }
-
-            .engineering-proof span {
-              border-color:
-                rgba(123,255,111,.18);
-
-              background:
-                rgba(18,30,21,.92);
-
-              color: #9bd6a1;
-            }
-
-            .engineering-project-card {
-              border-color:
-                rgba(123,255,111,.18);
-
-              background:
-                linear-gradient(
-                  155deg,
-                  #1a241d,
-                  #121a15
-                );
-
-              box-shadow:
-                inset 0 1px 0 rgba(255,255,255,.035),
-                0 16px 42px rgba(0,0,0,.15);
-            }
-
-            .engineering-card-visual {
-              border-bottom-color:
-                rgba(123,255,111,.16);
-
-              background:
-                radial-gradient(
-                  circle at 50% 45%,
-                  rgba(57,255,20,.075),
-                  transparent 54%
-                ),
-                #172119;
-            }
-
-            .engineering-card-body h3 {
-              color: #f7fff7;
-            }
-
-            .engineering-card-purpose {
-              color: #a5f4a4;
-            }
-
-            .engineering-card-description {
-              color: #b1c0b3;
-
-              font-size: .82rem;
-            }
-
-            .engineering-card-label {
-              color: #86ad8a;
-            }
-
-            .engineering-action-primary {
-              background:
-                rgba(57,255,20,.12);
-
-              border-color:
-                rgba(57,255,20,.42);
-
-              color: #dcffda;
-            }
-
-            .engineering-action-secondary {
-              background:
-                rgba(255,255,255,.035);
-
-              border-color:
-                rgba(255,255,255,.13);
-
-              color: #c0cbc2;
-            }
-
-            .engineering-practice {
-              border-top-color:
-                rgba(123,255,111,.18);
-            }
-
-            .engineering-practice-card {
-              border-color:
-                rgba(123,255,111,.14);
-
-              background:
-                linear-gradient(
-                  145deg,
-                  #18211b,
-                  #121914
-                );
-            }
-
-            .engineering-practice-card h4 {
-              color: #e6f4e7;
-            }
-
-            .engineering-practice-card p {
-              color: #a5b4a7;
-            }
-
-
-
-            /* =====================================================
-               RUBICON DEPLOYMENT VISUAL
-            ===================================================== */
-
-            .rubicon-visual {
-              padding:
-                2rem 2rem 5rem;
-            }
-
-            .rubicon-deploy-map {
-              position: relative;
-
-              z-index: 2;
-
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-
-              width: min(390px, 90%);
-
-              gap: .55rem;
-            }
-
-            .rubicon-node,
-            .rubicon-service {
-              width: 100%;
-
-              border:
-                1px solid
-                rgba(123,255,111,.18);
-
-              border-radius: 13px;
-
-              background:
-                linear-gradient(
-                  145deg,
-                  rgba(29,43,32,.96),
-                  rgba(16,25,19,.98)
-                );
-
-              box-shadow:
-                inset 0 1px 0
-                rgba(255,255,255,.035),
-                0 10px 26px
-                rgba(0,0,0,.18);
-            }
-
-            .rubicon-node {
-              padding:
-                .82rem 1rem;
-
-              text-align: center;
-            }
-
-            .rubicon-node span,
-            .rubicon-service span {
-              display: block;
-
-              color: #67946c;
-
-              font-family:
-                ui-monospace,
-                SFMono-Regular,
-                Menlo,
-                monospace;
-
-              font-size: .42rem;
-              font-weight: 700;
-
-              letter-spacing: .14em;
-            }
-
-            .rubicon-node strong,
-            .rubicon-service strong {
-              display: block;
-
-              margin-top: .22rem;
-
-              color: #edffef;
-
-              font-size: .82rem;
-            }
-
-            .rubicon-node small,
-            .rubicon-service small {
-              display: block;
-
-              margin-top: .18rem;
-
-              color: #8fa993;
-
-              font-size: .54rem;
-            }
-
-            .rubicon-node-public {
-              border-color:
-                rgba(57,255,20,.35);
-
-              box-shadow:
-                inset 0 1px 0
-                rgba(255,255,255,.035),
-                0 0 24px
-                rgba(57,255,20,.05);
-            }
-
-            .rubicon-connection {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-
-              height: 31px;
-            }
-
-            .rubicon-connection span {
-              color: #5f8d65;
-
-              font-family:
-                ui-monospace,
-                monospace;
-
-              font-size: .38rem;
-              font-weight: 700;
-
-              letter-spacing: .12em;
-            }
-
-            .rubicon-connection i {
-              width: 1px;
-              flex: 1;
-
-              margin-top: 3px;
-
-              background:
-                linear-gradient(
-                  #39ff14,
-                  rgba(57,255,20,.15)
-                );
-
-              box-shadow:
-                0 0 8px
-                rgba(57,255,20,.22);
-            }
-
-            .rubicon-service-grid {
-              display: grid;
-
-              grid-template-columns:
-                repeat(2, 1fr);
-
-              gap: .55rem;
-
-              width: 100%;
-            }
-
-            .rubicon-service {
-              padding:
-                .72rem;
-
-              text-align: center;
-            }
-
-            .rubicon-node-data {
-              margin-top: .08rem;
-            }
-
-            @media (max-width: 680px) {
-              .rubicon-visual {
-                padding:
-                  1.3rem 1rem 4.4rem;
-              }
-
-              .rubicon-deploy-map {
-                width: 94%;
-              }
-
-              .rubicon-service-grid {
-                gap: .4rem;
-              }
-
-              .rubicon-node strong,
-              .rubicon-service strong {
-                font-size: .72rem;
-              }
-            }
-
-`}</style>
-
           <SectionHeading
             number="01"
             label="ENGINEERING PROJECTS"
-            title="Systems I’ve designed, automated, and operated."
-            description="Real engineering work across cloud infrastructure, automation, containers, observability, storage, CI/CD, and operational tooling."
+            title="Built. Deployed. Running."
+            description="Selected Cloud and DevOps systems with real interfaces, deployment evidence, source code, and live environments."
           />
 
-          <div
-            className="project-focus-strip"
-            aria-label="Project focus areas"
-          >
-            <div className="project-focus-item">
-              <span>Cloud</span>
-              <strong>AWS + Azure</strong>
+          <div className="project-proof-intro">
+            <div>
+              <span className="project-proof-dot" />
+              LIVE ENGINEERING WORK
             </div>
 
-            <div className="project-focus-item">
-              <span>Infrastructure</span>
-              <strong>Terraform + Kubernetes</strong>
-            </div>
-
-            <div className="project-focus-item">
-              <span>Delivery</span>
-              <strong>Docker + GitHub Actions</strong>
-            </div>
-
-            <div className="project-focus-item">
-              <span>Operations</span>
-              <strong>Monitoring + Incident Workflows</strong>
-            </div>
+            <p>
+              No mockups. These projects were built, deployed, tested,
+              debugged, and operated.
+            </p>
           </div>
 
-          {/* =====================================================
-              MINERVA SENTINEL
-          ====================================================== */}
+          <div className="project-showcase-grid">
 
-          <article className="engineering-showcase">
-            <div className="engineering-showcase-copy">
-              <div className="engineering-project-meta">
-                <span>01 / HYBRID CLOUD OBSERVABILITY</span>
+            {/* ==================================================
+                MINERVA SENTINEL
+            =================================================== */}
 
-                <span className="engineering-project-state">
-                  <i />
-                  Flagship system
-                </span>
-              </div>
+            <article className="project-showcase-card">
+              <div className="project-media">
+                <video
+                  src="/projects/minerva-web.mp4"
+                  poster="/projects/minerva-poster.jpg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Minerva Sentinel application demonstration"
+                />
 
-              <h3 className="engineering-project-title">
-                Minerva Sentinel
-              </h3>
+                <div className="project-media-shade" />
 
-              <p className="engineering-project-subtitle">
-                Monitoring, cloud integration, and incident response in one
-                operational platform.
-              </p>
-
-              <p className="engineering-project-description">
-                Built to connect infrastructure signals with operator action.
-                Minerva collects host telemetry, service health, logs, and
-                incidents while supporting AWS account integration through
-                temporary IAM/STS role access and containerized Kubernetes
-                deployment workflows.
-              </p>
-
-              <Tags
-                items={[
-                  "AWS / EKS",
-                  "Kubernetes",
-                  "Docker",
-                  "GitHub Actions",
-                  "PostgreSQL",
-                  "IAM / STS",
-                ]}
-              />
-
-              <div className="engineering-project-actions">
-                <Link
-                  className="engineering-action-primary"
-                  href="/projects/minerva-sentinel"
-                >
-                  View Case Study
-                  <Icon name="arrow" />
-                </Link>
-
-                <a
-                  className="engineering-action-secondary"
-                  href="https://github.com/Semicrypt/minerva-sentinel"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-
-            <div className="engineering-showcase-visual">
-              <ObservabilityVisual />
-
-              <div className="engineering-proof">
-                <span>Telemetry</span>
-                <span>Incidents</span>
-                <span>Cloud access</span>
-              </div>
-            </div>
-          </article>
-
-          {/* =====================================================
-              ICEMAN
-          ====================================================== */}
-
-          <article className="engineering-showcase">
-            <div className="engineering-showcase-copy">
-              <div className="engineering-project-meta">
-                <span>02 / DEVOPS AUTOMATION</span>
-
-                <span className="engineering-project-state">
-                  <i />
-                  Active build
-                </span>
-              </div>
-
-              <h3 className="engineering-project-title">
-                Iceman
-              </h3>
-
-              <p className="engineering-project-subtitle">
-                A safety-first DevOps CLI that keeps the operator in control.
-              </p>
-
-              <p className="engineering-project-description">
-                Iceman turns supported infrastructure requests into
-                deterministic execution plans, command previews, approval
-                gates, diagnostics, and live evidence across Docker,
-                Kubernetes, Terraform, Git, and Linux workflows.
-              </p>
-
-              <Tags
-                items={[
-                  "Python",
-                  "Docker",
-                  "Kubernetes",
-                  "Terraform",
-                  "Linux",
-                  "DevOps CLI",
-                ]}
-              />
-
-              <div className="engineering-project-actions">
-                <Link
-                  className="engineering-action-primary"
-                  href="/projects/iceman"
-                >
-                  View Case Study
-                  <Icon name="arrow" />
-                </Link>
-
-                <a
-                  className="engineering-action-secondary"
-                  href="https://github.com/Semicrypt/iceman-agent"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-
-            <div className="engineering-showcase-visual">
-              <IcemanVisual />
-
-              <div className="engineering-proof">
-                <span>Plan</span>
-                <span>Approve</span>
-                <span>Execute</span>
-              </div>
-            </div>
-          </article>
-
-          {/* =====================================================
-              CLOUD STORAGE PROJECTS
-          ====================================================== */}
-
-
-          {/* =====================================================
-              RUBICON
-          ====================================================== */}
-
-          <article className="engineering-showcase rubicon-showcase">
-            <div className="engineering-showcase-copy">
-              <div className="engineering-project-meta">
-                <span>03 / PRODUCTION CLOUD DEPLOYMENT</span>
-
-                <span className="engineering-project-state">
-                  <i />
-                  Production deployed
-                </span>
-              </div>
-
-              <h3 className="engineering-project-title">
-                Rubicon
-              </h3>
-
-              <p className="engineering-project-subtitle">
-                A production application deployed across Vercel and
-                containerized AWS infrastructure.
-              </p>
-
-              <p className="engineering-project-description">
-                I containerized the Flask backend and face-processing service,
-                provisioned the AWS deployment with Terraform, configured Caddy
-                HTTPS routing, connected the production database and Vercel
-                frontend, and resolved deployment issues around face detection,
-                model volumes, permissions, and service connectivity.
-              </p>
-
-              <Tags
-                items={[
-                  "AWS EC2",
-                  "Terraform",
-                  "Docker Compose",
-                  "Flask",
-                  "PostgreSQL",
-                  "InsightFace",
-                ]}
-              />
-
-              <div className="engineering-project-actions">
-                <Link
-                  className="engineering-action-primary"
-                  href="/projects/rubicon"
-                >
-                  View Case Study
-                  <Icon name="arrow" />
-                </Link>
-
-                <a
-                  className="engineering-action-secondary"
-                  href="https://rubiconn.vercel.app"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Live Deployment ↗
-                </a>
-
-                <a
-                  className="engineering-action-secondary"
-                  href="https://github.com/ahm-destino/Rubicon"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-
-            <div className="engineering-showcase-visual rubicon-visual">
-              <div className="rubicon-deploy-map">
-                <div className="rubicon-node rubicon-node-public">
-                  <span>PUBLIC APPLICATION</span>
-                  <strong>Vercel</strong>
-                  <small>React + Vite</small>
+                <div className="project-media-top">
+                  <span>01</span>
+                  <strong>OBSERVABILITY PLATFORM</strong>
                 </div>
 
-                <div className="rubicon-connection">
-                  <span>HTTPS</span>
+                <div className="project-live-status">
                   <i />
+                  LIVE
                 </div>
+              </div>
 
-                <div className="rubicon-node rubicon-node-gateway">
-                  <span>AWS EC2</span>
-                  <strong>Caddy</strong>
-                  <small>TLS + reverse proxy</small>
-                </div>
+              <div className="project-showcase-body">
+                <div className="project-showcase-heading">
+                  <div>
+                    <span className="project-category">
+                      HYBRID CLOUD · MONITORING
+                    </span>
 
-                <div className="rubicon-service-grid">
-                  <div className="rubicon-service">
-                    <span>SERVICE 01</span>
-                    <strong>Flask API</strong>
-                    <small>Application backend</small>
+                    <h3>Minerva Sentinel</h3>
                   </div>
 
-                  <div className="rubicon-service">
-                    <span>SERVICE 02</span>
-                    <strong>Face API</strong>
-                    <small>InsightFace / buffalo_l</small>
-                  </div>
+                  <span className="project-state">
+                    Flagship
+                  </span>
                 </div>
 
-                <div className="rubicon-node rubicon-node-data">
-                  <span>PRODUCTION DATA</span>
-                  <strong>PostgreSQL</strong>
-                  <small>Supabase connected</small>
-                </div>
-              </div>
-
-              <div className="engineering-proof">
-                <span>Terraform</span>
-                <span>Docker Compose</span>
-                <span>Health checked</span>
-              </div>
-            </div>
-          </article>
-
-          <div className="engineering-project-grid">
-            <article className="engineering-project-card">
-              <div className="engineering-card-visual">
-                <StorageVisual />
-              </div>
-
-              <div className="engineering-card-body">
-                <div className="engineering-card-label">
-                  <span>04 / AWS CLOUD PLATFORM</span>
-                  <Icon name="cloud" />
-                </div>
-
-                <h3>CloudDrop</h3>
-
-                <p className="engineering-card-purpose">
-                  AWS file storage backed by infrastructure as code.
+                <p className="project-summary">
+                  Hybrid-cloud monitoring and reliability platform for
+                  infrastructure health, AWS resources, hosts, containers,
+                  incidents, metrics, logs, alerts, and operational workflows.
                 </p>
 
-                <p className="engineering-card-description">
-                  Terraform-defined AWS infrastructure connecting EC2,
-                  private RDS PostgreSQL, S3 storage, Docker workloads,
-                  Nginx/TLS, and automated CI checks.
+                <Tags
+                  items={[
+                    "AWS",
+                    "Kubernetes",
+                    "Docker",
+                    "PostgreSQL",
+                    "Grafana",
+                    "GitHub Actions",
+                  ]}
+                />
+
+                <div className="project-evidence">
+                  <span>
+                    <b>01</b>
+                    Host telemetry
+                  </span>
+
+                  <span>
+                    <b>02</b>
+                    Incident workflows
+                  </span>
+
+                  <span>
+                    <b>03</b>
+                    AWS IAM / STS
+                  </span>
+                </div>
+
+                <div className="project-actions">
+                  <a
+                    className="project-action project-action-live"
+                    href="https://minerva-sentinel-frontend.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Live Platform ↗
+                  </a>
+
+                  <Link
+                    className="project-action"
+                    href="/projects/minerva-sentinel"
+                  >
+                    Case Study →
+                  </Link>
+
+                  <a
+                    className="project-action"
+                    href="https://github.com/Semicrypt/minerva-sentinel"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* ==================================================
+                RUBICON
+            =================================================== */}
+
+            <article className="project-showcase-card">
+              <div className="project-media">
+                <video
+                  src="/projects/rubicon-web.mp4"
+                  poster="/projects/rubicon-poster.jpg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Rubicon production application demonstration"
+                />
+
+                <div className="project-media-shade" />
+
+                <div className="project-media-top">
+                  <span>02</span>
+                  <strong>PRODUCTION DEPLOYMENT</strong>
+                </div>
+
+                <div className="project-live-status">
+                  <i />
+                  LIVE
+                </div>
+              </div>
+
+              <div className="project-showcase-body">
+                <div className="project-showcase-heading">
+                  <div>
+                    <span className="project-category">
+                      AWS · CONTAINERS · PRODUCTION
+                    </span>
+
+                    <h3>Rubicon</h3>
+                  </div>
+
+                  <span className="project-state">
+                    Production
+                  </span>
+                </div>
+
+                <p className="project-summary">
+                  Production system running across Vercel and
+                  Terraform-managed AWS infrastructure with containerized
+                  Flask, face-processing, PostgreSQL, and Caddy services.
+                </p>
+
+                <Tags
+                  items={[
+                    "AWS EC2",
+                    "Terraform",
+                    "Docker Compose",
+                    "Flask",
+                    "PostgreSQL",
+                    "Caddy",
+                  ]}
+                />
+
+                <div className="project-evidence">
+                  <span>
+                    <b>01</b>
+                    HTTPS routing
+                  </span>
+
+                  <span>
+                    <b>02</b>
+                    Health checks
+                  </span>
+
+                  <span>
+                    <b>03</b>
+                    Multi-service stack
+                  </span>
+                </div>
+
+                <div className="project-actions">
+                  <a
+                    className="project-action project-action-live"
+                    href="https://rubiconn.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Live Platform ↗
+                  </a>
+
+                  <Link
+                    className="project-action"
+                    href="/projects/rubicon"
+                  >
+                    Case Study →
+                  </Link>
+
+                  <a
+                    className="project-action"
+                    href="https://github.com/ahm-destino/Rubicon"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* ==================================================
+                CLOUDDROP
+            =================================================== */}
+
+            <article className="project-showcase-card">
+              <div className="project-media project-media-image">
+                <img
+                  src="/projects/clouddrop-desktop.png"
+                  alt="CloudDrop AWS application desktop interface"
+                />
+
+                <img
+                  className="project-phone-preview"
+                  src="/projects/clouddrop-mobile.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <div className="project-media-shade" />
+
+                <div className="project-media-top">
+                  <span>03</span>
+                  <strong>AWS CLOUD PLATFORM</strong>
+                </div>
+
+                <div className="project-live-status">
+                  <i />
+                  LIVE
+                </div>
+              </div>
+
+              <div className="project-showcase-body">
+                <div className="project-showcase-heading">
+                  <div>
+                    <span className="project-category">
+                      AWS · STORAGE · INFRASTRUCTURE
+                    </span>
+
+                    <h3>CloudDrop</h3>
+                  </div>
+
+                  <span className="project-state">
+                    AWS
+                  </span>
+                </div>
+
+                <p className="project-summary">
+                  AWS-hosted file storage platform connecting EC2,
+                  PostgreSQL/RDS, S3, Docker, Nginx, TLS, and
+                  infrastructure-as-code workflows.
                 </p>
 
                 <Tags
                   items={[
                     "AWS",
                     "Terraform",
+                    "EC2",
                     "RDS",
                     "S3",
                     "Docker",
                   ]}
                 />
 
-                <div className="engineering-project-actions">
+                <div className="project-evidence">
+                  <span>
+                    <b>01</b>
+                    S3 storage
+                  </span>
+
+                  <span>
+                    <b>02</b>
+                    Terraform
+                  </span>
+
+                  <span>
+                    <b>03</b>
+                    AWS deployment
+                  </span>
+                </div>
+
+                <div className="project-actions">
+                  <a
+                    className="project-action project-action-live"
+                    href="https://13.63.134.180/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Live Platform ↗
+                  </a>
+
                   <Link
-                    className="engineering-action-primary"
+                    className="project-action"
                     href="/projects/clouddrop"
                   >
-                    View Case Study
-                    <Icon name="arrow" />
+                    Case Study →
                   </Link>
 
                   <a
-                    className="engineering-action-secondary"
+                    className="project-action"
                     href="https://github.com/Semicrypt/clouddrop"
                     target="_blank"
                     rel="noreferrer"
@@ -2988,27 +1675,62 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="engineering-project-card">
-              <div className="engineering-card-visual">
-                <StorageVisual azure />
-              </div>
+            {/* ==================================================
+                AZUREDROP
+            =================================================== */}
 
-              <div className="engineering-card-body">
-                <div className="engineering-card-label">
-                  <span>05 / AZURE CLOUD PLATFORM</span>
-                  <Icon name="cloud" />
+            <article className="project-showcase-card">
+              <div className="project-media">
+                <video
+                  src="/projects/azuredrop-web.mp4"
+                  poster="/projects/azuredrop-poster.png"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="AzureDrop application demonstration"
+                />
+
+                <img
+                  className="project-phone-preview"
+                  src="/projects/azuredrop-mobile.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <div className="project-media-shade" />
+
+                <div className="project-media-top">
+                  <span>04</span>
+                  <strong>AZURE CLOUD PLATFORM</strong>
                 </div>
 
-                <h3>AzureDrop</h3>
+                <div className="project-live-status">
+                  <i />
+                  LIVE
+                </div>
+              </div>
 
-                <p className="engineering-card-purpose">
-                  Authenticated file operations on Azure Blob Storage.
-                </p>
+              <div className="project-showcase-body">
+                <div className="project-showcase-heading">
+                  <div>
+                    <span className="project-category">
+                      AZURE · STORAGE · CI/CD
+                    </span>
 
-                <p className="engineering-card-description">
-                  A React and Node.js/Express platform using Azure Blob
-                  Storage, PostgreSQL metadata, expiring sharing links,
-                  Docker Compose, and automated GitHub Actions validation.
+                    <h3>AzureDrop</h3>
+                  </div>
+
+                  <span className="project-state">
+                    Azure
+                  </span>
+                </div>
+
+                <p className="project-summary">
+                  Authenticated file-storage platform using Azure Blob
+                  Storage, PostgreSQL metadata, expiring share links,
+                  Docker Compose, and automated CI validation.
                 </p>
 
                 <Tags
@@ -3017,20 +1739,46 @@ export default function Home() {
                     "PostgreSQL",
                     "Docker",
                     "GitHub Actions",
+                    "React",
                   ]}
                 />
 
-                <div className="engineering-project-actions">
+                <div className="project-evidence">
+                  <span>
+                    <b>01</b>
+                    Blob storage
+                  </span>
+
+                  <span>
+                    <b>02</b>
+                    Share links
+                  </span>
+
+                  <span>
+                    <b>03</b>
+                    CI/CD
+                  </span>
+                </div>
+
+                <div className="project-actions">
+                  <a
+                    className="project-action project-action-live"
+                    href="https://13.48.161.78/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Live Platform ↗
+                  </a>
+
                   <Link
-                    className="engineering-action-primary"
+                    className="project-action"
                     href="/projects/azuredrop"
                   >
-                    View Case Study
-                    <Icon name="arrow" />
+                    Case Study →
                   </Link>
 
                   <a
-                    className="engineering-action-secondary"
+                    className="project-action"
                     href="https://github.com/Semicrypt/azuredrop"
                     target="_blank"
                     rel="noreferrer"
@@ -3042,82 +1790,47 @@ export default function Home() {
             </article>
           </div>
 
-          {/* =====================================================
-              SUPPORTING ENGINEERING PRACTICE
-          ====================================================== */}
+          {/* ==================================================
+              DEVELOPER TOOLING
+          =================================================== */}
 
-          <div className="engineering-practice">
-            <div className="engineering-practice-heading">
-              <div>
-                <span className="eyebrow">
-                  SUPPORTING ENGINEERING PRACTICE
-                </span>
-
-                <h3>
-                  The infrastructure behind the applications.
-                </h3>
-              </div>
-
+          <div className="project-tooling">
+            <div className="project-tooling-copy">
               <span>
-                Containers · orchestration · infrastructure as code
+                DEVELOPER TOOLING // ACTIVE BUILD
               </span>
+
+              <h3>
+                Iceman
+              </h3>
+
+              <p>
+                A safety-first Cloud &amp; DevOps CLI for inspection,
+                diagnostics, approval-gated execution, and operational
+                automation across Linux, Docker, Kubernetes, Terraform,
+                Git, and cloud workflows.
+              </p>
             </div>
 
-            <div className="engineering-practice-grid">
-              <a
-                className="engineering-practice-card"
-                href="https://github.com/Semicrypt/nodejs-docker-app"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon name="box" />
-
-                <h4>Containerized Node.js</h4>
-
-                <p>
-                  Docker images, Compose workflows, port exposure, and
-                  repeatable application environments.
-                </p>
-
-                <span>View repository ↗</span>
-              </a>
-
+            <div className="project-tooling-actions">
               <Link
-                className="engineering-practice-card"
-                href="/projects/minerva-sentinel#architecture"
+                href="/projects/iceman"
               >
-                <Icon name="layers" />
-
-                <h4>Kubernetes &amp; EKS</h4>
-
-                <p>
-                  Deployments, Services, StatefulSets, probes, persistence,
-                  workload security, and connectivity diagnostics.
-                </p>
-
-                <span>Inspect deployment →</span>
+                View Iceman Case Study →
               </Link>
 
               <a
-                className="engineering-practice-card"
-                href="#skills"
+                href="https://github.com/Semicrypt/iceman-agent"
+                target="_blank"
+                rel="noreferrer"
               >
-                <Icon name="code" />
-
-                <h4>Terraform &amp; Automation</h4>
-
-                <p>
-                  Infrastructure as code, cloud networking, environment
-                  configuration, and repeatable delivery workflows.
-                </p>
-
-                <span>View engineering stack ↓</span>
+                GitHub ↗
               </a>
             </div>
           </div>
         </section>
 
-        <section id="skills" className="section skills-section">
+<section id="skills" className="section skills-section">
           <div className="container">
             <SectionHeading
               number="02"

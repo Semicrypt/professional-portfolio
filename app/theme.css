@@ -1771,3 +1771,928 @@ html[data-theme="light"]
     font-size: .29rem;
   }
 }
+
+/* =========================================================
+   PROJECTS — PROOF-FIRST ENGINEERING SHOWCASE
+========================================================= */
+
+.project-showcase {
+  position: relative;
+}
+
+.project-proof-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+
+  padding:
+    .75rem .9rem;
+
+  border:
+    1px solid rgba(118,231,220,.13);
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(118,231,220,.018);
+}
+
+.project-proof-intro > div {
+  display: flex;
+  align-items: center;
+
+  gap: .5rem;
+
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: .49rem;
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+  white-space: nowrap;
+}
+
+.project-proof-intro p {
+  margin: 0;
+
+  color: #758579;
+
+  font-size: .68rem;
+
+  text-align: right;
+}
+
+.project-proof-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #39ff14;
+
+  box-shadow:
+    0 0 7px rgba(57,255,20,.65);
+}
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.project-showcase-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0,1fr));
+
+  gap: 1rem;
+}
+
+.project-showcase-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(118,231,220,.14);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #17211a,
+      #0e1511
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 18px 52px rgba(0,0,0,.18);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.project-showcase-card:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(118,231,220,.30);
+
+  box-shadow:
+    0 25px 65px
+    rgba(0,0,0,.25),
+    0 0 25px
+    rgba(118,231,220,.035);
+}
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.project-media {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border-bottom:
+    1px solid rgba(118,231,220,.12);
+
+  background: #050a07;
+}
+
+.project-media video,
+.project-media > img:first-of-type {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform .55s ease,
+    filter .55s ease;
+}
+
+.project-showcase-card:hover
+.project-media video,
+.project-showcase-card:hover
+.project-media > img:first-of-type {
+  transform:
+    scale(1.015);
+
+  filter:
+    brightness(1.06);
+}
+
+.project-media-shade {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.22),
+      transparent 26%,
+      transparent 62%,
+      rgba(3,10,6,.52)
+    );
+}
+
+.project-media-top {
+  position: absolute;
+
+  top: .75rem;
+  left: .75rem;
+
+  display: flex;
+  align-items: center;
+
+  gap: .55rem;
+
+  padding:
+    .42rem .55rem;
+
+  border:
+    1px solid rgba(118,231,220,.16);
+
+  border-radius: 7px;
+
+  background:
+    rgba(3,9,6,.76);
+
+  backdrop-filter:
+    blur(10px);
+
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: .42rem;
+
+  letter-spacing: .12em;
+}
+
+.project-media-top span {
+  color: #39ff14;
+}
+
+.project-live-status {
+  position: absolute;
+
+  top: .75rem;
+  right: .75rem;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: .38rem;
+
+  padding:
+    .4rem .52rem;
+
+  border:
+    1px solid rgba(57,255,20,.22);
+
+  border-radius: 999px;
+
+  background:
+    rgba(3,9,6,.78);
+
+  color: #8cec92;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: .4rem;
+  font-weight: 800;
+
+  letter-spacing: .12em;
+}
+
+.project-live-status i {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #39ff14;
+
+  box-shadow:
+    0 0 7px rgba(57,255,20,.6);
+}
+
+/* mobile screenshot floating over desktop media */
+
+.project-phone-preview {
+  position: absolute !important;
+
+  right: .7rem;
+  bottom: .7rem;
+
+  z-index: 4;
+
+  width: 18% !important;
+  height: auto !important;
+
+  max-height: 72%;
+
+  object-fit: contain !important;
+
+  border:
+    1px solid rgba(118,231,220,.22);
+
+  border-radius: 9px;
+
+  background: #050806;
+
+  box-shadow:
+    0 14px 30px
+    rgba(0,0,0,.42);
+
+  transform: none !important;
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.project-showcase-body {
+  padding:
+    1.25rem;
+}
+
+.project-showcase-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 1rem;
+}
+
+.project-category {
+  display: block;
+
+  margin-bottom: .4rem;
+
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: .46rem;
+  font-weight: 800;
+
+  letter-spacing: .14em;
+}
+
+.project-showcase-heading h3 {
+  margin: 0;
+
+  color: #f4fff5;
+
+  font-size:
+    clamp(1.55rem, 3vw, 2.25rem);
+
+  letter-spacing: -.045em;
+}
+
+.project-state {
+  padding:
+    .37rem .48rem;
+
+  border:
+    1px solid rgba(57,255,20,.14);
+
+  border-radius: 7px;
+
+  background:
+    rgba(57,255,20,.025);
+
+  color: #7fbe84;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: .4rem;
+
+  white-space: nowrap;
+}
+
+.project-summary {
+  margin:
+    .85rem 0 0 !important;
+
+  color: #aebcb0 !important;
+
+  font-size: .78rem;
+
+  line-height: 1.7;
+}
+
+.project-showcase-body .tags {
+  margin-top: 1rem;
+}
+
+.project-showcase-body .tag {
+  border-color:
+    rgba(118,231,220,.13) !important;
+
+  background:
+    rgba(118,231,220,.018) !important;
+
+  color:
+    #86beb8 !important;
+}
+
+/* =========================================================
+   EVIDENCE
+========================================================= */
+
+.project-evidence {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: .42rem;
+
+  margin-top: 1rem;
+}
+
+.project-evidence span {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 54px;
+
+  padding:
+    .58rem;
+
+  border:
+    1px solid rgba(118,231,220,.085);
+
+  border-radius: 8px;
+
+  background:
+    rgba(255,255,255,.012);
+
+  color: #718074;
+
+  font-size: .53rem;
+
+  line-height: 1.35;
+}
+
+.project-evidence b {
+  margin-bottom: .24rem;
+
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: .38rem;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.project-actions {
+  display: grid;
+
+  grid-template-columns:
+    1.35fr 1fr .8fr;
+
+  gap: .45rem;
+
+  margin-top: 1rem;
+}
+
+.project-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 39px;
+
+  padding:
+    .52rem .5rem;
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
+  border-radius: 8px;
+
+  background:
+    rgba(255,255,255,.018);
+
+  color: #aab8ac;
+
+  font-size: .58rem;
+  font-weight: 700;
+
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    color .2s ease;
+}
+
+.project-action:hover {
+  border-color:
+    rgba(118,231,220,.28);
+
+  color: #c9fff9;
+}
+
+.project-action-live {
+  border-color:
+    rgba(57,255,20,.30);
+
+  background:
+    rgba(57,255,20,.07);
+
+  color: #baffba;
+}
+
+.project-action-live:hover {
+  border-color:
+    rgba(57,255,20,.55);
+
+  background:
+    rgba(57,255,20,.11);
+
+  color: #e3ffe3;
+}
+
+/* =========================================================
+   ICEMAN TOOLING STRIP
+========================================================= */
+
+.project-tooling {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-top: 1rem;
+
+  padding:
+    1.3rem;
+
+  border:
+    1px solid rgba(118,231,220,.11);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(118,231,220,.025),
+      rgba(57,255,20,.012)
+    );
+}
+
+.project-tooling-copy {
+  max-width: 720px;
+}
+
+.project-tooling-copy > span {
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: .45rem;
+  font-weight: 800;
+
+  letter-spacing: .14em;
+}
+
+.project-tooling h3 {
+  margin:
+    .4rem 0;
+
+  color: #effff0;
+
+  font-size: 1.3rem;
+}
+
+.project-tooling p {
+  margin: 0;
+
+  color: #87978a;
+
+  font-size: .7rem;
+
+  line-height: 1.65;
+}
+
+.project-tooling-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: .4rem;
+
+  min-width: 170px;
+}
+
+.project-tooling-actions a {
+  padding:
+    .55rem .7rem;
+
+  border:
+    1px solid rgba(118,231,220,.11);
+
+  border-radius: 7px;
+
+  color: #9bcac5;
+
+  font-size: .56rem;
+
+  text-decoration: none;
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+html[data-theme="light"]
+.project-proof-intro,
+html[data-theme="light"]
+.project-showcase-card,
+html[data-theme="light"]
+.project-tooling {
+  border-color:
+    #cadbd0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #eef4ef
+    );
+
+  box-shadow:
+    0 14px 40px
+    rgba(30,65,38,.06);
+}
+
+html[data-theme="light"]
+.project-showcase-heading h3,
+html[data-theme="light"]
+.project-tooling h3 {
+  color: #17291b;
+}
+
+html[data-theme="light"]
+.project-summary,
+html[data-theme="light"]
+.project-tooling p {
+  color: #5c6c5f !important;
+}
+
+html[data-theme="light"]
+.project-evidence span {
+  border-color: #d4e0d6;
+
+  background: #f7faf7;
+
+  color: #607064;
+}
+
+html[data-theme="light"]
+.project-action {
+  border-color: #cbd9cd;
+
+  background: #ffffff;
+
+  color: #4e6252;
+}
+
+html[data-theme="light"]
+.project-action-live {
+  border-color: #81b887;
+
+  background: #e8f5e9;
+
+  color: #236d2c;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .project-proof-intro {
+    display: block;
+  }
+
+  .project-proof-intro p {
+    margin-top: .5rem;
+
+    text-align: left;
+  }
+
+  .project-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .project-showcase-card {
+    border-radius: 15px;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 11;
+  }
+
+  .project-media-top {
+    top: .5rem;
+    left: .5rem;
+
+    font-size: .36rem;
+  }
+
+  .project-live-status {
+    top: .5rem;
+    right: .5rem;
+
+    font-size: .35rem;
+  }
+
+  .project-showcase-body {
+    padding: .9rem;
+  }
+
+  .project-showcase-heading h3 {
+    font-size: 1.55rem;
+  }
+
+  .project-summary {
+    font-size: .7rem;
+  }
+
+  .project-evidence {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: .3rem;
+  }
+
+  .project-evidence span {
+    min-height: 49px;
+
+    padding: .45rem;
+
+    font-size: .45rem;
+  }
+
+  .project-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-action-live {
+    grid-column: 1 / -1;
+  }
+
+  .project-action {
+    font-size: .53rem;
+  }
+
+  .project-tooling {
+    display: block;
+  }
+
+  .project-tooling-actions {
+    margin-top: 1rem;
+
+    min-width: 0;
+  }
+
+  .project-phone-preview {
+    width: 21% !important;
+  }
+}
+
+/* =========================================================
+   PROJECT SHOWCASE — MEDIA / ANCHOR FIXES
+========================================================= */
+
+/* Sticky header should not cover Engineering Projects heading */
+#projects {
+  scroll-margin-top: 118px;
+}
+
+/* Slightly shallower media area */
+.project-media {
+  aspect-ratio: 16 / 9 !important;
+
+  min-height: 0 !important;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(118, 231, 220, .035),
+      transparent 54%
+    ),
+    #050a07 !important;
+}
+
+/* Videos should always fill their preview area */
+.project-media video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+
+  background: #050a07;
+}
+
+/* CloudDrop desktop screenshot */
+.project-media-image > img:first-of-type {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+
+/* Phone screenshots become useful instead of tiny */
+.project-phone-preview {
+  right: .85rem !important;
+  bottom: .7rem !important;
+
+  width: clamp(82px, 18%, 125px) !important;
+
+  max-height: 76% !important;
+
+  border-radius: 11px !important;
+
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, .48),
+    0 0 0 1px rgba(118, 231, 220, .13) !important;
+}
+
+@media (max-width: 700px) {
+  #projects {
+    scroll-margin-top: 92px;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  .project-phone-preview {
+    width: clamp(70px, 22%, 100px) !important;
+  }
+}
+
+/* =========================================================
+   AZUREDROP MEDIA FIX
+========================================================= */
+
+.project-main-screenshot {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: top center !important;
+
+  background: #050a07;
+
+  transition:
+    transform .5s ease,
+    filter .5s ease;
+}
+
+.project-showcase-card:hover
+.project-main-screenshot {
+  transform: scale(1.012);
+
+  filter: brightness(1.05);
+}
+
+/* =========================================================
+   AZUREDROP VIDEO SHOWCASE
+========================================================= */
+
+.project-media video {
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+.project-media video[aria-label*="AzureDrop"] {
+  filter:
+    brightness(1.08)
+    contrast(1.025);
+
+  background:
+    #0a0f0c;
+}
+
+.project-showcase-card:hover
+.project-media video[aria-label*="AzureDrop"] {
+  filter:
+    brightness(1.12)
+    contrast(1.03);
+}
+
+/* Keep the real AzureDrop mobile UI clearly visible */
+.project-media video[aria-label*="AzureDrop"]
+~ .project-phone-preview {
+  width: clamp(88px, 19%, 128px) !important;
+
+  border:
+    1px solid rgba(118,231,220,.28) !important;
+
+  box-shadow:
+    0 20px 42px rgba(0,0,0,.55),
+    0 0 18px rgba(118,231,220,.06) !important;
+}
