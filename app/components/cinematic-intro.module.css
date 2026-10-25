@@ -1,0 +1,2005 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #0c1b14,
+      #030806 58%,
+      #010302
+    );
+
+  color: #dfffe2;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  animation:
+    introFadeOut
+    .7s ease
+    10.55s forwards;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: .16;
+
+  background-image:
+    linear-gradient(
+      rgba(57,255,20,.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(57,255,20,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    56px 56px;
+
+  animation:
+    gridDrift 12s linear infinite;
+}
+
+.scan {
+  position: absolute;
+  inset: -100% 0;
+
+  opacity: .16;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 46%,
+      rgba(118,231,220,.18) 50%,
+      transparent 54%
+    );
+
+  animation:
+    scanMove 4s linear infinite;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 180px rgba(0,0,0,.82);
+}
+
+.letterboxTop,
+.letterboxBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  z-index: 30;
+
+  height: 3.5vh;
+
+  background: #000;
+}
+
+.letterboxTop {
+  top: 0;
+}
+
+.letterboxBottom {
+  bottom: 0;
+}
+
+.topbar {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 72px;
+
+  padding:
+    3.5vh 2rem 0;
+
+  color: #5b9562;
+
+  font-size: .55rem;
+  font-weight: 750;
+
+  letter-spacing: .17em;
+}
+
+.topbar > div:first-child {
+  display: flex;
+  align-items: center;
+
+  gap: .55rem;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #39ff14;
+
+  box-shadow:
+    0 0 7px #39ff14,
+    0 0 18px rgba(57,255,20,.42);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+
+  gap: .45rem;
+}
+
+.controls button,
+.voiceOn {
+  min-height: 32px;
+
+  padding:
+    .4rem .65rem;
+
+  border:
+    1px solid rgba(118,231,220,.2);
+
+  border-radius: 7px;
+
+  background:
+    rgba(118,231,220,.035);
+
+  color: #76e7dc;
+
+  font: inherit;
+
+  font-size: .44rem;
+  font-weight: 750;
+
+  letter-spacing: .12em;
+
+  cursor: pointer;
+}
+
+.controls button:hover {
+  border-color:
+    rgba(118,231,220,.48);
+
+  background:
+    rgba(118,231,220,.09);
+}
+
+.voiceOn {
+  display: flex;
+  align-items: center;
+
+  color: #8df5eb;
+}
+
+.stage {
+  position: relative;
+  z-index: 5;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px,.72fr)
+    minmax(420px,1.8fr)
+    minmax(190px,.78fr);
+
+  gap: 1rem;
+
+  width:
+    min(1500px, calc(100% - 4rem));
+
+  height:
+    calc(100vh - 190px);
+
+  margin:
+    .9rem auto 0;
+
+  align-items: center;
+}
+
+.leftPanel,
+.rightPanel {
+  padding: 1rem;
+
+  border:
+    1px solid rgba(57,255,20,.12);
+
+  border-radius: 14px;
+
+  background:
+    rgba(4,12,8,.72);
+
+  backdrop-filter:
+    blur(8px);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255,255,255,.018);
+}
+
+.panelLabel {
+  display: block;
+
+  margin-bottom: .9rem;
+
+  color: #47764d;
+
+  font-size: .44rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+}
+
+.pipelineRow {
+  display: grid;
+
+  grid-template-columns:
+    9px 25px 1fr auto;
+
+  gap: .42rem;
+
+  align-items: center;
+
+  min-height: 39px;
+
+  border-top:
+    1px solid rgba(57,255,20,.07);
+
+  color: #405e45;
+
+  font-size: .48rem;
+}
+
+.pipelineRow i {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #213426;
+}
+
+.pipelineRow span {
+  color: #34533a;
+}
+
+.pipelineRow strong {
+  font-size: .48rem;
+
+  letter-spacing: .08em;
+}
+
+.pipelineRow small {
+  font-size: .38rem;
+}
+
+.pipelineDone {
+  color: #8cdb92;
+}
+
+.pipelineDone i {
+  background: #39ff14;
+
+  box-shadow:
+    0 0 7px rgba(57,255,20,.55);
+}
+
+.pipelineDone span {
+  color: #5fa867;
+}
+
+.centerStage {
+  text-align: center;
+
+  animation:
+    centerReveal
+    .7s cubic-bezier(.2,.8,.2,1)
+    both;
+}
+
+.eyebrow {
+  margin: 0;
+
+  color: #76e7dc;
+
+  font-size: .58rem;
+  font-weight: 750;
+
+  letter-spacing: .22em;
+
+  text-shadow:
+    0 0 12px rgba(118,231,220,.18);
+}
+
+.centerStage h1 {
+  max-width: 760px;
+
+  margin:
+    .85rem auto 0;
+
+  color: #f1fff2;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(2.4rem,5vw,5.3rem);
+
+  font-weight: 730;
+
+  line-height: .98;
+
+  letter-spacing: -.055em;
+
+  text-shadow:
+    0 0 34px rgba(57,255,20,.055);
+}
+
+.detail {
+  max-width: 620px;
+
+  margin:
+    1rem auto 0;
+
+  color: #66826b;
+
+  font-size:
+    clamp(.68rem,1.1vw,.88rem);
+
+  line-height: 1.7;
+}
+
+.commandWindow {
+  width:
+    min(620px, 94%);
+
+  margin:
+    1.6rem auto 0;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(57,255,20,.14);
+
+  border-radius: 12px;
+
+  background:
+    rgba(1,8,4,.86);
+
+  box-shadow:
+    0 18px 55px
+    rgba(0,0,0,.32);
+}
+
+.commandBar {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  min-height: 29px;
+
+  padding:
+    0 .7rem;
+
+  border-bottom:
+    1px solid rgba(57,255,20,.08);
+
+  background:
+    rgba(57,255,20,.025);
+}
+
+.commandBar span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #344338;
+}
+
+.commandBar span:first-child {
+  background: #39ff14;
+
+  box-shadow:
+    0 0 6px rgba(57,255,20,.5);
+}
+
+.commandBar strong {
+  margin-left: auto;
+
+  color: #446b49;
+
+  font-size: .4rem;
+
+  letter-spacing: .12em;
+}
+
+.commandLines {
+  padding:
+    .9rem 1rem;
+
+  text-align: left;
+}
+
+.commandLines p {
+  margin:
+    .2rem 0;
+
+  color: #557d5a;
+
+  font-size: .58rem;
+
+  line-height: 1.55;
+}
+
+.commandLines span,
+.commandLines b {
+  color: #39ff14;
+}
+
+.metric + .metric {
+  margin-top: .75rem;
+}
+
+.metric > div:first-child {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  color: #4d7052;
+
+  font-size: .43rem;
+}
+
+.metric strong {
+  color: #83c989;
+
+  font-size: .46rem;
+}
+
+.metricTrack {
+  height: 3px;
+
+  margin-top: .35rem;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(57,255,20,.07);
+}
+
+.metricTrack i {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #76e7dc,
+      #39ff14
+    );
+
+  transition:
+    width .8s ease;
+}
+
+.pulseGraph {
+  display: flex;
+  align-items: end;
+
+  gap: 3px;
+
+  height: 70px;
+
+  margin-top: 1rem;
+
+  padding-top: .8rem;
+
+  border-top:
+    1px solid rgba(57,255,20,.08);
+}
+
+.pulseGraph i {
+  flex: 1;
+
+  min-width: 2px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(57,255,20,.12),
+      #76e7dc
+    );
+
+  opacity: .45;
+
+  animation:
+    graphPulse
+    1.8s ease-in-out
+    infinite alternate;
+}
+
+.dialogue {
+  position: absolute;
+
+  z-index: 15;
+
+  left: 50%;
+  bottom: 7.5vh;
+
+  display: flex;
+  align-items: center;
+
+  gap: .9rem;
+
+  width:
+    min(690px, calc(100% - 2rem));
+
+  padding:
+    .8rem 1rem;
+
+  transform:
+    translateX(-50%);
+
+  border-left:
+    2px solid #76e7dc;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(118,231,220,.08),
+      rgba(3,10,6,.84)
+    );
+
+  animation:
+    dialogueIn
+    .45s ease both;
+}
+
+.dialogue span {
+  flex-shrink: 0;
+
+  color: #76e7dc;
+
+  font-size: .48rem;
+  font-weight: 800;
+
+  letter-spacing: .14em;
+}
+
+.dialogue p {
+  margin: 0;
+
+  color: #b7c8ba;
+
+  font-size: .7rem;
+
+  line-height: 1.5;
+}
+
+.identity {
+  position: absolute;
+  inset: 0;
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(57,255,20,.11),
+      rgba(2,7,4,.93) 52%,
+      #010302
+    );
+
+  animation:
+    identityIn
+    1s cubic-bezier(.2,.8,.2,1)
+    both;
+}
+
+.identity span {
+  color: #76e7dc;
+
+  font-size: .58rem;
+  font-weight: 800;
+
+  letter-spacing: .22em;
+}
+
+.identity h2 {
+  margin:
+    1rem 0 0;
+
+  color: #eaffeb;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(3rem,8vw,7.5rem);
+
+  line-height: .87;
+
+  letter-spacing: -.065em;
+}
+
+.identity p {
+  margin:
+    1.4rem 0 0;
+
+  color: #76e7dc;
+
+  font-size: .72rem;
+  font-weight: 750;
+
+  letter-spacing: .25em;
+}
+
+.progress {
+  position: absolute;
+
+  z-index: 25;
+
+  left: 0;
+  right: 0;
+  bottom: 3.5vh;
+
+  height: 2px;
+
+  background:
+    rgba(57,255,20,.07);
+}
+
+.progressFill {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #76e7dc,
+      #39ff14
+    );
+
+  transform-origin: left;
+
+  animation:
+    progressRun
+    11.2s linear forwards;
+}
+
+.progress span {
+  position: absolute;
+
+  right: 1rem;
+  bottom: .45rem;
+
+  color: #44674a;
+
+  font-size: .4rem;
+
+  letter-spacing: .12em;
+}
+
+@keyframes progressRun {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes centerReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateY(14px)
+      scale(.985);
+
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes dialogueIn {
+  from {
+    opacity: 0;
+    transform:
+      translateX(-50%)
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+}
+
+@keyframes identityIn {
+  from {
+    opacity: 0;
+    transform:
+      scale(1.04);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes gridDrift {
+  to {
+    background-position:
+      56px 56px;
+  }
+}
+
+@keyframes scanMove {
+  to {
+    transform:
+      translateY(100%);
+  }
+}
+
+@keyframes graphPulse {
+  to {
+    opacity: .8;
+  }
+}
+
+@keyframes introFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .topbar {
+    height: 64px;
+
+    padding:
+      3.5vh .75rem 0;
+
+    font-size: .42rem;
+  }
+
+  .stage {
+    display: block;
+
+    width:
+      calc(100% - 1.4rem);
+
+    height:
+      calc(100vh - 180px);
+
+    margin-top: .5rem;
+  }
+
+  .leftPanel,
+  .rightPanel {
+    display: none;
+  }
+
+  .centerStage {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    transform:
+      translateY(-55%);
+  }
+
+  .centerStage h1 {
+    font-size:
+      clamp(2.2rem,12vw,4rem);
+  }
+
+  .detail {
+    max-width: 90%;
+
+    font-size: .66rem;
+  }
+
+  .commandWindow {
+    margin-top: 1.1rem;
+  }
+
+  .commandLines p {
+    font-size: .52rem;
+  }
+
+  .dialogue {
+    bottom: 8vh;
+
+    padding:
+      .65rem .75rem;
+  }
+
+  .dialogue span {
+    font-size: .4rem;
+  }
+
+  .dialogue p {
+    font-size: .57rem;
+  }
+
+  .identity h2 {
+    font-size:
+      clamp(3rem,16vw,5rem);
+  }
+
+  .identity p {
+    font-size: .55rem;
+
+    letter-spacing: .16em;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar > div:first-child {
+    display: none;
+  }
+
+  .topbar {
+    justify-content: flex-end;
+  }
+
+  .controls button,
+  .voiceOn {
+    min-height: 29px;
+
+    padding:
+      .35rem .48rem;
+
+    font-size: .37rem;
+  }
+
+  .commandWindow {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .grid,
+  .scan,
+  .pulseGraph i,
+  .progressFill,
+  .root {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL REVEAL V2
+   Real Divinephoto + responsive poster composition
+========================================================= */
+
+.identity {
+  position: absolute;
+  inset: 0;
+
+  z-index: 40;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    4vh 1rem;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      rgba(57, 255, 20, 0.095),
+      rgba(3, 10, 6, 0.97) 47%,
+      #010302 76%
+    );
+
+  animation:
+    identityPosterReveal
+    .75s ease both;
+}
+
+.identityBackdrop {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      circle at center,
+      rgba(118, 231, 220, .035),
+      transparent 47%
+    ),
+    linear-gradient(
+      rgba(57, 255, 20, .035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(57, 255, 20, .035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    auto,
+    62px 62px,
+    62px 62px;
+
+  opacity:
+    .48;
+
+  pointer-events:
+    none;
+}
+
+.identityScene {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width:
+    min(960px, 94vw);
+
+  max-height:
+    92vh;
+
+  animation:
+    identitySceneEnter
+    1s cubic-bezier(.16,.8,.2,1)
+    both;
+}
+
+/* =========================================================
+   TOP PRODUCTION STATUS
+========================================================= */
+
+.identityStatusTop {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: .55rem;
+
+  color:
+    #4e9d57;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size:
+    .47rem;
+
+  letter-spacing:
+    .15em;
+}
+
+.identityStatusTop > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: .15rem;
+}
+
+.identityStatusTop strong {
+  font-weight:
+    700;
+}
+
+.identityStatusDot {
+  width: 7px;
+  height: 7px;
+
+  margin-top: 2px;
+
+  border-radius:
+    50%;
+
+  background:
+    #39ff14;
+
+  box-shadow:
+    0 0 7px #39ff14,
+    0 0 18px rgba(57,255,20,.52);
+}
+
+/* =========================================================
+   PORTRAIT AREA
+========================================================= */
+
+.identityPortraitStage {
+  display: grid;
+
+  grid-template-columns:
+    minmax(110px, .45fr)
+    minmax(270px, 430px)
+    minmax(110px, .45fr);
+
+  gap:
+    clamp(1rem, 3vw, 2.5rem);
+
+  align-items: center;
+
+  width: 100%;
+
+  justify-content: center;
+}
+
+.identityPhotoFrame {
+  position: relative;
+
+  width:
+    min(36vw, 420px);
+
+  aspect-ratio:
+    1 / 1;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(57,255,20,.72);
+
+  border-radius:
+    18px;
+
+  background:
+    #020704;
+
+  box-shadow:
+    0 0 0 1px
+    rgba(118,231,220,.08),
+    0 0 18px
+    rgba(57,255,20,.17),
+    0 0 48px
+    rgba(57,255,20,.08),
+    inset 0 0 35px
+    rgba(0,0,0,.32);
+}
+
+.identityPhoto {
+  object-fit:
+    cover;
+
+  object-position:
+    center 35%;
+
+  filter:
+    grayscale(.78)
+    contrast(1.07)
+    brightness(.92)
+    sepia(.06);
+
+  transform:
+    scale(1.015);
+}
+
+.identityPhotoFrame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 70% 35%,
+      transparent 30%,
+      rgba(3,10,6,.1) 72%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(57,255,20,.045),
+      transparent 17%,
+      transparent 83%,
+      rgba(57,255,20,.045)
+    );
+
+  box-shadow:
+    inset 0 0 28px
+    rgba(57,255,20,.08);
+}
+
+.identityPhotoScan {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .13;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(118,231,220,.07) 0,
+      rgba(118,231,220,.07) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+.identityCornerTL,
+.identityCornerTR,
+.identityCornerBL,
+.identityCornerBR {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 34px;
+  height: 34px;
+
+  pointer-events: none;
+}
+
+.identityCornerTL {
+  top: -1px;
+  left: -1px;
+
+  border-top:
+    3px solid #62ff70;
+
+  border-left:
+    3px solid #62ff70;
+}
+
+.identityCornerTR {
+  top: -1px;
+  right: -1px;
+
+  border-top:
+    3px solid #62ff70;
+
+  border-right:
+    3px solid #62ff70;
+}
+
+.identityCornerBL {
+  bottom: -1px;
+  left: -1px;
+
+  border-bottom:
+    3px solid #62ff70;
+
+  border-left:
+    3px solid #62ff70;
+}
+
+.identityCornerBR {
+  right: -1px;
+  bottom: -1px;
+
+  border-right:
+    3px solid #62ff70;
+
+  border-bottom:
+    3px solid #62ff70;
+}
+
+/* =========================================================
+   SIDE DEVOPS LABELS
+========================================================= */
+
+.identitySideLeft,
+.identitySideRight {
+  display: flex;
+  flex-direction: column;
+
+  gap:
+    .42rem;
+
+  color:
+    #4e8b55;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size:
+    .48rem;
+
+  font-weight:
+    650;
+
+  letter-spacing:
+    .12em;
+
+  line-height:
+    1.3;
+}
+
+.identitySideLeft {
+  align-items:
+    flex-end;
+
+  text-align:
+    right;
+}
+
+.identitySideRight {
+  align-items:
+    flex-start;
+}
+
+/* =========================================================
+   NAME / ROLE
+========================================================= */
+
+.identityHealthy {
+  margin-top:
+    .75rem;
+
+  color:
+    #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size:
+    clamp(.48rem, .8vw, .63rem);
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    .25em;
+
+  text-align:
+    center;
+
+  text-shadow:
+    0 0 12px rgba(118,231,220,.2);
+}
+
+.identityName {
+  display: flex;
+  flex-direction: column;
+
+  margin:
+    .55rem 0 0;
+
+  color:
+    #effff0 !important;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(2.5rem, 5vw, 5.2rem) !important;
+
+  font-weight:
+    470;
+
+  line-height:
+    .89;
+
+  letter-spacing:
+    -.06em;
+
+  text-align:
+    center;
+
+  text-shadow:
+    0 0 24px rgba(57,255,20,.07);
+}
+
+.identityName span {
+  display: block;
+}
+
+.identityRole {
+  margin-top:
+    .65rem;
+
+  padding:
+    .55rem 1.25rem;
+
+  min-width:
+    min(430px, 80vw);
+
+  border:
+    1px solid rgba(118,231,220,.5);
+
+  border-radius:
+    11px;
+
+  background:
+    rgba(118,231,220,.025);
+
+  color:
+    #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size:
+    clamp(.47rem, .9vw, .68rem);
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    .26em;
+
+  text-align:
+    center;
+
+  box-shadow:
+    inset 0 0 16px
+    rgba(118,231,220,.025);
+}
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.identityTerminal {
+  width:
+    min(650px, 86vw);
+
+  margin-top:
+    .75rem;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(57,255,20,.19);
+
+  border-radius:
+    13px;
+
+  background:
+    rgba(1,8,4,.84);
+
+  box-shadow:
+    0 14px 38px
+    rgba(0,0,0,.32);
+}
+
+.identityTerminalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height:
+    27px;
+
+  padding:
+    0 .7rem;
+
+  border-bottom:
+    1px solid rgba(57,255,20,.08);
+}
+
+.identityTerminalBar > div {
+  display: flex;
+
+  gap:
+    5px;
+}
+
+.identityTerminalBar i {
+  display: block;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius:
+    50%;
+
+  background:
+    #24382a;
+}
+
+.identityTerminalBar i:first-child {
+  background:
+    #39ff14;
+
+  box-shadow:
+    0 0 5px
+    rgba(57,255,20,.55);
+}
+
+.identityTerminalBar span {
+  color:
+    #315f38;
+
+  font-size:
+    .4rem;
+
+  letter-spacing:
+    .08em;
+}
+
+.identityTerminalBody {
+  padding:
+    .58rem .85rem .68rem;
+}
+
+.identityTerminalBody p {
+  margin:
+    .12rem 0;
+
+  color:
+    #416b47;
+
+  font-size:
+    .52rem;
+
+  line-height:
+    1.5;
+}
+
+.identityTerminalBody span,
+.identityTerminalBody b {
+  color:
+    #39ff14;
+}
+
+.identityCursor {
+  display: inline-block;
+
+  width: 5px;
+  height: 9px;
+
+  margin-left: 5px;
+
+  vertical-align: -1px;
+
+  background:
+    #39ff14;
+
+  animation:
+    identityCursorBlink
+    .7s steps(1)
+    infinite;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes identityCursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes identitySceneEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(24px)
+      scale(.97);
+
+    filter:
+      blur(6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .identity {
+    padding:
+      4vh .65rem;
+  }
+
+  .identityScene {
+    width:
+      100%;
+
+    max-height:
+      94vh;
+  }
+
+  .identityStatusTop {
+    display: none;
+  }
+
+  .identityPortraitStage {
+    display: flex;
+
+    justify-content:
+      center;
+
+    width: 100%;
+  }
+
+  .identityPhotoFrame {
+    width:
+      min(67vw, 300px);
+
+    border-radius:
+      14px;
+  }
+
+  .identitySideLeft,
+  .identitySideRight {
+    display: none;
+  }
+
+  .identityHealthy {
+    margin-top:
+      .65rem;
+
+    font-size:
+      .42rem;
+
+    letter-spacing:
+      .2em;
+  }
+
+  .identityName {
+    margin-top:
+      .4rem;
+
+    font-size:
+      clamp(2.25rem, 12.4vw, 3.7rem) !important;
+
+    line-height:
+      .9;
+
+    letter-spacing:
+      -.055em;
+  }
+
+  .identityRole {
+    min-width: 0;
+
+    width:
+      min(90vw, 350px);
+
+    margin-top:
+      .58rem;
+
+    padding:
+      .48rem .6rem;
+
+    font-size:
+      .46rem;
+
+    letter-spacing:
+      .17em;
+  }
+
+  .identityTerminal {
+    width:
+      min(90vw, 390px);
+
+    margin-top:
+      .6rem;
+  }
+
+  .identityTerminalBody p {
+    font-size:
+      .46rem;
+  }
+}
+
+/* Short-height mobile screens */
+@media (
+  max-width: 700px
+) and (
+  max-height: 740px
+) {
+  .identityPhotoFrame {
+    width:
+      min(53vw, 235px);
+  }
+
+  .identityName {
+    font-size:
+      clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  .identityTerminalBody {
+    padding:
+      .42rem .7rem;
+  }
+
+  .identityTerminalBody p {
+    line-height:
+      1.35;
+  }
+}
+
+/* =========================================================
+   FINAL IDENTITY LAYOUT FIX
+   Hide old scene + force portrait/name/details vertically
+========================================================= */
+
+/* Nothing from the previous cinematic scene should appear
+   behind the final identity reveal. */
+.root[data-phase="IDENTITY"] .stage,
+.root[data-phase="IDENTITY"] .dialogue,
+.root[data-phase="IDENTITY"] .topbar {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Make final reveal fully opaque so no ghost text shows through. */
+.root[data-phase="IDENTITY"] .identity {
+  background:
+    radial-gradient(
+      ellipse at 50% 28%,
+      rgba(57, 255, 20, 0.09),
+      rgba(3, 10, 6, 0.985) 48%,
+      #010302 78%
+    ) !important;
+}
+
+/* The complete identity composition is one vertical column. */
+.root[data-phase="IDENTITY"] .identityScene {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: min(960px, 94vw) !important;
+  height: auto !important;
+  max-height: 92vh !important;
+
+  overflow: visible !important;
+}
+
+/* ---------------------------------------------------------
+   PORTRAIT
+--------------------------------------------------------- */
+
+.root[data-phase="IDENTITY"] .identityPortraitStage {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(105px, .4fr)
+    auto
+    minmax(105px, .4fr) !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+
+  gap: clamp(1rem, 2.5vw, 2rem) !important;
+
+  flex: 0 0 auto !important;
+}
+
+.root[data-phase="IDENTITY"] .identityPhotoFrame {
+  width: min(31vw, 330px, 38vh) !important;
+  height: auto !important;
+
+  aspect-ratio: 1 / 1 !important;
+
+  flex: 0 0 auto !important;
+}
+
+/* ---------------------------------------------------------
+   STATUS UNDER PHOTO
+--------------------------------------------------------- */
+
+.root[data-phase="IDENTITY"] .identityHealthy {
+  position: relative !important;
+
+  display: block !important;
+
+  margin: .65rem 0 0 !important;
+
+  flex: 0 0 auto !important;
+
+  color: #76e7dc !important;
+
+  font-size: .58rem !important;
+  font-weight: 800 !important;
+
+  line-height: 1.2 !important;
+
+  letter-spacing: .24em !important;
+
+  text-align: center !important;
+}
+
+/* ---------------------------------------------------------
+   NAME
+--------------------------------------------------------- */
+
+.root[data-phase="IDENTITY"] .identityName {
+  position: relative !important;
+
+  z-index: 5 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  width: 100% !important;
+
+  margin: .5rem 0 0 !important;
+
+  padding: 0 !important;
+
+  flex: 0 0 auto !important;
+
+  color: #effff0 !important;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif !important;
+
+  font-size:
+    clamp(2.7rem, 4.6vw, 4.6rem) !important;
+
+  font-weight: 500 !important;
+
+  line-height: .9 !important;
+
+  letter-spacing: -.055em !important;
+
+  text-align: center !important;
+
+  opacity: 1 !important;
+
+  transform: none !important;
+
+  filter: none !important;
+}
+
+.root[data-phase="IDENTITY"] .identityName span {
+  position: static !important;
+
+  display: block !important;
+
+  width: auto !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  opacity: 1 !important;
+
+  transform: none !important;
+}
+
+/* ---------------------------------------------------------
+   ROLE
+--------------------------------------------------------- */
+
+.root[data-phase="IDENTITY"] .identityRole {
+  position: relative !important;
+
+  z-index: 5 !important;
+
+  display: block !important;
+
+  width: min(430px, 78vw) !important;
+
+  margin: .7rem auto 0 !important;
+
+  padding: .55rem .9rem !important;
+
+  flex: 0 0 auto !important;
+
+  color: #76e7dc !important;
+
+  font-size: .62rem !important;
+
+  line-height: 1.2 !important;
+
+  letter-spacing: .22em !important;
+
+  text-align: center !important;
+}
+
+/* ---------------------------------------------------------
+   TERMINAL — ALWAYS BELOW NAME
+--------------------------------------------------------- */
+
+.root[data-phase="IDENTITY"] .identityTerminal {
+  position: relative !important;
+
+  z-index: 5 !important;
+
+  display: block !important;
+
+  width: min(620px, 84vw) !important;
+
+  margin: .7rem auto 0 !important;
+
+  flex: 0 0 auto !important;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .root[data-phase="IDENTITY"] .identity {
+    padding:
+      2.8vh .55rem !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityScene {
+    width: 100% !important;
+    max-height: 94vh !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityPortraitStage {
+    display: flex !important;
+
+    justify-content: center !important;
+
+    width: 100% !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identitySideLeft,
+  .root[data-phase="IDENTITY"] .identitySideRight,
+  .root[data-phase="IDENTITY"] .identityStatusTop {
+    display: none !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityPhotoFrame {
+    width: min(65vw, 270px, 37vh) !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityHealthy {
+    margin-top: .52rem !important;
+
+    font-size: .42rem !important;
+
+    letter-spacing: .17em !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityName {
+    margin-top: .38rem !important;
+
+    font-size:
+      clamp(2.15rem, 11.8vw, 3.4rem) !important;
+
+    line-height: .91 !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityRole {
+    width: min(88vw, 340px) !important;
+
+    margin-top: .55rem !important;
+
+    padding: .46rem .55rem !important;
+
+    font-size: .44rem !important;
+
+    letter-spacing: .16em !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityTerminal {
+    width: min(90vw, 390px) !important;
+
+    margin-top: .55rem !important;
+  }
+}
+
+/* Very short phones */
+@media (max-width: 700px) and (max-height: 720px) {
+  .root[data-phase="IDENTITY"] .identityPhotoFrame {
+    width: min(52vw, 215px) !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityName {
+    font-size:
+      clamp(1.9rem, 10vw, 2.8rem) !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityRole {
+    margin-top: .4rem !important;
+  }
+
+  .root[data-phase="IDENTITY"] .identityTerminal {
+    margin-top: .4rem !important;
+  }
+}

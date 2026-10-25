@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { PortfolioIntro } from "./portfolio-intro";
+import { CinematicIntro } from "./cinematic-intro";
 
 declare global {
   interface Window {
@@ -11,16 +11,19 @@ declare global {
 }
 
 export function PortfolioIntroOnce() {
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] =
+    useState(false);
 
   useEffect(() => {
-    // Already played during this browser document.
-    // Internal Next.js navigation keeps this value.
-    if (window.__divinePortfolioIntroPlayed) {
+    if (
+      window.__divinePortfolioIntroPlayed
+    ) {
       return;
     }
 
-    window.__divinePortfolioIntroPlayed = true;
+    window.__divinePortfolioIntroPlayed =
+      true;
+
     setShowIntro(true);
   }, []);
 
@@ -28,5 +31,5 @@ export function PortfolioIntroOnce() {
     return null;
   }
 
-  return <PortfolioIntro />;
+  return <CinematicIntro />;
 }

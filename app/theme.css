@@ -1166,3 +1166,365 @@ html[data-theme="light"]
     overflow-x: auto;
   }
 }
+
+/* =========================================================
+   STOIC TICKER — ILLUMINATED BILLBOARD
+========================================================= */
+
+.stoic-ticker {
+  position: relative;
+  isolation: isolate;
+
+  border-top: 1px solid rgba(118, 231, 220, 0.34);
+  border-bottom: 1px solid rgba(118, 231, 220, 0.30);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(120, 255, 236, 0.18) 0%,
+      rgba(55, 135, 126, 0.13) 10%,
+      rgba(10, 24, 25, 0.96) 32%,
+      rgba(5, 12, 15, 0.99) 100%
+    ),
+    radial-gradient(
+      ellipse at 50% -10%,
+      rgba(118, 231, 220, 0.26),
+      transparent 62%
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(220, 255, 250, 0.18),
+    inset 0 -12px 22px rgba(0, 0, 0, 0.30),
+    0 0 12px rgba(118, 231, 220, 0.09),
+    0 0 32px rgba(118, 231, 220, 0.05);
+}
+
+/* Glossy illuminated billboard face */
+.stoic-ticker::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.035) 18%,
+      transparent 48%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(118, 231, 220, 0.022) 0,
+      rgba(118, 231, 220, 0.022) 1px,
+      transparent 1px,
+      transparent 54px
+    );
+}
+
+/* Moving soft illumination across the billboard */
+.stoic-ticker::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  opacity: 0.78;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 18%,
+      rgba(118, 231, 220, 0.025) 35%,
+      rgba(118, 231, 220, 0.12) 50%,
+      rgba(118, 231, 220, 0.025) 65%,
+      transparent 82%
+    );
+
+  transform: translateX(-70%);
+
+  animation:
+    stoicBillboardSweep
+    8s ease-in-out
+    infinite;
+}
+
+.stoic-ticker-label,
+.stoic-ticker-window {
+  position: relative;
+  z-index: 2;
+}
+
+/* Left STOIC://TRANSMISSION panel */
+.stoic-ticker-label {
+  border-right:
+    1px solid rgba(118, 231, 220, 0.27) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(118, 231, 220, 0.14),
+      rgba(8, 22, 22, 0.96)
+    ) !important;
+
+  color:
+    #76e7dc !important;
+
+  text-shadow:
+    0 0 7px rgba(118, 231, 220, 0.35),
+    0 0 18px rgba(118, 231, 220, 0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset -8px 0 18px rgba(0, 0, 0, 0.16);
+}
+
+/* Main moving quote text */
+.stoic-ticker-quote {
+  color:
+    #76e7dc !important;
+
+  text-shadow:
+    0 0 5px rgba(118, 231, 220, 0.34),
+    0 0 12px rgba(118, 231, 220, 0.13),
+    0 0 22px rgba(118, 231, 220, 0.05);
+}
+
+/* Separators stay brighter */
+.stoic-ticker-quote i {
+  color:
+    #39ff14 !important;
+
+  text-shadow:
+    0 0 6px rgba(57, 255, 20, 0.48),
+    0 0 14px rgba(57, 255, 20, 0.18);
+}
+
+/* Indicator light */
+.stoic-ticker-dot {
+  background:
+    #76e7dc !important;
+
+  box-shadow:
+    0 0 5px #76e7dc,
+    0 0 12px rgba(118, 231, 220, 0.65),
+    0 0 22px rgba(118, 231, 220, 0.25) !important;
+}
+
+@keyframes stoicBillboardSweep {
+  0% {
+    transform: translateX(-80%);
+    opacity: 0.25;
+  }
+
+  45% {
+    opacity: 0.8;
+  }
+
+  55% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(80%);
+    opacity: 0.25;
+  }
+}
+
+/* =========================================================
+   LIGHT MODE — KEEP THE BILLBOARD ILLUMINATED
+========================================================= */
+
+html[data-theme="light"] .stoic-ticker {
+  border-color:
+    rgba(42, 143, 135, 0.36) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(154, 255, 241, 0.55) 0%,
+      rgba(204, 244, 237, 0.82) 15%,
+      rgba(232, 247, 243, 0.96) 48%,
+      rgba(220, 239, 234, 0.98) 100%
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    inset 0 -10px 20px rgba(42, 111, 103, 0.08),
+    0 0 22px rgba(45, 157, 147, 0.10) !important;
+}
+
+html[data-theme="light"] .stoic-ticker-label {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(188, 255, 246, 0.95),
+      rgba(218, 243, 238, 0.98)
+    ) !important;
+
+  color:
+    #267d78 !important;
+
+  text-shadow:
+    0 0 8px rgba(42, 143, 135, 0.12);
+}
+
+html[data-theme="light"] .stoic-ticker-quote {
+  color:
+    #247e79 !important;
+
+  text-shadow:
+    0 0 8px rgba(42, 143, 135, 0.12);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .stoic-ticker::after {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   STOIC TICKER — DIVINE ONCE SAID + MOBILE REFINEMENT
+========================================================= */
+
+.stoic-ticker-label {
+  min-width: max-content;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  color: #76e7dc !important;
+
+  letter-spacing: .13em;
+}
+
+/* Keep the scrolling area from forcing layout overflow */
+.stoic-ticker-window {
+  min-width: 0;
+}
+
+/* =========================================================
+   MOBILE — STACK LABEL ABOVE THE MOVING BILLBOARD
+========================================================= */
+
+@media (max-width: 680px) {
+  .stoic-ticker {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .stoic-ticker-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: none;
+
+    height: 27px;
+    min-height: 27px;
+
+    padding: 0 .75rem;
+
+    border-right: 0 !important;
+
+    border-bottom:
+      1px solid rgba(118, 231, 220, 0.18);
+
+    font-size: .42rem;
+
+    letter-spacing: .15em;
+
+    overflow: visible;
+
+    white-space: nowrap;
+  }
+
+  .stoic-ticker-dot {
+    width: 4px;
+    height: 4px;
+
+    flex-shrink: 0;
+  }
+
+  .stoic-ticker-window {
+    width: 100%;
+    min-width: 0;
+
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+  }
+
+  .stoic-ticker-track {
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    animation-duration: 58s;
+  }
+
+  .stoic-ticker-quote {
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0 .85rem;
+
+    gap: 1.1rem;
+
+    font-size: .54rem;
+
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+  .stoic-ticker-quote i {
+    font-size: .46rem;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 390px) {
+  .stoic-ticker-label {
+    height: 25px;
+    min-height: 25px;
+
+    padding: 0 .6rem;
+
+    font-size: .39rem;
+  }
+
+  .stoic-ticker-window,
+  .stoic-ticker-track,
+  .stoic-ticker-quote {
+    height: 32px;
+  }
+
+  .stoic-ticker-quote {
+    padding: 0 .72rem;
+
+    font-size: .51rem;
+  }
+}

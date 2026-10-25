@@ -23,7 +23,7 @@ export function StoicTicker() {
     >
       <div className="stoic-ticker-label">
         <span className="stoic-ticker-dot" />
-        STOIC://TRANSMISSION
+        DIVINE ONCE SAID:
       </div>
 
       <div className="stoic-ticker-window">
