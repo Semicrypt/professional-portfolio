@@ -295,15 +295,15 @@ export function SiteHeader() {
             aria-label="Ifeanyi Divine — back to top"
             onClick={handleHomeClick}
           >
-            <span className="brand-burning-logo">
+            <span className="header-identity-avatar">
               <Image
-              src="/ifeanyi-divine-logo.png"
-              alt="Ifeanyi Divine"
-              width={72}
-              height={72}
-              className="brand-logo-image"
-              priority
-            />
+                src="/divine-profile.png"
+                alt="Nwachukwu Ifeanyi Divine"
+                width={64}
+                height={64}
+                priority
+                className="header-identity-photo"
+              />
             </span>
           </Link>
 

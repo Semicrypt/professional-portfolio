@@ -1219,7 +1219,7 @@ export default function Home() {
             <div className="hero-copy">
               <div className="hero-intro">
                 <Image
-                  src="/divine-profile.png"
+                  src="/intro/divinephoto.png"
                   alt="Portrait of Nwachukwu Ifeanyi Divine"
                   width={56}
                   height={56}

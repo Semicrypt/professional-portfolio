@@ -1528,3 +1528,246 @@ html[data-theme="light"] .stoic-ticker-quote {
     font-size: .51rem;
   }
 }
+
+/* =========================================================
+   HEADER IDENTITY — PHOTO + NAME
+========================================================= */
+
+.brand.brand-home-link {
+  display: inline-flex !important;
+  align-items: center !important;
+
+  gap: .72rem;
+
+  min-width: 0;
+
+  text-decoration: none !important;
+}
+
+.header-identity-avatar {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  flex: 0 0 52px;
+
+  overflow: hidden;
+
+  border:
+    2px solid rgba(57, 255, 20, .82);
+
+  border-radius: 50%;
+
+  background:
+    #07100a;
+
+  box-shadow:
+    0 0 0 2px rgba(118, 231, 220, .10),
+    0 0 13px rgba(57, 255, 20, .18);
+}
+
+.header-identity-avatar::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 2px;
+
+  pointer-events: none;
+
+  border:
+    1px solid rgba(118, 231, 220, .20);
+
+  border-radius: inherit;
+}
+
+.header-identity-photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center 32%;
+
+  filter:
+    grayscale(.85)
+    contrast(1.08)
+    brightness(.96);
+}
+
+.header-identity-copy {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: .16rem;
+}
+
+.header-identity-copy strong {
+  overflow: hidden;
+
+  color: #f2fff3;
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  letter-spacing: -.015em;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-identity-copy small {
+  overflow: hidden;
+
+  color: #76e7dc;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: .43rem;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: .09em;
+
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* Hover */
+.brand.brand-home-link:hover .header-identity-avatar {
+  border-color: #76e7dc;
+
+  box-shadow:
+    0 0 0 2px rgba(118, 231, 220, .11),
+    0 0 18px rgba(118, 231, 220, .22);
+}
+
+.brand.brand-home-link:hover .header-identity-copy strong {
+  color: #ffffff;
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+html[data-theme="light"]
+.header-identity-avatar {
+  border-color: #36a642;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 15px rgba(31, 89, 39, .12);
+}
+
+html[data-theme="light"]
+.header-identity-copy strong {
+  color: #17271b;
+}
+
+html[data-theme="light"]
+.header-identity-copy small {
+  color: #24827c;
+}
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+  .brand.brand-home-link {
+    gap: .58rem;
+  }
+
+  .header-identity-avatar {
+    width: 46px;
+    height: 46px;
+
+    flex-basis: 46px;
+  }
+
+  .header-identity-copy strong {
+    max-width: 190px;
+
+    font-size: .69rem;
+  }
+
+  .header-identity-copy small {
+    font-size: .38rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand.brand-home-link {
+    max-width: calc(100vw - 150px);
+
+    gap: .48rem;
+  }
+
+  .header-identity-avatar {
+    width: 40px;
+    height: 40px;
+
+    flex-basis: 40px;
+  }
+
+  .header-identity-copy strong {
+    max-width: 150px;
+
+    font-size: .61rem;
+  }
+
+  .header-identity-copy small {
+    max-width: 150px;
+
+    font-size: .32rem;
+
+    letter-spacing: .06em;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 390px) {
+  .brand.brand-home-link {
+    max-width: calc(100vw - 132px);
+  }
+
+  .header-identity-avatar {
+    width: 37px;
+    height: 37px;
+
+    flex-basis: 37px;
+  }
+
+  .header-identity-copy strong {
+    max-width: 128px;
+
+    font-size: .56rem;
+  }
+
+  .header-identity-copy small {
+    max-width: 128px;
+
+    font-size: .29rem;
+  }
+}
