@@ -17,7 +17,7 @@ const github = "https://github.com/Semicrypt";
 const linkedin =
   "https://www.linkedin.com/in/nwachukwu-ifeanyi-divine-31b9793a6";
 const email =
-  "https://mail.google.com/mail/?view=cm&fs=1&to=nifeanyidivine@gmail.com&su=Portfolio%20Enquiry";
+  "mailto:nifeanyidivine@gmail.com?subject=Portfolio%20Enquiry&body=Hi%20Ifeanyi%2C%0A%0AI%20came%20across%20your%20Cloud%20%26%20DevOps%20portfolio%20and%20would%20like%20to%20connect.%0A%0A";
 
 function Tags({ items }: { items: string[] }) {
   return (
@@ -3340,8 +3340,6 @@ export default function Home() {
             <a
               className="button button-primary"
               href={email}
-              target="_blank"
-              rel="noreferrer"
             >
               Start a conversation <Icon name="arrow" />
             </a>
@@ -3349,8 +3347,6 @@ export default function Home() {
             <a
               className="contact-email"
               href={email}
-              target="_blank"
-              rel="noreferrer"
             >
               nifeanyidivine@gmail.com ↗
             </a>
