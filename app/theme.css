@@ -3659,3 +3659,157 @@ html[data-theme="light"]
   color:
     #247f79;
 }
+
+/* =========================================================
+   MOBILE NAVIGATION — DIAMOND / ICE TEAL
+========================================================= */
+
+/* Main mobile navigation links */
+.mobile-navigation a {
+  color: #bdfbf4 !important;
+
+  border-color:
+    rgba(118,231,220,.12) !important;
+
+  text-shadow:
+    0 0 8px rgba(118,231,220,.10) !important;
+
+  transition:
+    color .2s ease,
+    background-color .2s ease,
+    border-color .2s ease,
+    text-shadow .2s ease !important;
+}
+
+/* Arrow on the right */
+.mobile-navigation a span {
+  color: #76e7dc !important;
+
+  text-shadow:
+    0 0 9px rgba(118,231,220,.28) !important;
+}
+
+/* Hover / tap */
+.mobile-navigation a:hover,
+.mobile-navigation a:focus-visible {
+  color: #efffff !important;
+
+  background:
+    rgba(118,231,220,.045) !important;
+
+  border-color:
+    rgba(118,231,220,.30) !important;
+
+  text-shadow:
+    0 0 12px rgba(118,231,220,.20) !important;
+}
+
+/* Resume row */
+.mobile-navigation a[href="/resume.pdf"] {
+  color: #dffffc !important;
+
+  border-color:
+    rgba(118,231,220,.22) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(118,231,220,.045),
+      rgba(118,231,220,.018)
+    ) !important;
+}
+
+.mobile-navigation a[href="/resume.pdf"]:hover {
+  color: #ffffff !important;
+
+  border-color:
+    rgba(118,231,220,.46) !important;
+
+  background:
+    rgba(118,231,220,.08) !important;
+}
+
+/* Mobile menu container separators */
+.mobile-navigation {
+  border-color:
+    rgba(118,231,220,.10) !important;
+}
+
+/* Theme toggle / mobile controls */
+.mobile-menu-button,
+.mobile-theme-toggle {
+  color: #bdfbf4 !important;
+
+  border-color:
+    rgba(118,231,220,.28) !important;
+
+  background:
+    rgba(118,231,220,.025) !important;
+}
+
+.mobile-menu-button svg,
+.mobile-theme-toggle svg {
+  color: #76e7dc !important;
+}
+
+.mobile-menu-button:hover,
+.mobile-theme-toggle:hover {
+  border-color:
+    rgba(118,231,220,.52) !important;
+
+  background:
+    rgba(118,231,220,.07) !important;
+
+  box-shadow:
+    0 0 16px rgba(118,231,220,.08) !important;
+}
+
+/* Let's talk button inside mobile header */
+.mobile-navigation .nav-contact,
+.mobile-menu .nav-contact {
+  color: #dffffc !important;
+
+  border-color:
+    rgba(118,231,220,.32) !important;
+
+  background:
+    rgba(118,231,220,.025) !important;
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+html[data-theme="light"] .mobile-navigation a {
+  color: #247f79 !important;
+
+  border-color:
+    rgba(36,127,121,.13) !important;
+
+  text-shadow: none !important;
+}
+
+html[data-theme="light"] .mobile-navigation a span {
+  color: #247f79 !important;
+
+  text-shadow: none !important;
+}
+
+html[data-theme="light"]
+.mobile-navigation a:hover {
+  color: #155f5a !important;
+
+  background:
+    rgba(118,231,220,.11) !important;
+}
+
+html[data-theme="light"]
+.mobile-navigation a[href="/resume.pdf"] {
+  color: #166c66 !important;
+
+  border-color:
+    rgba(36,127,121,.24) !important;
+
+  background:
+    rgba(118,231,220,.10) !important;
+}

@@ -221,7 +221,560 @@ function ChromeAccentStyles() {
         border-color: rgba(57, 255, 20, 0.5) !important;
         background: rgba(57, 255, 20, 0.055) !important;
       }
-    `}</style>
+    
+
+        /* =====================================================
+           MOBILE NAV — DIAMOND ICE
+        ===================================================== */
+
+        @media (max-width: 760px) {
+          .mobile-navigation {
+            border-color: rgba(118,231,220,.12) !important;
+          }
+
+          .mobile-navigation a {
+            color: #bdfbf4 !important;
+            border-color: rgba(118,231,220,.13) !important;
+            text-shadow: 0 0 8px rgba(118,231,220,.12) !important;
+          }
+
+          .mobile-navigation a span,
+          .mobile-navigation a svg {
+            color: #76e7dc !important;
+          }
+
+          .mobile-navigation a:hover,
+          .mobile-navigation a:focus-visible {
+            color: #efffff !important;
+            border-color: rgba(118,231,220,.32) !important;
+            background: rgba(118,231,220,.055) !important;
+          }
+
+          .mobile-navigation a[href="/resume.pdf"] {
+            color: #dffffc !important;
+            border-color: rgba(118,231,220,.28) !important;
+
+            background:
+              linear-gradient(
+                90deg,
+                rgba(118,231,220,.07),
+                rgba(118,231,220,.025)
+              ) !important;
+          }
+
+          .mobile-navigation a[href="/resume.pdf"]:hover {
+            color: #ffffff !important;
+            border-color: rgba(118,231,220,.52) !important;
+            background: rgba(118,231,220,.10) !important;
+          }
+
+          .nav-contact {
+            color: #dffffc !important;
+            border-color: rgba(118,231,220,.34) !important;
+            background: rgba(118,231,220,.025) !important;
+          }
+
+          .nav-contact span,
+          .nav-contact svg {
+            color: #76e7dc !important;
+          }
+
+          .mobile-menu-toggle,
+          .mobile-menu-button,
+          .mobile-navigation-toggle,
+          .mobile-navigation-close,
+          .theme-toggle,
+          .mobile-theme-toggle {
+            color: #76e7dc !important;
+            border-color: rgba(118,231,220,.32) !important;
+            background: rgba(118,231,220,.025) !important;
+          }
+        }
+
+
+
+        /* =====================================================
+           MOBILE NAV — SECTION MOTION
+        ===================================================== */
+
+        @media (max-width: 760px) {
+
+          .mobile-navigation a {
+            position: relative;
+
+            overflow: hidden;
+
+            padding-right: 6.2rem !important;
+
+            animation:
+              mobileNavTextDrift 4.5s ease-in-out infinite;
+
+            will-change:
+              letter-spacing,
+              text-shadow;
+          }
+
+          /* stagger every line so they do not move together */
+          .mobile-navigation a:nth-child(2) {
+            animation-delay: -.55s;
+          }
+
+          .mobile-navigation a:nth-child(3) {
+            animation-delay: -1.1s;
+          }
+
+          .mobile-navigation a:nth-child(4) {
+            animation-delay: -1.65s;
+          }
+
+          .mobile-navigation a:nth-child(5) {
+            animation-delay: -2.2s;
+          }
+
+          .mobile-navigation a:nth-child(6) {
+            animation-delay: -2.75s;
+          }
+
+          .mobile-navigation a:nth-child(7) {
+            animation-delay: -3.3s;
+          }
+
+          /* ---------------------------------------------------
+             MINI DISPLAY ON THE RIGHT OF EVERY MENU ITEM
+          --------------------------------------------------- */
+
+          .mobile-navigation a::before {
+            content: "";
+
+            position: absolute;
+
+            right: 2.2rem;
+            top: 50%;
+
+            width: 48px;
+            height: 25px;
+
+            transform:
+              translateY(-50%);
+
+            border:
+              1px solid rgba(118,231,220,.18);
+
+            border-radius:
+              6px;
+
+            background:
+              rgba(118,231,220,.018);
+
+            box-shadow:
+              inset 0 0 12px rgba(118,231,220,.025);
+
+            opacity: .82;
+
+            pointer-events: none;
+          }
+
+          .mobile-navigation a:hover::before,
+          .mobile-navigation a:focus-visible::before {
+            border-color:
+              rgba(118,231,220,.42);
+
+            background:
+              rgba(118,231,220,.055);
+
+            box-shadow:
+              inset 0 0 12px rgba(118,231,220,.05),
+              0 0 12px rgba(118,231,220,.07);
+          }
+
+          /* ===================================================
+             PROJECTS — DEPLOYMENT / PIPELINE SIGNAL
+          =================================================== */
+
+          .mobile-navigation a[href*="#projects"]::before {
+            background:
+              radial-gradient(
+                circle,
+                #76e7dc 0 2px,
+                transparent 2.5px
+              )
+              5px 50% / 14px 14px repeat-x,
+              linear-gradient(
+                90deg,
+                transparent 8%,
+                rgba(118,231,220,.32) 8% 92%,
+                transparent 92%
+              )
+              center / 100% 1px no-repeat,
+              rgba(118,231,220,.018);
+
+            animation:
+              mobileProjectFlow 1.9s linear infinite;
+          }
+
+          /* ===================================================
+             STACK — MOVING INFRASTRUCTURE GRID
+          =================================================== */
+
+          .mobile-navigation a[href*="#skills"]::before,
+          .mobile-navigation a[href*="#stack"]::before {
+            background:
+              linear-gradient(
+                90deg,
+                rgba(118,231,220,.22) 1px,
+                transparent 1px
+              ),
+              linear-gradient(
+                rgba(118,231,220,.22) 1px,
+                transparent 1px
+              ),
+              radial-gradient(
+                circle at center,
+                #76e7dc 0 2px,
+                transparent 2.5px
+              );
+
+            background-size:
+              10px 10px,
+              10px 10px,
+              100% 100%;
+
+            animation:
+              mobileStackGrid 3s linear infinite;
+          }
+
+          /* ===================================================
+             EXPERIENCE — TIMELINE / PULSE
+          =================================================== */
+
+          .mobile-navigation a[href*="#experience"]::before {
+            background:
+              radial-gradient(
+                circle at 18% 50%,
+                #76e7dc 0 2px,
+                transparent 3px
+              ),
+              radial-gradient(
+                circle at 50% 50%,
+                #76e7dc 0 2px,
+                transparent 3px
+              ),
+              radial-gradient(
+                circle at 82% 50%,
+                #76e7dc 0 2px,
+                transparent 3px
+              ),
+              linear-gradient(
+                90deg,
+                transparent 10%,
+                rgba(118,231,220,.4) 10% 90%,
+                transparent 90%
+              );
+
+            background-size:
+              100% 100%;
+
+            animation:
+              mobileTimelinePulse 2s ease-in-out infinite;
+          }
+
+          /* ===================================================
+             ABOUT — RADAR / IDENTITY SCAN
+          =================================================== */
+
+          .mobile-navigation a[href*="#about"]::before {
+            border-radius:
+              999px;
+
+            background:
+              radial-gradient(
+                circle,
+                transparent 0 5px,
+                rgba(118,231,220,.30) 6px,
+                transparent 7px 10px,
+                rgba(118,231,220,.16) 11px,
+                transparent 12px
+              ),
+              conic-gradient(
+                from 0deg,
+                transparent,
+                rgba(118,231,220,.52),
+                transparent 28%
+              );
+
+            animation:
+              mobileRadarSpin 2.8s linear infinite;
+          }
+
+          /* ===================================================
+             EDUCATION — SCANNING DOCUMENT
+          =================================================== */
+
+          .mobile-navigation a[href*="#education"]::before {
+            background:
+              linear-gradient(
+                90deg,
+                transparent 7px,
+                rgba(118,231,220,.28) 7px 36px,
+                transparent 36px
+              )
+              0 7px / 100% 1px no-repeat,
+
+              linear-gradient(
+                90deg,
+                transparent 7px,
+                rgba(118,231,220,.18) 7px 30px,
+                transparent 30px
+              )
+              0 12px / 100% 1px no-repeat,
+
+              linear-gradient(
+                90deg,
+                transparent 7px,
+                rgba(118,231,220,.25) 7px 33px,
+                transparent 33px
+              )
+              0 17px / 100% 1px no-repeat,
+
+              linear-gradient(
+                180deg,
+                transparent,
+                rgba(118,231,220,.52),
+                transparent
+              );
+
+            background-size:
+              100% 100%,
+              100% 100%,
+              100% 100%,
+              100% 8px;
+
+            background-repeat:
+              no-repeat;
+
+            animation:
+              mobileDocumentScan 2.4s ease-in-out infinite;
+          }
+
+          /* ===================================================
+             CONTACT — RADIO / NETWORK SIGNAL
+          =================================================== */
+
+          .mobile-navigation a[href*="#contact"]::before {
+            background:
+              radial-gradient(
+                circle at center,
+                #76e7dc 0 2px,
+                transparent 3px
+              ),
+              radial-gradient(
+                circle at center,
+                transparent 0 5px,
+                rgba(118,231,220,.38) 6px,
+                transparent 7px
+              ),
+              radial-gradient(
+                circle at center,
+                transparent 0 10px,
+                rgba(118,231,220,.18) 11px,
+                transparent 12px
+              );
+
+            animation:
+              mobileSignalPulse 1.7s ease-out infinite;
+          }
+
+          /* ===================================================
+             RESUME — DOCUMENT / TERMINAL SCAN
+          =================================================== */
+
+          .mobile-navigation a[href="/resume.pdf"]::before {
+            background:
+              linear-gradient(
+                90deg,
+                transparent 8px,
+                rgba(118,231,220,.30) 8px 35px,
+                transparent 35px
+              )
+              0 7px / 100% 1px no-repeat,
+
+              linear-gradient(
+                90deg,
+                transparent 8px,
+                rgba(118,231,220,.18) 8px 29px,
+                transparent 29px
+              )
+              0 12px / 100% 1px no-repeat,
+
+              linear-gradient(
+                90deg,
+                transparent 8px,
+                rgba(118,231,220,.30) 8px 32px,
+                transparent 32px
+              )
+              0 17px / 100% 1px no-repeat,
+
+              linear-gradient(
+                90deg,
+                transparent,
+                #76e7dc,
+                transparent
+              )
+              0 0 / 100% 2px no-repeat;
+
+            animation:
+              mobileResumeScan 2s linear infinite;
+          }
+
+          /* ===================================================
+             MOTION
+          =================================================== */
+
+          @keyframes mobileNavTextDrift {
+            0%,
+            100% {
+              letter-spacing: 0;
+              text-shadow:
+                0 0 6px rgba(118,231,220,.05);
+            }
+
+            50% {
+              letter-spacing: .025em;
+
+              text-shadow:
+                0 0 10px rgba(118,231,220,.18);
+            }
+          }
+
+          @keyframes mobileProjectFlow {
+            from {
+              background-position:
+                0 50%,
+                center,
+                center;
+            }
+
+            to {
+              background-position:
+                14px 50%,
+                center,
+                center;
+            }
+          }
+
+          @keyframes mobileStackGrid {
+            from {
+              background-position:
+                0 0,
+                0 0,
+                center;
+            }
+
+            to {
+              background-position:
+                10px 0,
+                0 10px,
+                center;
+            }
+          }
+
+          @keyframes mobileTimelinePulse {
+            0%,
+            100% {
+              opacity: .45;
+            }
+
+            50% {
+              opacity: 1;
+
+              box-shadow:
+                inset 0 0 12px rgba(118,231,220,.08),
+                0 0 8px rgba(118,231,220,.08);
+            }
+          }
+
+          @keyframes mobileRadarSpin {
+            from {
+              transform:
+                translateY(-50%)
+                rotate(0deg);
+            }
+
+            to {
+              transform:
+                translateY(-50%)
+                rotate(360deg);
+            }
+          }
+
+          @keyframes mobileDocumentScan {
+            0%,
+            100% {
+              background-position:
+                0 7px,
+                0 12px,
+                0 17px,
+                0 -8px;
+            }
+
+            50% {
+              background-position:
+                0 7px,
+                0 12px,
+                0 17px,
+                0 25px;
+            }
+          }
+
+          @keyframes mobileSignalPulse {
+            0% {
+              opacity: .35;
+              transform:
+                translateY(-50%)
+                scale(.75);
+            }
+
+            55% {
+              opacity: 1;
+            }
+
+            100% {
+              opacity: .25;
+
+              transform:
+                translateY(-50%)
+                scale(1.05);
+            }
+          }
+
+          @keyframes mobileResumeScan {
+            from {
+              background-position:
+                0 7px,
+                0 12px,
+                0 17px,
+                -48px 0;
+            }
+
+            to {
+              background-position:
+                0 7px,
+                0 12px,
+                0 17px,
+                48px 0;
+            }
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .mobile-navigation a,
+          .mobile-navigation a::before {
+            animation:
+              none !important;
+          }
+        }
+
+`}</style>
   );
 }
 
